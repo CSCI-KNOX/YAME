@@ -1,0 +1,41 @@
+ <!-- Code adapted from https://pythonspot.com/flask-web-forms/ -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <title>Reusable Form Demo</title>
+    </head>
+    <body>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message[1] }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        <form action="" method="post" enctype="multipart/form-data">
+            {{ form.csrf }}
+ 
+            <div class="form-group">
+              <label for="name">Name: </label>
+              <input type="text" class="form-control" id="name" name="name">
+              <br>
+              <label for="degree">Degree or Faculty/Staff: </label>
+              <input type="text" class="form-control" id="degree" name="degree">
+              <br>
+              <label for="industry">Occupation or industry: </label>
+              <input type="text" class="form-control" id="industry" name="industry">
+              <br>
+              <span class="btn btn-default btn-file">Upload An Image: <input type="file" name="image"></span>
+              <br>
+         
+            </div>
+ 
+            <div class="input submit">
+                <input type="submit" value="Submit" />
+            </div>
+        </form>
+    </body>
+</html>
