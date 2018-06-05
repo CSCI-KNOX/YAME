@@ -26,7 +26,7 @@ def hello():
  
     print (form.errors)
     if request.method == 'POST':
-        name=request.form['name']
+        name=request.form['name'] # key value pairs
         degree=request.form['degree']
         industry=request.form['industry']
         file = request.files['image']
@@ -36,9 +36,11 @@ def hello():
  
         if form.validate():
             # Save the comment here.
-            flash('Thank you for your submission of ' + name + '.')
+            flash('Thank you for your upload of ' + file.filename + '.')
         else:
             flash('All the form fields are required. ')
+
+    # system(run another python program, arguments as key value pairs)
  
     return render_template('hello.html', form=form)
  
