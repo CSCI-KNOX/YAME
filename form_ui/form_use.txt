@@ -1,0 +1,9 @@
+To use form, run in command line:
+$ python test_form.py
+
+Uploaded images will go into the uploads folder.
+
+Code pieced together using two tutorials:
+https://medium.com/@sightengine_/image-upload-and-moderation-with-python-and-flask-e7585f43828a
+and
+https://pythonspot.com/flask-web-forms/
