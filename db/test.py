@@ -11,6 +11,6 @@ person = {"name": "Lucile Berkeley Buchanan",
 
 # person_id = db.people.insert_one(person).inserted_id
 db.people.delete_one(person)
-# pprint.pprint(people.find_one())
+pprint.pprint(people.find_one())
 # print (db.collection_names(include_system_collections=False))
 # print (post_id)
