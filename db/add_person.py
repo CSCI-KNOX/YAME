@@ -15,8 +15,8 @@ def main():
 
     fs=gridfs.GridFS(db)
     # print (fs.list())
-    im = fs.put(open('/Users/erinruby/Documents/Summer_2018/YAME/db/{0}'.format(photo), 'rb'), filename='{0}'.format(photo)) #ERINS COMP
-    # im = fs.put(open('/YAME/form_ui/uploads/{0}'.format(photo), 'rb'), filename='{0}'.format(photo)) #COURTNEYS COMP
+    # im = fs.put(open('/Users/erinruby/Documents/Summer_2018/YAME/db/{0}'.format(photo), 'rb'), filename='{0}'.format(photo)) #ERINS COMP
+    im = fs.put(open('/Users/CourtSolano/YAME/form_ui/uploads/{0}'.format(photo), 'rb'), filename='{0}'.format(photo)) #COURTNEYS COMP
 
 
     person = {"name": name,
@@ -37,7 +37,7 @@ def main():
         #         photo = i.value()
         #         print(photo)
     # print (pup)
-    os.system("open {0}".format(p))
+    os.system("open /Users/CourtSolano/YAME/form_ui/uploads/{0}".format(photo))
 
 if __name__ == '__main__':
     main()
