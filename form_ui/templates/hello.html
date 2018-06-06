@@ -8,8 +8,7 @@
     <body>
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
-                <!-- <img src= "testimage.jpg" width="100" height="80" alt="My Pic"> -->
-
+                 <!-- <img src= "/Users/CourtSolano/YAME/form_ui/uploads/testimage.jpg" width="100" height="80" alt="My Pic"> -->
                 <ul>
                     {% for message in messages %}
                         <li>{{ message[1] }}</li>
@@ -45,6 +44,5 @@
                 <input type="submit" value="Submit" />
             </div>
         </form>
-        <img src= "testimage.jpg" width="100" height="80" alt="My Pic">
     </body>
 </html>
