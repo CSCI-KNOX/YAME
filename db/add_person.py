@@ -2,6 +2,7 @@ import pymongo
 import sys
 import gridfs
 import os
+#hello
 #example: python add_person.py erin cs student
 def main():
     client = pymongo.MongoClient("mongodb+srv://erinruby:colorado18@yame-project-6ex3z.mongodb.net/test?retryWrites=true") #ERIN's LOGIN
@@ -15,13 +16,8 @@ def main():
 
     fs=gridfs.GridFS(db)
     # print (fs.list())
-<<<<<<< HEAD
     im = fs.put(open('/Users/erinruby/Documents/Summer_2018/YAME/db/{0}'.format(photo), 'rb'), filename='{0}'.format(photo)) #ERINS COMP
     # im = fs.put(open('YAME/form_ui/uploads/{0}'.format(photo), 'rb'), filename='{0}'.format(photo)) #COURTNEYS COMP
-=======
-    # im = fs.put(open('/Users/erinruby/Documents/Summer_2018/YAME/db/{0}'.format(photo), 'rb'), filename='{0}'.format(photo)) #ERINS COMP
-    im = fs.put(open('/Users/CourtSolano/YAME/form_ui/uploads/{0}'.format(photo), 'rb'), filename='{0}'.format(photo)) #COURTNEYS COMP
->>>>>>> d02f587dc25db37982a053583a0e564dd4d2add1
 
 
     person = {"name": name,
