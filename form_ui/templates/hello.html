@@ -3,11 +3,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
 <html>
     <head>
-        <title>Reusable Form Demo</title>
+        <title>Add a Person</title>
     </head>
     <body>
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
+                <img src= "/form_ui/uploads/download.jpg">
+
                 <ul>
                     {% for message in messages %}
                         <li>{{ message[1] }}</li>
@@ -26,14 +28,12 @@
               <label for="degree">Degree or Faculty/Staff: </label>
               <input type="text" class="form-control" id="degree" name="degree">
               <br>
-              <label for="industry">Occupation or industry: </label>
-              <input type="text" class="form-control" id="industry" name="industry">
+              <label for="occupation">Occupation or industry: </label>
+              <input type="text" class="form-control" id="occupation" name="occupation">
               <br>
               <span class="btn btn-default btn-file">Upload An Image: <input type="file" name="image"></span>
               <br>
-         
             </div>
- 
             <div class="input submit">
                 <input type="submit" value="Submit" />
             </div>
