@@ -38,7 +38,7 @@ def main():
         #         photo = i.value()
         #         print(photo)
     # print (pup)
-    os.system("open /Users/CourtSolano/YAME/form_ui/uploads/{0}".format(photo))
+    os.system("open /Users/erinruby/Documents/Summer_2018/YAME/form_ui/uploads/{0}".format(photo))
 
 if __name__ == '__main__':
     main()
