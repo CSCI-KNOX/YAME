@@ -1,22 +1,21 @@
  <!-- Code adapted from https://pythonspot.com/flask-web-forms/ -->
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<!DOCTYPE html>
 <html>
     <head>
         <title>Add a Person</title>
     </head>
     <body>
       <img src="testimage.jpg" width="100" height="80" alt="My Pic">
-        {% with messages = get_flashed_messages(with_categories=true) %}
+        <!-- {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
-                 
                 <ul>
                     {% for message in messages %}
                         <li>{{ message[1] }}</li>
                     {% endfor %}
                 </ul>
             {% endif %}
-        {% endwith %}
+        {% endwith %} -->
         <form action="" method="post" enctype="multipart/form-data">
             {{ form.csrf }}
  
@@ -33,12 +32,19 @@
               <br>
               <span class="btn btn-default btn-file">Upload An Image: <input type="file" name="image"></span>
               <br>
-              <label for="number">Number: </label>
-              <select name="number">
-                <option value="one">1</option>
-                <option value="two">2</option>
-                <option value="three">3</option>
-                <option value="four">4</option>
+              <label for="school">School: </label>
+              <select name="school">
+                <option value="artsandsciences">College of Arts & Sciences</option>
+                <option value="leedsbusiness">Leeds School of Business</option>
+                <option value="education">School of Education</option>
+                <option value="engineering">College of Engineering and Applied Science</option>
+                <option value="graduate">Graduate School</option>
+                <option value="lawschool">University of Colorado Law School</option>
+                <option value="media">College of Media, Communication and Information</option>
+                <option value="music">College of Music</option>
+                <option value="continuinged">Continuing Education and Professional Studies</option>
+                <option value="libraries">University Libraries</option>
+                <option value="envdesign">Program in Environmental Design</option>
               </select>
             </div>
             <div class="input submit">

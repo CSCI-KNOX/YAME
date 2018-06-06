@@ -29,7 +29,7 @@ def hello():
         name=request.form['name'].replace(' ', '+')+' ' # key value pairs
         degree=request.form['degree'].replace(' ', '+')+' '
         occupation=request.form['occupation'].replace(' ', '+')+' '
-        number=request.form['number']+' '
+        school=request.form['school']+' '
         file = request.files['image']
         if file:
             f = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
