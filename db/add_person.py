@@ -1,6 +1,6 @@
 import pymongo
 import sys
-
+#example: python add_person.py erin cs student 
 def main():
     client = pymongo.MongoClient("mongodb+srv://erinruby:colorado18@yame-project-6ex3z.mongodb.net/test?retryWrites=true") #ERIN's LOGIN
     db = client.prototype #name of the db
@@ -16,6 +16,6 @@ def main():
 
     if (db.people.insert_one(person).inserted_id != 0):
         print (name, "successfully added!")
-    
+
 if __name__ == '__main__':
     main()
