@@ -34,11 +34,11 @@ def hello():
         if file:
             f = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
             file.save(f)
-        print (name, degree, occupation, number)
+        print (name, degree, occupation, file)
  
         if form.validate():
             flash(file.filename)
-            os.system('cd ../db && python add_person.py {0} {1} {2}'.format(name, degree, occupation))
+            os.system('cd ../db && python add_person.py {0} {1} {2} {3}'.format(name, degree, occupation, file.filename))
             print("upload to database successful")
         else:
             flash('All the form fields are required.')
