@@ -20,6 +20,9 @@ pprint.pprint(people.find_one())
 
 from gridfs import GridFS
 
+
+db = MongoClient().gridfs_example
+fs = gridfs.GridFS(db)
 avat_ctype = self.request.files['avatar'][0]["content_type"]
 
 fs = GridFS(db)
