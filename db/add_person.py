@@ -2,6 +2,7 @@ import pymongo
 import sys
 import gridfs
 import os
+#hello
 #example: python add_person.py erin cs student
 def main():
     client = pymongo.MongoClient("mongodb+srv://erinruby:colorado18@yame-project-6ex3z.mongodb.net/test?retryWrites=true") #ERIN's LOGIN
