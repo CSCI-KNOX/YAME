@@ -2,7 +2,7 @@
 
 import os
 from flask import Flask, render_template, flash, request
-from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField
+from wtforms import Form, SelectField, TextField, TextAreaField, validators, StringField, SubmitField
  
 # App config.
 DEBUG = True
@@ -29,15 +29,16 @@ def hello():
         name=request.form['name'].replace(' ', '+')+' ' # key value pairs
         degree=request.form['degree'].replace(' ', '+')+' '
         occupation=request.form['occupation'].replace(' ', '+')+' '
+        number=request.form['number']+' '
         file = request.files['image']
         if file:
             f = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
             file.save(f)
-        print (name, " ", degree, " ", occupation)
+        print (name, degree, occupation, number)
  
         if form.validate():
             flash(file.filename)
-            os.system('cd ../db && python add_person.py '+ name + degree + occupation)
+            os.system('cd ../db && python add_person.py {0} {1} {2}'.format(name, degree, occupation))
             print("upload to database successful")
         else:
             flash('All the form fields are required.')
