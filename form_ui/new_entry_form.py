@@ -47,5 +47,10 @@ def hello():
  
     return render_template('hello.html', form=form)
  
+
+@app.route("/people/", methods=['GET', 'POST'])
+def people():
+    return render_template('people.html')
+
 if __name__ == "__main__":
     app.run()
