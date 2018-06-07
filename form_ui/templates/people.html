@@ -4,6 +4,14 @@
         <title>People in Database</title>
     </head>
     <body>
-      
+    	<div class="about">
+	    	<h1>People in Database</h1>
+	    	<p>This is a placeholder for showing the people in the database.</p>
+	    	<p>
+	    		{% for i in person %}
+                    {{ i }}
+                {% endfor %}
+	    	</p>
+	    </div>
     </body>
 </html>

@@ -50,7 +50,10 @@ def hello():
 
 @app.route("/people/", methods=['GET', 'POST'])
 def people():
-    return render_template('people.html')
+    person='Courtney'
+    place='Boulder'
+    personarr = [person, place]
+    return render_template('people.html', person = personarr)
 
 if __name__ == "__main__":
     app.run()
