@@ -1,4 +1,4 @@
- <!-- Code adapted from https://pythonspot.com/flask-web-forms/ -->
+<!-- Code adapted from https://pythonspot.com/flask-web-forms/ -->
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
 <html>
@@ -9,7 +9,7 @@
       <img src="testimage.jpg" width="100" height="80" alt="My Pic">
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
-                 
+
                 <ul>
                     {% for message in messages %}
                         <li>{{ message[1] }}</li>
@@ -19,7 +19,7 @@
         {% endwith %}
         <form action="" method="post" enctype="multipart/form-data">
             {{ form.csrf }}
- 
+
             <div class="form-group">
               <label for="name">Name: </label>
               <input type="text" class="form-control" id="name" name="name">
