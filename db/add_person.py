@@ -29,15 +29,10 @@ def main():
     if (db.people.insert_one(person).inserted_id != 0):
         print (name, "successfully added!")
 
-    pup = db.fs.files.find({'_id':im})
+    pup = db.fs.files.find({'_id':im}) #find the photo
     for att in pup:
         p = att['filename']
-        # for i in att:
-        #     print (i)
-        #     if (i == "filename"):
-        #         photo = i.value()
-        #         print(photo)
-    # print (pup)
+
     os.system("open ../form_ui/uploads/{0}".format(photo))
 
 if __name__ == '__main__':
