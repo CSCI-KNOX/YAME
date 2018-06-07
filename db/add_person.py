@@ -15,25 +15,22 @@ def main():
     photo = sys.argv[4]
 
     fs=gridfs.GridFS(db)
-    # print (fs.list())
-    # im = fs.put(open('/Users/erinruby/Documents/Summer_2018/YAME/db/{0}'.format(photo), 'rb'), filename='{0}'.format(photo)) #ERINS COMP
-    im = fs.put(open('../form_ui/uploads/{0}'.format(photo), 'rb'), filename='{0}'.format(photo)) #COURTNEYS COMP
+    im = fs.put(open('../form_ui/uploads/{0}'.format(photo), 'rb'), filename='{0}'.format(photo)) #store the photo in the db
 
 
     person = {"name": name,
             "degree": degree,
             "occupation": occupation,
             "photo": im}
-            # "photo": os.system("mongofiles --uri 'mongodb+srv://erinruby:colorado18@yame-project-6ex3z.mongodb.net/test' put 'download.jpg'")}
 
     if (db.people.insert_one(person).inserted_id != 0):
         print (name, "successfully added!")
 
-    pup = db.fs.files.find({'_id':im}) #find the photo
+    pup = db.fs.files.find({'_id':im}) #find the photo for the person that just got inserted
     for att in pup:
         p = att['filename']
 
-    os.system("open ../form_ui/uploads/{0}".format(photo))
+    os.system("open ../form_ui/uploads/{0}".format(photo)) #check to see if the photo uploads correctly
 
 if __name__ == '__main__':
     main()
