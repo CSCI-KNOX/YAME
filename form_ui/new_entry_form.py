@@ -43,9 +43,6 @@ def hello():
             print("upload to database successful")
         else:
             flash('All the form fields are required.')
-
-    # system(run another python program, arguments as key value pairs)
-
     return render_template('hello.html', form=form)
 
 
@@ -60,6 +57,7 @@ def people():
     personarr = []
     for att in cursor:
         n = att["name"]
+        n = n.replace('+', ' ')
         personarr.append(n)
     return render_template('people.html', people = personarr)
 

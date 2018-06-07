@@ -19,11 +19,7 @@
 	    	<p>This is a placeholder for showing the people in the database.</p>
 	    	<p>
 	    		{% for person in people %}
-                    <p>
-                    	{% for attribute in person %}
-                    		{{ attribute }}
-                    	{% endfor %}
-                	</p>
+                    <p>{{ person }}</p>
                 {% endfor %}
 	    	</p>
 	    </div>
