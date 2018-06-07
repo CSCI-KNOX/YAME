@@ -12,7 +12,7 @@ app = Flask(__name__)
 app.config.from_object(__name__)
 app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
 
-UPLOAD_FOLDER = os.path.basename('uploads')
+UPLOAD_FOLDER = os.path.basename('static')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 class ReusableForm(Form):
@@ -58,6 +58,7 @@ def people():
     for att in cursor:
         n = att["name"]
         n = n.replace('+', ' ')
+        print(n)
         personarr.append(n)
     return render_template('people.html', people = personarr)
 
