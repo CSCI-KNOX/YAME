@@ -4,8 +4,18 @@
         <title>People in Database</title>
     </head>
     <body>
+    	<header>
+            <div class="container">
+              <h1 class="logo">People In Database</h1>
+              <strong><nav>
+                <ul class="menu">
+                  <li><a href="{{ url_for('hello') }}">Home</a></li>
+                  <li><a href="{{ url_for('people') }}">People In Database</a></li>
+                </ul>
+              </nav></strong>
+            </div>
+          </header>
     	<div class="about">
-	    	<h1>People in Database</h1>
 	    	<p>This is a placeholder for showing the people in the database.</p>
 	    	<p>
 	    		{% for person in people %}

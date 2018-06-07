@@ -1,4 +1,4 @@
-<!-- Code adapted from https://pythonspot.com/flask-web-forms/ -->
+ <!-- Code adapted from https://pythonspot.com/flask-web-forms/ -->
 
 <!DOCTYPE html>
 <html>
@@ -6,23 +6,29 @@
         <title>Add a Person</title>
     </head>
     <body>
-      <img src="testimage.jpg" width="100" height="80" alt="My Pic">
-        <!-- {% with messages = get_flashed_messages(with_categories=true) %}
+          <header>
+            <div class="container">
+              <h1 class="logo">Add a Person</h1>
+              <strong><nav>
+                <ul class="menu">
+                  <li><a href="{{ url_for('hello') }}">Home</a></li>
+                  <li><a href="{{ url_for('people') }}">People In Database</a></li>
+                </ul>
+              </nav></strong>
+            </div>
+          </header>
+        {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
-<<<<<<< HEAD
-
-=======
->>>>>>> e2c7a798cb0022f0a063d0cac393b56c16ada9c2
                 <ul>
                     {% for message in messages %}
                         <li>{{ message[1] }}</li>
                     {% endfor %}
                 </ul>
             {% endif %}
-        {% endwith %} -->
+        {% endwith %}
         <form action="" method="post" enctype="multipart/form-data">
             {{ form.csrf }}
-
+ 
             <div class="form-group">
               <label for="name">Name: </label>
               <input type="text" class="form-control" id="name" name="name">
@@ -35,6 +41,8 @@
               <input type="text" class="form-control" id="occupation" name="occupation">
               <br>
               <span class="btn btn-default btn-file">Upload An Image: <input type="file" name="image"></span>
+              <br>
+              <img src="http://www.slate.com/content/dam/slate/articles/health_and_science/Science/2017/08/170803_MEDEX_SickDog.jpg.CROP.promo-xlarge2.jpg" width="200" height="160" alt="My Pic">
               <br>
               <label for="school">School: </label>
               <select name="school">
