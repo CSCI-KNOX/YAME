@@ -15,7 +15,7 @@ def main():
     photo = sys.argv[4]
 
     fs=gridfs.GridFS(db)
-    im = fs.put(open('../form_ui/uploads/{0}'.format(photo), 'rb'), filename='{0}'.format(photo)) #store the photo in the db
+    im = fs.put(open('../form_ui/static/{0}'.format(photo), 'rb'), filename='{0}'.format(photo)) #store the photo in the db
 
 
     person = {"name": name,
@@ -30,7 +30,7 @@ def main():
     for att in pup:
         p = att['filename']
 
-    os.system("open ../form_ui/uploads/{0}".format(photo)) #check to see if the photo uploads correctly
+    #os.system("open ../form_ui/static/{0}".format(photo)) #check to see if the photo uploads correctly
 
 if __name__ == '__main__':
     main()
