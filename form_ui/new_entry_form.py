@@ -58,15 +58,23 @@ def people():
     for att in cursor:
         n = att["name"]
         n = n.replace('+', ' ')
-        print(n)
         personarr.append(n)
     return render_template('people.html', people = personarr)
 
 
 @app.route("/edit/", methods=['GET', 'POST'])
 def edit():
-
-    return render_template('edit.html')
+    form = ReusableForm(request.form)
+    # instead of using this dictionary, get the info from the database.
+    person = {}
+    person['name'] = 'Test Person'
+    person['birthday'] = 122297
+    person['school'] = 'CU'
+    return render_template('edit.html', person=person, form=form)
 
 if __name__ == "__main__":
     app.run()
+
+
+
+
