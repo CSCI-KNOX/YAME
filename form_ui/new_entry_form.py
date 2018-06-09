@@ -62,5 +62,11 @@ def people():
         personarr.append(n)
     return render_template('people.html', people = personarr)
 
+
+@app.route("/edit/", methods=['GET', 'POST'])
+def edit():
+
+    return render_template('edit.html')
+
 if __name__ == "__main__":
     app.run()
