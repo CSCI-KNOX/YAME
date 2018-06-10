@@ -65,11 +65,13 @@ def people():
 @app.route("/edit/", methods=['GET', 'POST'])
 def edit():
     form = ReusableForm(request.form)
-    # instead of using this dictionary, get the info from the database.
+    # instead of using this dictionary, get the info from the database into a dictionary.
     person = {}
     person['name'] = 'Test Person'
     person['birthday'] = 122297
     person['school'] = 'CU'
+    person['degree'] = 'Computer Science'
+    person['occupation'] = 'Student'
     return render_template('edit.html', person=person, form=form)
 
 if __name__ == "__main__":
