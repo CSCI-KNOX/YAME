@@ -7,7 +7,7 @@ from wtforms import Form, SelectField, TextField, TextAreaField, validators, Str
 
 #importing and using files from the db folder
 sys.path.append('../db')
-import retrieve_from_db
+import retrieve_from_db, add_person
 
 # App config.
 DEBUG = True
@@ -43,7 +43,8 @@ def hello():
 
         if form.validate():
             flash(file.filename)
-            os.system('cd ../db && python add_person.py {0} {1} {2} {3}'.format(name, degree, occupation, file.filename))
+            add_person.addOne(name, degree, occupation, file.filename)
+            # os.system('cd ../db && python add_person.py {0} {1} {2} {3}'.format(name, degree, occupation, file.filename))
             print("upload to database successful")
         else:
             flash('All the form fields are required.')
