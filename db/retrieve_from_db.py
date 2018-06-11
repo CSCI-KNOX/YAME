@@ -1,30 +1,21 @@
 import pymongo, sys
 import os
 
-def getOne(p): #get a person named n
+def getOne(toFind): #get a person named p
 
     client = pymongo.MongoClient("mongodb+srv://erinruby:colorado18@yame-project-6ex3z.mongodb.net/test?retryWrites=true") #ERIN's LOGIN
     db = client.prototype #name of the db
     col = client.people #name of the collection
-    # toFind = 'erin+ruby'
-    toFind = str(p)
-    print (toFind)
-    # toFind = toFind.replace(' ', '+')+' '
-    # toFind = str(toFind)
-    print (type(toFind))
-    print (toFind)
+    toFind = toFind.replace(' ', '+')
+
     cursor = db.people.find({'name':toFind}) #return everyone in the database
-    personarr = []
+    exist = 0
     for att in cursor:
         print (att)
-        n = att['name']
-        # n = n.replace('+', ' ')
-        print(n)
-        personarr.append(n)
-
-    if not personarr:
-        print ("We cannot find who you are searching for")
-    print (personarr)
+        exist = 1
+    if not exist:
+        print ("Cannot find who you are looking for")
+    return cursor
 
 def getAll():
 
