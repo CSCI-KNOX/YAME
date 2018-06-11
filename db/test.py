@@ -1,6 +1,9 @@
 import retrieve_from_db
+import sys
 
 def main():
-    retrieve_from_db.get('erin ruby')
+    name = sys.argv[1].replace(' ', '+')+' '
+
+    retrieve_from_db.getOne(name)
 if __name__ == "__main__":
     main()

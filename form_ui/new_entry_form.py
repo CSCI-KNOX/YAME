@@ -1,10 +1,13 @@
 # Code adapted from https://pythonspot.com/flask-web-forms/
 
-import os
+import os, sys
 import pymongo
 from flask import Flask, render_template, flash, request
 from wtforms import Form, SelectField, TextField, TextAreaField, validators, StringField, SubmitField
 
+#importing and using files from the db folder
+sys.path.append('../db')
+import retrieve_from_db
 
 # App config.
 DEBUG = True
@@ -50,16 +53,7 @@ def hello():
 @app.route("/people/", methods=['GET', 'POST'])
 def people():
 
-    client = pymongo.MongoClient("mongodb+srv://erinruby:colorado18@yame-project-6ex3z.mongodb.net/test?retryWrites=true") #ERIN's LOGIN
-    db = client.prototype #name of the db
-    col = client.people #name of the collection
-
-    cursor = db.people.find({})
-    personarr = []
-    for att in cursor:
-        n = att["name"]
-        n = n.replace('+', ' ')
-        personarr.append(n)
+    personarr = retrieve_from_db.getAll() #returns all people in the database
     return render_template('people.html', people = personarr)
 
 
@@ -77,7 +71,3 @@ def edit():
 
 if __name__ == "__main__":
     app.run()
-
-
-
-
