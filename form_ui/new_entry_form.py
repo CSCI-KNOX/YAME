@@ -5,6 +5,7 @@ import pymongo
 from flask import Flask, render_template, flash, request
 from wtforms import Form, SelectField, TextField, TextAreaField, validators, StringField, SubmitField
 
+
 # App config.
 DEBUG = True
 app = Flask(__name__)
