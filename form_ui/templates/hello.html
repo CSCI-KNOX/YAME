@@ -13,6 +13,8 @@
                 <ul class="menu">
                   <li><a href="{{ url_for('hello') }}">Home</a></li>
                   <li><a href="{{ url_for('people') }}">People In Database</a></li>
+                  <li><a href="{{ url_for('edit') }}">Edit a Person</a></li>
+
                 </ul>
               </nav></strong>
             </div>
@@ -28,7 +30,7 @@
         {% endwith %}
         <form action="" method="post" enctype="multipart/form-data">
             {{ form.csrf }}
- 
+
             <div class="form-group">
               <label for="name">Name: </label>
               <input type="text" class="form-control" id="name" name="name">

@@ -1,9 +1,13 @@
 # Code adapted from https://pythonspot.com/flask-web-forms/
 
-import os
+import os, sys
 import pymongo
 from flask import Flask, render_template, flash, request
 from wtforms import Form, SelectField, TextField, TextAreaField, validators, StringField, SubmitField
+
+#importing and using files from the db folder
+sys.path.append('../db')
+import retrieve_from_db, add_person
 
 # App config.
 DEBUG = True
@@ -40,7 +44,8 @@ def hello():
 
         if form.validate():
             flash(file.filename)
-            os.system('cd ../db && python add_person.py {0} {1} {2} {3}'.format(name, degree, occupation, file.filename))
+            add_person.addOne(name, degree, occupation, file.filename)
+            # os.system('cd ../db && python add_person.py {0} {1} {2} {3}'.format(name, degree, occupation, file.filename))
             print("upload to database successful")
         else:
             flash('All the form fields are required.')
@@ -50,16 +55,7 @@ def hello():
 @app.route("/people/", methods=['GET', 'POST'])
 def people():
 
-    client = pymongo.MongoClient("mongodb+srv://erinruby:colorado18@yame-project-6ex3z.mongodb.net/test?retryWrites=true") #ERIN's LOGIN
-    db = client.prototype #name of the db
-    col = client.people #name of the collection
-
-    cursor = db.people.find({})
-    personarr = []
-    for att in cursor:
-        n = att["name"]
-        n = n.replace('+', ' ')
-        personarr.append(n)
+    personarr = retrieve_from_db.getAll() #returns all people in the database
     return render_template('people.html', people = personarr)
 
 
@@ -77,7 +73,3 @@ def edit():
 
 if __name__ == "__main__":
     app.run()
-
-
-
-
