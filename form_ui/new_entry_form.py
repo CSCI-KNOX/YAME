@@ -35,6 +35,7 @@ def hello():
         degree=request.form['degree'].replace(' ', '+')+' '
         occupation=request.form['occupation'].replace(' ', '+')+' '
         school=request.form['school']+' '
+        facts=request.form['facts'].replace(' ', '+')+' '
         file = request.files['image']
         if file:
             f = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
