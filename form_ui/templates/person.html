@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{ person['name'] }}</title>
+    </head>
+    <body>
+      <header>
+            <div class="container">
+              <h1 class="logo">{{ person['name'] }}</h1>
+              <strong><nav>
+                <ul class="menu">
+                  <li><a href="{{ url_for('hello') }}">Home</a></li>
+                  <li><a href="{{ url_for('people') }}">People In Database</a></li>
+                  <li><a href='/edit/?name={{ person["name"] }}'>Edit</a></li>
+                </ul>
+              </nav></strong>
+            </div>
+          </header>
+      <div class="about">
+        <p>This is a placeholder for a single person page.</p>
+        <p>
+          {% for key in person %}
+            <p> {{ key }} : {{ person[key] }} </p> 
+          {% endfor %}
+        </p>
+      </div>
+    </body>
+</html>
