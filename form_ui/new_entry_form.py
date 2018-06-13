@@ -67,7 +67,7 @@ def edit():
     name = request.args.get('name')
     person = retrieve_from_db.getOne(name)
     # What if person does not exist?
-    print(name)
+    print(person['name'])
     # person = {}
     # person['name'] = 'Test Person'
     # person['birthday'] = 122297
