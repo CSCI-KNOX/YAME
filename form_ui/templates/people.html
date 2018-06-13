@@ -19,7 +19,7 @@
 	    	<p>This is a placeholder for showing the people in the database.</p>
 	    	<p>
 	    		{% for person in people %}
-                    <p><a href='/edit/{{ person }}' >{{ person }}</a></p> 
+                    <p><a href='/edit/?name={{ person }}' >{{ person }}</a></p> 
                     <!-- Makes the person's name into a link -->
                 	<!-- Maybe we could make the person passed in an object or dictionary, so we can do person.name, or name[person], etc. -->
                 {% endfor %}

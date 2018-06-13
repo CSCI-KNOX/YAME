@@ -63,7 +63,9 @@ def people():
 def edit():
     form = ReusableForm(request.form)
     # instead of using this dictionary, get the info from the database into a dictionary.
-    person = retrieve_from_db.getOne('test test')
+    name = request.args.get('name')
+    person = retrieve_from_db.getOne(name)
+    print(name)
     # person = {}
     # person['name'] = 'Test Person'
     # person['birthday'] = 122297
