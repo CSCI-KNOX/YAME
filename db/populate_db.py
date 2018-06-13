@@ -9,8 +9,8 @@ def main():
         for line in fruits:
             fruitlist.append(line.strip()) #add words from the file into the fruit list
 
-    for i in range(1):
-        person = {"name": 'channels',
+    for i in range(10):
+        person = {"name": fruitlist[random.randint(0,len(fruitlist)-1)],
                 "degree": fruitlist[random.randint(0,len(fruitlist)-1)],
                 "occupation": fruitlist[random.randint(0,len(fruitlist)-1)],
                 "photo": fruitlist[random.randint(0,len(fruitlist)-1)],
