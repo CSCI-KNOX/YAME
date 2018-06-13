@@ -76,5 +76,12 @@ def edit():
     # person['occupation'] = 'Student'
     return render_template('edit.html', person=person, form=form)
 
+
+@app.route("/person/", methods=['GET', 'POST'])
+def person():
+    name = request.args.get('name')
+    person = retrieve_from_db.getOne(name)
+    return render_template('person.html', person=person)
+
 if __name__ == "__main__":
     app.run()
