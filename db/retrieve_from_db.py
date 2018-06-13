@@ -6,7 +6,7 @@ def getOne(toFind): #get a person named p, if duplicates, finds the most recentl
     client = pymongo.MongoClient("mongodb+srv://erinruby:colorado18@yame-project-6ex3z.mongodb.net/test?retryWrites=true") #ERIN's LOGIN
     db = client.prototype #name of the db
     col = client.people #name of the collection
-    toFind = toFind.replace(' ', '+')
+    # toFind = toFind.replace(' ', '+')
     cursor = db.people.find({'name':toFind}) #return everyone in the database
     exist = 0
     person = {}
