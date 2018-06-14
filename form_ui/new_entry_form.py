@@ -3,6 +3,7 @@
 import os, sys
 import datetime
 import pymongo
+import numpy as np
 from flask import Flask, render_template, flash, request
 from wtforms import Form, SelectField, TextField, TextAreaField, validators, StringField, SubmitField
 
@@ -82,7 +83,8 @@ def person():
 
 @app.route("/display/", methods=['GET', 'POST'])
 def display():
-    name = request.args.get('name')
+    personarr = retrieve_from_db.getAll()
+    name = np.random.choice(personarr)
     person = retrieve_from_db.getOne(name)
     return render_template('display.html', person=person)
 
