@@ -29,14 +29,12 @@ class ReusableForm(Form):
 @app.route("/", methods=['GET', 'POST'])
 def hello():
     form = ReusableForm(request.form)
-
+    
     print (form.errors)
     if request.method == 'POST':
         name=request.form['name'].replace(' ', '+')+' ' # key value pairs
         degree=request.form['degree'].replace(' ', '+')+' '
-        print("test")
         year=request.form['year']+' '
-        print("test")
         occupation=request.form['occupation'].replace(' ', '+')+' '
         school=request.form['school']+' '
         facts=request.form['facts'].replace(' ', '+')+' '

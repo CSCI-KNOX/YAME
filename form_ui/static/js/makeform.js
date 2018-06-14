@@ -9,7 +9,7 @@ function makeSelect() {
 	}
 	//Create and append select list
 	var selectList = document.createElement("select");
-	selectList.setAttribute("id", "mySelect");
+	selectList.setAttribute("name", "year");
 	myDiv.appendChild(selectList);
 
 	//Create and append the options
