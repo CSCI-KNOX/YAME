@@ -24,7 +24,7 @@
             {% if messages %}
                 <ul>
                     {% for message in messages %}
-                        <img src="/static/{{ message[1] }}" width="200" height="160" alt="">
+                        <img src="/static/imj/{{ message[1] }}" width="200" height="160" alt="image">
                     {% endfor %}
                 </ul>
             {% endif %}
@@ -40,7 +40,11 @@
               <label for="degree">Degree or Faculty/Staff: </label>
               <input type="text" class="form-control" id="degree" name="degree">
               <br>
-              <p name="year" id="year">Graduation Year: </p>
+              <!-- <p name="year" id="year">Graduation Year: </p> -->
+              <label for="year">Graduation Year: </label>
+              <select name="year" id="year">
+                <option value="test">test</option>
+              </select>
               <br>
               <label for="occupation">Occupation or industry: </label>
               <input type="text" class="form-control" id="occupation" name="occupation">
