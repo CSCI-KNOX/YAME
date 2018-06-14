@@ -83,5 +83,12 @@ def person():
     person = retrieve_from_db.getOne(name)
     return render_template('person.html', person=person)
 
+
+@app.route("/display/", methods=['GET', 'POST'])
+def display():
+    name = request.args.get('name')
+    person = retrieve_from_db.getOne(name)
+    return render_template('display.html', person=person)
+
 if __name__ == "__main__":
     app.run()
