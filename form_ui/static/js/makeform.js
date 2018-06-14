@@ -1,7 +1,7 @@
 function makeSelect() {
 	var myDiv = document.getElementById('year');
 	var d = new Date();
-	var y = d.getFullYear();
+	var y = d.getFullYear() + 4;
 	var array = [];
 	//Create array of options to be added
 	for (var i = y; i > 1875; i--) {

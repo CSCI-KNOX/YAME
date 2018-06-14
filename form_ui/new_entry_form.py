@@ -29,26 +29,27 @@ class ReusableForm(Form):
 @app.route("/", methods=['GET', 'POST'])
 def hello():
     form = ReusableForm(request.form)
-    
+
     print (form.errors)
     if request.method == 'POST':
-        name=request.form['name'].replace(' ', '+')+' ' # key value pairs
-        degree=request.form['degree'].replace(' ', '+')+' '
-        year=request.form['year']+' '
-        occupation=request.form['occupation'].replace(' ', '+')+' '
-        school=request.form['school']+' '
-        facts=request.form['facts'].replace(' ', '+')+' '
+        name=request.form['name'].replace(' ', '+') # key value pairs
+        degree=request.form['degree'].replace(' ', '+')
+        school=request.form['school']
+        year=request.form['year']
+        occupation=request.form['occupation'].replace(' ', '+')
+        facts=request.form['facts'].replace(' ', '+')
         file = request.files['image']
+        # If the user put in a photo
         if file:
             f = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
             file.save(f)
             filename = file.filename
+        # Use default photo
         else:
             filename = 'default.jpg'
         if form.validate():
             flash(filename)
-            add_person.addOne(name, degree, occupation, filename)
-            # os.system('cd ../db && python add_person.py {0} {1} {2} {3}'.format(name, degree, occupation, file.filename))
+            add_person.addOne(name, degree, school, year, occupation, facts, filename)
             print("upload to database successful")
         else:
             flash('All the form fields are required.')
@@ -68,20 +69,14 @@ def edit():
     # instead of using this dictionary, get the info from the database into a dictionary.
     name = request.args.get('name')
     person = retrieve_from_db.getOne(name)
-    # What if person does not exist?
     print(person['name'])
-    # person = {}
-    # person['name'] = 'Test Person'
-    # person['birthday'] = 122297
-    # person['school'] = 'CU'
-    # person['degree'] = 'Computer Science'
-    # person['occupation'] = 'Student'
     return render_template('edit.html', person=person, form=form)
 
 
 @app.route("/person/", methods=['GET', 'POST'])
 def person():
     name = request.args.get('name')
+    print(name)
     person = retrieve_from_db.getOne(name)
     return render_template('person.html', person=person)
 
