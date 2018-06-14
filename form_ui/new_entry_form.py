@@ -1,6 +1,7 @@
 # Code adapted from https://pythonspot.com/flask-web-forms/
 
 import os, sys
+import datetime
 import pymongo
 from flask import Flask, render_template, flash, request
 from wtforms import Form, SelectField, TextField, TextAreaField, validators, StringField, SubmitField
@@ -22,7 +23,9 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 class ReusableForm(Form):
     name = TextField('Name:')
     degree = TextField('Degree or Faculty/Staff:') #, validators=[validators.required()]
+    year = SelectField('Graduation Year:')
     occupation = TextField('Occupation or industry:')
+    school = SelectField('School:')
 
 
 @app.route("/", methods=['GET', 'POST'])
@@ -33,6 +36,7 @@ def hello():
     if request.method == 'POST':
         name=request.form['name'].replace(' ', '+')+' ' # key value pairs
         degree=request.form['degree'].replace(' ', '+')+' '
+        year=request.form['year']+' '
         occupation=request.form['occupation'].replace(' ', '+')+' '
         school=request.form['school']+' '
         facts=request.form['facts'].replace(' ', '+')+' '
