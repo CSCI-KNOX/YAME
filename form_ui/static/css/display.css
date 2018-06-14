@@ -5,6 +5,9 @@ body {
 	background-color: white;
 	width: 30%;
 }
+p {
+	padding: 0 20px;
+}
 p._id {
 	display: none;
 }
@@ -15,12 +18,11 @@ p.name {
 	margin: 0;
 }
 p.degree {
-	display: inline-flex;
-	padding: 0 20px;
+	/*display: inline-flex;*/
 }
 p.occupation {
-	display: inline-flex;
-	float: right;
-	padding: 0 20px;
+}
+p.year {
+	/*display: inline-flex;*/
 }
 /* If it is not of a certain display class then don't show it */

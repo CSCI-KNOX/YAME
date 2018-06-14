@@ -32,12 +32,12 @@ def hello():
 
     print (form.errors)
     if request.method == 'POST':
-        name=request.form['name'].replace(' ', '+') # key value pairs
-        degree=request.form['degree'].replace(' ', '+')
+        name=request.form['name'] # key value pairs
+        degree=request.form['degree']
         school=request.form['school']
         year=request.form['year']
-        occupation=request.form['occupation'].replace(' ', '+')
-        facts=request.form['facts'].replace(' ', '+')
+        occupation=request.form['occupation']
+        facts=request.form['facts']
         file = request.files['image']
         # If the user put in a photo
         if file:
@@ -69,7 +69,6 @@ def edit():
     # instead of using this dictionary, get the info from the database into a dictionary.
     name = request.args.get('name')
     person = retrieve_from_db.getOne(name)
-    print(person['name'])
     return render_template('edit.html', person=person, form=form)
 
 

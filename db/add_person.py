@@ -17,14 +17,13 @@ def addOne(name, degree, school, year, occupation, facts, photo):
     fs=gridfs.GridFS(db)
     im = fs.put(open('../form_ui/static/imj/{0}'.format(photo), 'rb'), filename='{0}'.format(photo)) #store the photo in the db
 
-    person = {"name": name.replace('+', ' '),
-            "degree": degree.replace('+', ' '),
+    person = {"name": name,
+            "degree": degree,
             "school": school,
             "year": year,
-            "occupation": occupation.replace('+', ' '),
-            "facts": facts.replace('+', ' '),
+            "occupation": occupation,
+            "facts": facts,
             "photo": im}
-    print(person)
     if (db.people.insert_one(person).inserted_id != 0):
         print (person['name'], "successfully added!")
 
