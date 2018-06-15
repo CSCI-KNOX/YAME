@@ -1,0 +1,28 @@
+body {
+	background-color: lightgray;
+}
+.about {
+	background-color: white;
+	width: 30%;
+}
+p {
+	padding: 0 20px;
+}
+p._id {
+	display: none;
+}
+p.name {
+	font-size: 36px;
+	text-align: center;
+	padding-top: 10px;
+	margin: 0;
+}
+p.degree {
+	/*display: inline-flex;*/
+}
+p.occupation {
+}
+p.year {
+	/*display: inline-flex;*/
+}
+/* If it is not of a certain display class then don't show it */

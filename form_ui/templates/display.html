@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{ person['name'] }}</title>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/display.css') }}">
+    </head>
+    <body>
+      <div class="about">
+        <p>
+          {% for key in person %}
+            <p class='{{ key }}'> {{ person[key] }} </p> 
+          {% endfor %}
+        </p>
+      </div>
+    </body>
+</html>
