@@ -40,6 +40,7 @@ def hello():
         occupation=request.form['occupation']
         facts=request.form['facts']
         file = request.files['image']
+        hidden=request.form['hidden']
         # If the user put in a photo
         if file:
             f = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
@@ -50,7 +51,7 @@ def hello():
             filename = 'default.jpg'
         if form.validate():
             flash(filename)
-            add_person.addOne(name, degree, school, year, occupation, facts, filename)
+            add_person.addOne(name, degree, school, year, occupation, facts, filename, hidden)
             print("upload to database successful")
         else:
             flash('All the form fields are required.')
