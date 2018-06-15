@@ -16,7 +16,7 @@ def main():
                 "year": fruitlist[random.randint(0,len(fruitlist)-1)],
                 "occupation": fruitlist[random.randint(0,len(fruitlist)-1)],
                 "facts": fruitlist[random.randint(0,len(fruitlist)-1)],
-                "image": fruitlist[random.randint(0,len(fruitlist)-1)],
+                "image": "default.jpg",
                 "hidden": random.randint(0,1),
                 }
         id = db.people.insert_one(person).inserted_id
