@@ -49,6 +49,10 @@ def hello():
         # Use default photo
         else:
             filename = 'default.jpg'
+        if hidden == 'hidden':
+            hidden = 1
+        else:
+            hidden = 0
         if form.validate():
             flash(filename)
             add_person.addOne(name, degree, school, year, occupation, facts, filename, hidden)
