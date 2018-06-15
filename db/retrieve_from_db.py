@@ -7,7 +7,7 @@ def getOne(toFind): #get a person named p, if duplicates, finds the most recentl
     db = client.prototype #name of the db
     col = client.people #name of the collection
     # toFind = toFind.replace(' ', '+')
-    cursor = db.people.find({'occupation':toFind}) #return everyone in the database
+    cursor = db.people.find({'name':toFind}) #return everyone in the database
     exist = 0
     person = {}
     for att in cursor:
