@@ -41,7 +41,7 @@ def getAll(): #get all names in the database to print to the screen
     db = client.prototype #name of the db
     col = client.people #name of the collection
 
-    cursor = db.people.find({})
+    cursor = db.people.find({'hidden' : 0})
     personarr = []
     for att in cursor:
         n = att["name"]
