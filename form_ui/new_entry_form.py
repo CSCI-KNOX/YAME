@@ -81,7 +81,6 @@ def edit():
 @app.route("/person/", methods=['GET', 'POST'])
 def person():
     name = request.args.get('name')
-    print(name)
     person = retrieve_from_db.getOne(name)
     return render_template('person.html', person=person)
 
@@ -99,12 +98,6 @@ def search():
     print (form.errors)
     if request.method == 'POST':
         name=request.form['name'] # key value pairs
-        # degree=request.form['degree']
-        # school=request.form['school']
-        # year=request.form['year']
-        # occupation=request.form['occupation']
-        # facts=request.form['facts']
-        # file = request.files['image']
     else:
         personarr = retrieve_from_db.getAll()
         name = np.random.choice(personarr)

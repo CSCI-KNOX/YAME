@@ -24,6 +24,7 @@ def addOne(name, degree, school, year, occupation, facts, photo, hidden):
             "occupation": occupation,
             "facts": facts,
             "image": im,
+            "image_name": photo,
             "hidden": hidden}
     if (db.people.insert_one(person).inserted_id != 0):
         print (person['name'], "successfully added!")

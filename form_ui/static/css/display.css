@@ -1,6 +1,12 @@
 body {
 	background-color: lightgray;
 }
+h1 {
+	font-size: 36px;
+	text-align: center;
+	padding: 10px 0 0 0;
+	margin: 0;
+}
 .about {
 	background-color: white;
 	width: 30%;
@@ -12,10 +18,7 @@ p._id {
 	display: none;
 }
 p.name {
-	font-size: 36px;
-	text-align: center;
-	padding-top: 10px;
-	margin: 0;
+	display: none;
 }
 p.degree {
 	/*display: inline-flex;*/

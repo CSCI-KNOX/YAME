@@ -1,5 +1,18 @@
 import pymongo, sys
 import os
+import gridfs
+
+def getImage(imageid):
+    client = pymongo.MongoClient("mongodb+srv://erinruby:colorado18@yame-project-6ex3z.mongodb.net/test?retryWrites=true") #ERIN's LOGIN
+    db = client.prototype #name of the db
+    col = client.people #name of the collection
+
+    fs=gridfs.GridFS(db)
+    file = fs.find_one({'_id': imageid})
+    image = file.read()
+    if image:
+        return image
+    return 0
 
 def getOne(toFind): #get a person named p, if duplicates, finds the most recently added one
 
