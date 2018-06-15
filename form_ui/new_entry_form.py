@@ -40,7 +40,11 @@ def hello():
         occupation=request.form['occupation']
         facts=request.form['facts']
         file = request.files['image']
-        hidden=request.form['hidden']
+        try:
+            hidden = request.form['hidden']
+            hidden = 1
+        except:
+            hidden = 0
         # If the user put in a photo
         if file:
             f = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
@@ -49,10 +53,6 @@ def hello():
         # Use default photo
         else:
             filename = 'default.jpg'
-        if hidden == 'hidden':
-            hidden = 1
-        else:
-            hidden = 0
         if form.validate():
             flash(filename)
             add_person.addOne(name, degree, school, year, occupation, facts, filename, hidden)
