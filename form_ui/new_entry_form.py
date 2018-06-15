@@ -18,7 +18,7 @@ app = Flask(__name__)
 app.config.from_object(__name__)
 app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
 
-UPLOAD_FOLDER = os.path.basename('static')
+UPLOAD_FOLDER = 'static/imj'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 class ReusableForm(Form):
