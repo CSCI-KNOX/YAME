@@ -88,5 +88,22 @@ def display():
     person = retrieve_from_db.getOne(name)
     return render_template('display.html', person=person)
 
+@app.route("/search/", methods=['GET', 'POST'])
+def search():
+    form = ReusableForm(request.form)
+    print (form.errors)
+    if request.method == 'POST':
+        # name=request.form['name'] # key value pairs
+        # degree=request.form['degree']
+        # school=request.form['school']
+        # year=request.form['year']
+        occupation=request.form['occupation']
+        # facts=request.form['facts']
+        # file = request.files['image']
+    else:
+        personarr = retrieve_from_db.getAll()
+        name = np.random.choice(personarr)
+    person = retrieve_from_db.getOne(occupation)
+    return render_template('search.html', form=form, person=person)
 if __name__ == "__main__":
     app.run()
