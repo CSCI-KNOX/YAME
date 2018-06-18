@@ -24,12 +24,17 @@ p._id {
 p.name {
 	display: none;
 }
-p.degree {
-	/*display: inline-flex;*/
+p.image {
+	display: none;
 }
-p.occupation {
+p.facts {
+	white-space: pre-wrap;
+	padding-bottom: 10px;
 }
-p.year {
-	/*display: inline-flex;*/
+p.image_name {
+	display: none;
+}
+p.hidden {
+	display: none;
 }
 /* If it is not of a certain display class then don't show it */
