@@ -9,7 +9,7 @@ from wtforms import Form, SelectField, TextField, TextAreaField, validators, Str
 
 #importing and using files from the db folder
 sys.path.append('../db')
-import retrieve_from_db, add_person
+import retrieve_from_db, add_person, edit_person
 
 # App config.
 DEBUG = True
@@ -72,9 +72,35 @@ def people():
 @app.route("/edit/", methods=['GET', 'POST'])
 def edit():
     form = ReusableForm(request.form)
-    # instead of using this dictionary, get the info from the database into a dictionary.
     name = request.args.get('name')
     person = retrieve_from_db.getOne(name)
+    if request.method == 'POST':
+        name=request.form['name']
+        degree=request.form['degree']
+        # school=request.form['school']
+        # year=request.form['year']
+        # occupation=request.form['occupation']
+        # facts=request.form['facts']
+        # file = request.files['image']
+        # try:
+        #     hidden = request.form['hidden']
+        #     hidden = 1
+        # except:
+        #     hidden = 0
+        # if file:
+        #     f = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
+        #     file.save(f)
+        #     filename = file.filename
+
+        #     # Also remove old file here ?
+        # else:
+        #     filename = 'default.jpg'
+        if form.validate():
+            flash(person['name'])
+            edit_person.editOne(person['_id'], name, degree) # , school, year, occupation, facts, filename, hidden
+            print("edit to database successful")
+        else:
+            flash('All the form fields are required.')
     return render_template('edit.html', person=person, form=form)
 
 

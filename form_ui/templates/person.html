@@ -2,6 +2,7 @@
 <html>
   <head>
       <title>{{ person['name'] }}</title>
+      <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/person.css') }}">
   </head>
   <body>
     <header>
@@ -22,7 +23,7 @@
       <p><img src="../static/imj/{{ person['image_name'] }}" width="200" height="160" alt="image"></p>
       <p>
         {% for key in person %}
-          <p> {{ key }} : {{ person[key] }} </p> 
+          <p class='{{ key }}'> {{ key }} : {{ person[key] }} </p> 
         {% endfor %}
       </p>
     </div>
