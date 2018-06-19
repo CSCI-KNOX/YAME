@@ -125,8 +125,7 @@ def search():
     if request.method == 'POST':
         name=request.form['name'] # key value pairs
     else:
-        personarr = retrieve_from_db.getAll()
-        name = np.random.choice(personarr)
+        name = 'nothing'
     person = retrieve_from_db.getOne(name)
     return render_template('search.html', form=form, person=person)
 if __name__ == "__main__":

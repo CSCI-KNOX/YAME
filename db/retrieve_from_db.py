@@ -15,11 +15,10 @@ def getImage(imageid):
     return 0
 
 def getOne(toFind): #get a person named p, if duplicates, finds the most recently added one
-
     client = pymongo.MongoClient("mongodb+srv://erinruby:colorado18@yame-project-6ex3z.mongodb.net/test?retryWrites=true") #ERIN's LOGIN
     db = client.prototype #name of the db
     col = client.people #name of the collection
-    cursor = db.people.find({'name': toFind}) #return everyone in the database
+    cursor = db.people.find({'name': re.compile(toFind, re.IGNORECASE)})
     exist = 0
     person = {}
     for att in cursor:

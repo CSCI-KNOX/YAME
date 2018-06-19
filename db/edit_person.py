@@ -9,5 +9,5 @@ def editOne(id, name, degree): # school, year, occupation, facts, filename, hidd
 	db = client.prototype #name of the db
 	col = client.people #name of the collection
 	fs=gridfs.GridFS(db)
-	if (db.Employees.update_one( {"id": id}, { "$set": { "name":name, "degree": degree }}) != 0):
+	if (db.people.update_one( {"id": id}, { "$set": { "name":name, "degree": degree }}) != 0):
 		print (name, "successfully edited!")
