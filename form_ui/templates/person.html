@@ -2,6 +2,7 @@
 <html>
   <head>
       <title>{{ person['name'] }}</title>
+      <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/person.css') }}">
   </head>
   <body>
     <header>
@@ -11,8 +12,9 @@
               <ul class="menu">
                 <li><a href="{{ url_for('hello') }}">Home</a></li>
                 <li><a href="{{ url_for('people') }}">People In Database</a></li>
+                <li><a href="{{ url_for('search') }}">Search for a person</a></li>
+                <li><a href="{{ url_for('display') }}">Display</a></li>
                 <li><a href='/edit/?name={{ person["name"] }}'>Edit</a></li>
-                <li><a href='/display/?name={{ person["name"] }}'>Display</a></li>
               </ul>
             </nav></strong>
           </div>
@@ -21,7 +23,7 @@
       <p><img src="../static/imj/{{ person['image_name'] }}" width="200" height="160" alt="image"></p>
       <p>
         {% for key in person %}
-          <p> {{ key }} : {{ person[key] }} </p> 
+          <p class='{{ key }}'> {{ key }} : {{ person[key] }} </p> 
         {% endfor %}
       </p>
     </div>

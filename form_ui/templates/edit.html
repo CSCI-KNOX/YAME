@@ -4,6 +4,7 @@
         <title>Edit</title>
     </head>
     <body>
+      <script src="../static/js/makeform.js"></script>
     	<header>
             <div class="container">
               <h1 class="logo">Edit {{ person['name'] }}</h1>
@@ -18,26 +19,48 @@
     	<div class="about">
 	    	<p>This is a placeholder for the edit page.</p>
         <!-- Pull person passed in from database and display their information in the form -->
-        <p>{{ person['school'] }} <br /> {{ person['birthday'] }}</p>
-
         <form action="" method="post" enctype="multipart/form-data">
             {{ form.csrf }}
- 
+
             <div class="form-group">
               <label for="name">Name: </label>
               <input type="text" class="form-control" id="name" name="name" value="{{ person['name'] }}">
+              <!-- show image when uploaded -->
               <br>
               <label for="degree">Degree or Faculty/Staff: </label>
               <input type="text" class="form-control" id="degree" name="degree" value="{{ person['degree'] }}">
               <br>
+              <!-- <p name="year" id="year">Graduation Year: </p> -->
+<!--               <label for="year">Graduation Year: </label>
+              <div class="form-control" id="year" name="year" value="{{ person['year'] }}"> </div>
+              <br>
               <label for="occupation">Occupation or industry: </label>
               <input type="text" class="form-control" id="occupation" name="occupation" value="{{ person['occupation'] }}">
               <br>
+              <span class="btn btn-default btn-file">Upload An Image: <input type="file" name="image" value="{{ person['image'] }}"></span>
+              <br>
+              <label for="school">School: </label>
+              <select name="school">
+                <option value="artsandsciences">College of Arts & Sciences</option>
+                <option value="leedsbusiness">Leeds School of Business</option>
+                <option value="education">School of Education</option>
+                <option value="engineering">College of Engineering and Applied Science</option>
+                <option value="graduate">Graduate School</option>
+                <option value="lawschool">University of Colorado Law School</option>
+                <option value="media">College of Media, Communication and Information</option>
+                <option value="music">College of Music</option>
+                <option value="continuinged">Continuing Education and Professional Studies</option>
+                <option value="libraries">University Libraries</option>
+                <option value="envdesign">Program in Environmental Design</option>
+              </select>
+              <br>
+              <label for="facts">Facts: </label>
+              <textarea class="form-control" id="facts" name="facts" rows="4" cols="45" value="{{ person['facts'] }}"></textarea>
+              <br>
+              <input type="checkbox" class="form-control" name="hidden" value="{{ person['hidden'] }}">Hidden<br> -->
             </div>
             <div class="input submit">
-                <input type="submit" value="Update"/>
-                <!-- default value??? -->
-                <!-- How to get this to update database instead of adding new entry -->
+                <input type="submit" value="Submit" />
             </div>
         </form>
 	    </div>
