@@ -1,5 +1,5 @@
 import pymongo, sys
-import os
+import os, re
 import gridfs
 
 def getImage(imageid):
@@ -19,8 +19,7 @@ def getOne(toFind): #get a person named p, if duplicates, finds the most recentl
     client = pymongo.MongoClient("mongodb+srv://erinruby:colorado18@yame-project-6ex3z.mongodb.net/test?retryWrites=true") #ERIN's LOGIN
     db = client.prototype #name of the db
     col = client.people #name of the collection
-    # toFind = toFind.replace(' ', '+')
-    cursor = db.people.find({'name':toFind}) #return everyone in the database
+    cursor = db.people.find({'name': toFind}) #return everyone in the database
     exist = 0
     person = {}
     for att in cursor:
@@ -28,7 +27,6 @@ def getOne(toFind): #get a person named p, if duplicates, finds the most recentl
         exist = 1
     if not exist:
         print ("Cannot find who you are looking for")
-    print (person)
     return person
 
 def howManyAreSame(toFind): #how many people with the same name??
