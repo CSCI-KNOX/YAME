@@ -124,8 +124,10 @@ def search():
     print (form.errors)
     if request.method == 'POST':
         name=request.form['name'] # key value pairs
+        degree=request.form['degree']
     else:
         name = 'nothing'
+        degree = 'nothing'
     person = retrieve_from_db.getOne(name)
     return render_template('search.html', form=form, person=person)
 if __name__ == "__main__":
