@@ -30,6 +30,13 @@ p.image {
 p.ex {
 	display: none;
 }
+p.expected {
+	display: inline-block;
+	padding-right: 0;
+}
+p.year {
+	display: inline-block;
+}
 p.facts {
 	white-space: pre-wrap;
 	padding-bottom: 10px;

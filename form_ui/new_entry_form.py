@@ -117,8 +117,10 @@ def person():
 
 @app.route("/display/", methods=['GET', 'POST'])
 def display():
-    personarr = retrieve_from_db.getAll()
-    name = np.random.choice(personarr)
+    name = request.args.get('name')
+    if name==None:
+        personarr = retrieve_from_db.getAll()
+        name = np.random.choice(personarr)
     person = retrieve_from_db.getOne(name)
     return render_template('display.html', person=person)
 
