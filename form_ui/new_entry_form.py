@@ -59,7 +59,7 @@ def hello():
             filename = 'default.jpg'
         if form.validate():
             flash(filename)
-            add_person.addOne(name, degree, school, year, occupation, facts, filename, hidden)
+            add_person.addOne(name, degree, school, ex, year, occupation, facts, filename, hidden)
             print("upload to database successful")
         else:
             flash('All the form fields are required.')

@@ -27,6 +27,9 @@ p.name {
 p.image {
 	display: none;
 }
+p.ex {
+	display: none;
+}
 p.facts {
 	white-space: pre-wrap;
 	padding-bottom: 10px;

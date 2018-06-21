@@ -11,6 +11,9 @@
         <p><img src="../static/imj/{{ person['image_name'] }}" width="200" height="160" alt="image"></p>
         <p>
           {% for key in person %}
+            {% if key == 'ex' and person[key] == 1 %}
+              <p class='expected'>ex </p>
+            {% endif %}
             <p class='{{ key }}'> {{ person[key] }} </p>
           {% endfor %}
         </p>
