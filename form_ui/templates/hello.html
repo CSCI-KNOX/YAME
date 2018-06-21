@@ -40,10 +40,9 @@
               <label for="degree">Degree or Faculty/Staff: </label>
               <input type="text" class="form-control" id="degree" name="degree">
               <br>
-              <!-- <p name="year" id="year">Graduation Year: </p> -->
               <label for="year">Graduation Year: </label>
               <div class="form-control" id="year" name="year"> </div>
-              <br>
+              <input type="checkbox" class="form-control" name="ex">Expected Degree<br>
               <label for="occupation">Occupation or industry: </label>
               <input type="text" class="form-control" id="occupation" name="occupation">
               <br>
@@ -51,21 +50,23 @@
               <br>
               <label for="school">School: </label>
               <select name="school">
-                <option value="artsandsciences">College of Arts & Sciences</option>
-                <option value="leedsbusiness">Leeds School of Business</option>
-                <option value="education">School of Education</option>
-                <option value="engineering">College of Engineering and Applied Science</option>
-                <option value="graduate">Graduate School</option>
-                <option value="lawschool">University of Colorado Law School</option>
-                <option value="media">College of Media, Communication and Information</option>
-                <option value="music">College of Music</option>
-                <option value="continuinged">Continuing Education and Professional Studies</option>
-                <option value="libraries">University Libraries</option>
-                <option value="envdesign">Program in Environmental Design</option>
+                <option value="College of Arts & Sciences">College of Arts & Sciences</option>
+                <option value="Leeds School of Business">Leeds School of Business</option>
+                <option value="School of Education">School of Education</option>
+                <option value="College of Engineering and Applied Science">College of Engineering and Applied Science</option>
+                <option value="Graduate School">Graduate School</option>
+                <option value="University of Colorado Law School">University of Colorado Law School</option>
+                <option value="College of Media, Communication and Information">College of Media, Communication and Information</option>
+                <option value="College of Music">College of Music</option>
+                <option value="Continuing Education and Professional Studies">Continuing Education and Professional Studies</option>
+                <option value="University Libraries">University Libraries</option>
+                <option value="Program in Environmental Design">Program in Environmental Design</option>
               </select>
               <br>
-              <label for="facts">Facts: </label>
-              <textarea class="form-control" id="facts" name="facts" rows="4" cols="45"></textarea>
+              <label for="facts">Fact: </label>
+              <input type="text" class="form-control" id="facts" name="facts"><input type="checkbox" class="form-control" name="name">Show on display<br>
+              <div id="container"></div>
+              <a href="#" id="filldetails" onclick="moreFacts()">Add another fact</a> 
               <br>
               <input type="checkbox" class="form-control" name="hidden">Hidden<br>
             </div>

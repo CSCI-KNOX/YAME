@@ -21,6 +21,14 @@ app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
 UPLOAD_FOLDER = 'static/imj'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
+def checkbox(id):
+    try:
+        value = request.form[id]
+        value = 1
+    except:
+        value = 0
+    return value
+
 class ReusableForm(Form):
     name = TextField('Name:')
     degree = TextField('Degree or Faculty/Staff:') #, validators=[validators.required()]
@@ -37,15 +45,11 @@ def hello():
         degree=request.form['degree']
         school=request.form['school']
         year=request.form['year']
+        ex = checkbox('ex')
         occupation=request.form['occupation']
         facts=request.form['facts']
         file = request.files['image']
-        try:
-            hidden = request.form['hidden']
-            hidden = 1
-        except:
-            hidden = 0
-        # If the user put in a photo
+        hidden = checkbox('hidden')
         if file:
             f = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
             file.save(f)
@@ -132,3 +136,4 @@ def search():
     return render_template('search.html', form=form, person=person)
 if __name__ == "__main__":
     app.run()
+
