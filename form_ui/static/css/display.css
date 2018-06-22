@@ -44,7 +44,11 @@ p.facts {
 p.image_name {
 	display: none;
 }
+p.alt_txt {
+	display: none;
+}
 p.hidden {
 	display: none;
 }
+
 /* If it is not of a certain display class then don't show it */
