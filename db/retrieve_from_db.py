@@ -19,7 +19,6 @@ def getOne(toFind): #get a person named p, if duplicates, finds the most recentl
     db = client.prototype #name of the db
     col = client.people #name of the collection
     cursor = {}
-    print ("to FIND", toFind)
     for s in toFind:
         if toFind[s] != '': #only search on attribute that was entered in the form
             cursor = db.people.find({s: re.compile(toFind[s], re.IGNORECASE)})
