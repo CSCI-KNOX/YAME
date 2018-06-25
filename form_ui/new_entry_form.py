@@ -99,7 +99,7 @@ def edit():
             filename = 'default.jpg'
         if form.validate():
             flash(person['name'])
-            edit_person.editOne(person['_id'], name, degree, school, ex, year, occupation, facts, filename, alt_txt, hidden) 
+            edit_person.editOne(person['_id'], name, degree, school, ex, year, occupation, facts, filename, alt_txt, hidden)
             print("edit to database successful")
         else:
             flash('All the form fields are required.')
@@ -126,14 +126,16 @@ def display():
 def search():
     form = ReusableForm(request.form)
     print (form.errors)
+    person = []
+    toFind = {}
     if request.method == 'POST':
-        name=request.form['name'] # key value pairs
-        degree=request.form['degree']
+        # name=request.form['name'] # key value pairs
+        toFind['name'] = request.form['name']
+        toFind['degree'] = request.form['degree']
     else:
         name = 'nothing'
         degree = 'nothing'
-    person = retrieve_from_db.getOne(name)
+    person = retrieve_from_db.getOne(toFind)
     return render_template('search.html', form=form, person=person)
 if __name__ == "__main__":
     app.run()
-
