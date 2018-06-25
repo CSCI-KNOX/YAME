@@ -47,7 +47,6 @@ def howManyAreSame(toFind): #how many people with the same name??
     return count
 
 def getAll(): #get all names in the database to print to the screen
-
     client = pymongo.MongoClient("mongodb+srv://erinruby:colorado18@yame-project-6ex3z.mongodb.net/test?retryWrites=true") #ERIN's LOGIN
     db = client.prototype #name of the db
     col = client.people #name of the collection
