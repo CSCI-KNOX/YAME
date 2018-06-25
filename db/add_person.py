@@ -4,7 +4,7 @@ import gridfs
 import os
 #hello
 #example: python add_person.py erin cs student
-def addOne(name, degree, school, ex, year, occupation, facts, photo, hidden):
+def addOne(name, degree, school, ex, year, occupation, facts, photo, alt_txt, hidden):
     client = pymongo.MongoClient("mongodb+srv://erinruby:colorado18@yame-project-6ex3z.mongodb.net/test?retryWrites=true") #ERIN's LOGIN
     db = client.prototype #name of the db
     col = client.people #name of the collection
@@ -25,6 +25,7 @@ def addOne(name, degree, school, ex, year, occupation, facts, photo, hidden):
             "facts": facts,
             "image": im,
             "image_name": photo,
+            "alt_txt": alt_txt,
             "hidden": hidden}
     if (db.people.insert_one(person).inserted_id != 0):
         print (person['name'], "successfully added!")

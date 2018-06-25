@@ -30,34 +30,44 @@
               <label for="degree">Degree or Faculty/Staff: </label>
               <input type="text" class="form-control" id="degree" name="degree" value="{{ person['degree'] }}">
               <br>
-              <!-- <p name="year" id="year">Graduation Year: </p> -->
-<!--               <label for="year">Graduation Year: </label>
-              <div class="form-control" id="year" name="year" value="{{ person['year'] }}"> </div>
               <br>
+              <label for="year">Graduation Year: </label>
+              <div class="form-control" id="year" name="year"> </div>
+              <!-- AUTOFILL YEAR -->
+              <input type="checkbox" class="form-control" name="ex" value="{{ person['ex'] }}">Expected Degree<br><br>
               <label for="occupation">Occupation or industry: </label>
               <input type="text" class="form-control" id="occupation" name="occupation" value="{{ person['occupation'] }}">
+              <br><br>
+              <span class="btn btn-default btn-file">Upload An Image: <input type="file" name="image"></span>
+              <!-- AUTOFILL IMAGE -->
               <br>
-              <span class="btn btn-default btn-file">Upload An Image: <input type="file" name="image" value="{{ person['image'] }}"></span>
-              <br>
+              <label for="alt_txt">Alt text: </label>
+              <input type="text" class="form-control" id="alt_txt" name="alt_txt" value="{{ person['alt_txt'] }}">
+              <!-- show image when uploaded -->
+              <br><br>
               <label for="school">School: </label>
-              <select name="school">
-                <option value="artsandsciences">College of Arts & Sciences</option>
-                <option value="leedsbusiness">Leeds School of Business</option>
-                <option value="education">School of Education</option>
-                <option value="engineering">College of Engineering and Applied Science</option>
-                <option value="graduate">Graduate School</option>
-                <option value="lawschool">University of Colorado Law School</option>
-                <option value="media">College of Media, Communication and Information</option>
-                <option value="music">College of Music</option>
-                <option value="continuinged">Continuing Education and Professional Studies</option>
-                <option value="libraries">University Libraries</option>
-                <option value="envdesign">Program in Environmental Design</option>
+              <select name="school" value="{{ person['school'] }}">
+                <option value="College of Arts & Sciences">College of Arts & Sciences</option>
+                <option value="Leeds School of Business">Leeds School of Business</option>
+                <option value="School of Education">School of Education</option>
+                <option value="College of Engineering and Applied Science">College of Engineering and Applied Science</option>
+                <option value="Graduate School">Graduate School</option>
+                <option value="University of Colorado Law School">University of Colorado Law School</option>
+                <option value="College of Media, Communication and Information">College of Media, Communication and Information</option>
+                <option value="College of Music">College of Music</option>
+                <option value="Continuing Education and Professional Studies">Continuing Education and Professional Studies</option>
+                <option value="University Libraries">University Libraries</option>
+                <option value="Program in Environmental Design">Program in Environmental Design</option>
               </select>
-              <br>
-              <label for="facts">Facts: </label>
-              <textarea class="form-control" id="facts" name="facts" rows="4" cols="45" value="{{ person['facts'] }}"></textarea>
-              <br>
-              <input type="checkbox" class="form-control" name="hidden" value="{{ person['hidden'] }}">Hidden<br> -->
+              <!-- AUTOFILL SCHOOL -->
+              <br><br>
+              <!-- Maybe store number of facts somewhere in database so we know how many forms to show and populate -->
+              <label for="facts">Fact: </label>
+              <input type="text" class="form-control" id="facts" name="facts" value="{{ person['facts'] }}"><input type="checkbox" class="form-control" name="name"">Show on display<br>
+              <div id="container"></div>
+              <a href="#" id="filldetails" onclick="moreFacts()">Add another fact</a> 
+              <br><br>
+              <input type="checkbox" class="form-control" name="hidden" value="{{ person['hidden'] }}">Hidden<br>
             </div>
             <div class="input submit">
                 <input type="submit" value="Submit" />

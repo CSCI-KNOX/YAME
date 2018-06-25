@@ -49,6 +49,7 @@ def hello():
         occupation=request.form['occupation']
         facts=request.form['facts']
         file = request.files['image']
+        alt_txt = request.form['alt_txt']
         hidden = checkbox('hidden')
         if file:
             f = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
@@ -59,7 +60,7 @@ def hello():
             filename = 'default.jpg'
         if form.validate():
             flash(filename)
-            add_person.addOne(name, degree, school, ex, year, occupation, facts, filename, hidden)
+            add_person.addOne(name, degree, school, ex, year, occupation, facts, filename, alt_txt, hidden)
             print("upload to database successful")
         else:
             flash('All the form fields are required.')
@@ -81,27 +82,24 @@ def edit():
     if request.method == 'POST':
         name=request.form['name']
         degree=request.form['degree']
-        # school=request.form['school']
-        # year=request.form['year']
-        # occupation=request.form['occupation']
-        # facts=request.form['facts']
-        # file = request.files['image']
-        # try:
-        #     hidden = request.form['hidden']
-        #     hidden = 1
-        # except:
-        #     hidden = 0
-        # if file:
-        #     f = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
-        #     file.save(f)
-        #     filename = file.filename
-
-        #     # Also remove old file here ?
-        # else:
-        #     filename = 'default.jpg'
+        school=request.form['school']
+        year=request.form['year']
+        ex = checkbox('ex')
+        occupation=request.form['occupation']
+        facts=request.form['facts']
+        file = request.files['image']
+        alt_txt = request.form['alt_txt']
+        hidden = checkbox('hidden')
+        if file:
+            f = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
+            file.save(f)
+            filename = file.filename
+        # Use default photo
+        else:
+            filename = 'default.jpg'
         if form.validate():
             flash(person['name'])
-            edit_person.editOne(person['_id'], name, degree) # , school, year, occupation, facts, filename, hidden
+            edit_person.editOne(person['_id'], name, degree, school, ex, year, occupation, facts, filename, alt_txt, hidden) 
             print("edit to database successful")
         else:
             flash('All the form fields are required.')

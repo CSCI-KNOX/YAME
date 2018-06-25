@@ -8,7 +8,7 @@
     <body>
       <div class="about">
         <h1> {{ person['name'] }} </h1>
-        <p><img src="../static/imj/{{ person['image_name'] }}" width="200" height="160" alt="image"></p>
+        <p><img src="../static/imj/{{ person['image_name'] }}" width="200" height="160" alt="{{ person['alt_txt'] }}" title="{{ person['alt_txt'] }}"></p>
         <p>
           {% for key in person %}
             {% if key == 'ex' and person[key] == 1 %}
