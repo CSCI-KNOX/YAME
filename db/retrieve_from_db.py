@@ -31,6 +31,20 @@ def getOne(toFind): #get a person named p, if duplicates, finds the most recentl
         print ("Cannot find who you are looking for")
     return person
 
+def getOneforDisplay(name): #get a person named p, if duplicates, finds the most recently added one
+    client = pymongo.MongoClient("mongodb+srv://erinruby:colorado18@yame-project-6ex3z.mongodb.net/test?retryWrites=true") #ERIN's LOGIN
+    db = client.prototype #name of the db
+    col = client.people #name of the collection
+    cursor = db.people.find({'name': re.compile(name, re.IGNORECASE)})
+    exist = 0
+    person = []
+    for att in cursor:
+        person = att
+        exist = 1
+    if not exist:
+        print ("Cannot find who you are looking for")
+    return person
+
 def howManyAreSame(toFind): #how many people with the same name??
 
     client = pymongo.MongoClient("mongodb+srv://erinruby:colorado18@yame-project-6ex3z.mongodb.net/test?retryWrites=true") #ERIN's LOGIN
