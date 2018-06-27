@@ -69,7 +69,6 @@ def hello():
 
 @app.route("/people/", methods=['GET', 'POST'])
 def people():
-
     personarr = retrieve_from_db.getAll() #returns all people in the database
     return render_template('people.html', people = personarr)
 
@@ -78,7 +77,7 @@ def people():
 def edit():
     form = ReusableForm(request.form)
     name = request.args.get('name')
-    person = retrieve_from_db.getOne(name)
+    person = retrieve_from_db.getOneforDisplay(name)
     if request.method == 'POST':
         name=request.form['name']
         degree=request.form['degree']
@@ -109,7 +108,7 @@ def edit():
 @app.route("/person/", methods=['GET', 'POST'])
 def person():
     name = request.args.get('name')
-    person = retrieve_from_db.getOne(name)
+    person = retrieve_from_db.getOneforDisplay(name)
     return render_template('person.html', person=person)
 
 
@@ -132,15 +131,20 @@ def search():
         # name=request.form['name'] # key value pairs
         toFind['name'] = request.form['name']
         toFind['degree'] = request.form['degree']
-        toFind['school'] = request.form['school']
-        toFind['year'] = request.form['year']
+        try:
+            toFind['school'] = request.form['school']
+        except:
+            toFind['school'] = ''
+        try:
+            toFind['year'] = request.form['year']
+        except:
+            toFind['year'] = ''
         toFind['occupation'] = request.form['occupation']
-
-
+        person = retrieve_from_db.getOne(toFind)
     else:
         name = 'nothing'
         degree = 'nothing'
-    person = retrieve_from_db.getOne(toFind)
+    # person = retrieve_from_db.getOne(toFind)
     return render_template('search.html', form=form, person=person)
 if __name__ == "__main__":
     app.run()

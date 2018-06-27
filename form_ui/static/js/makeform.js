@@ -12,6 +12,12 @@ function makeSelect() {
 	selectList.setAttribute("name", "year");
 	myDiv.appendChild(selectList);
 
+	var option = document.createElement("option");
+	option.setAttribute("value", '');
+	option.text = '';
+	option.selected = true;
+	selectList.appendChild(option);
+
 	//Create and append the options
 	for (var i = 0; i < array.length; i++) {
 	    var option = document.createElement("option");
