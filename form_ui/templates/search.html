@@ -4,7 +4,9 @@
 <html>
    <head>
       <title>Search for a Person</title>
-      <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/search1.css') }}">
+      <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/search31.css') }}">
+      <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <meta name="viewport" content="width = device-width, initial-scale =1.0"/>
    </head>
    <body>
      <script src="../static/js/makeform.js"></script>
@@ -25,20 +27,29 @@
            {{ form.csrf }}
 
            <div class="form-group">
+            <div class="names">
              <label for="name">Name: </label>
              <input type="text" class="form-control" id="name" name="name">
+           </div>
              <!-- show image when uploaded -->
              <br>
+             <div class="degSta">
              <label for="degree">Degree or Faculty/Staff: </label>
              <input type="text" class="form-control" id="degree" name="degree">
+              </div>
              <br>
+             <div class="grads">
              <p name="year" id="year">Graduation Year: </p>
              <label for="year">Graduation Year: </label>
              <div class="form-control" id="year" name="year"> </div>
+              </div>
              <br>
+             <div class="occ">
              <label for="occupation">Occupation or industry: </label>
              <input type="text" class="form-control" id="occupation" name="occupation">
+           </div>
              <br>
+             <div class="schoo">
              <label for="school">School: </label>
              <select name="school">
                <option value="artsandsciences">College of Arts & Sciences</option>
@@ -53,6 +64,7 @@
                <option value="libraries">University Libraries</option>
                <option value="envdesign">Program in Environmental Design</option>
              </select>
+           </div>
              <br>
            </div>
            <div class="input submit">
