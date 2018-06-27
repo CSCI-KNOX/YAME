@@ -132,6 +132,11 @@ def search():
         # name=request.form['name'] # key value pairs
         toFind['name'] = request.form['name']
         toFind['degree'] = request.form['degree']
+        toFind['school'] = request.form['school']
+        toFind['year'] = request.form['year']
+        toFind['occupation'] = request.form['occupation']
+
+
     else:
         name = 'nothing'
         degree = 'nothing'
