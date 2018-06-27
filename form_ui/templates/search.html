@@ -30,6 +30,9 @@
                <br>
                 <h1>Results</h1>
               {% endif %}
+              {% if person == 'none' %}
+                <p>No results found.</p>
+              {% endif %}
               {% for p in person %}
                 <p><a href='/person/?name={{ p['name'] }}' >{{ p['name'] }}</a></p> 
               {% endfor %}

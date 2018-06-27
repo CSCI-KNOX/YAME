@@ -29,6 +29,7 @@ def getOne(toFind): #get a person named p, if duplicates, finds the most recentl
         exist = 1
     if not exist:
         print ("Cannot find who you are looking for")
+        person = 'none'
     return person
 
 def getOneforDisplay(name): #get a person named p, if duplicates, finds the most recently added one
