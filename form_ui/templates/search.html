@@ -23,6 +23,24 @@
              </nav></strong>
            </div>
          </header>
+      <ul>
+          <div class="about">
+            <p>
+              {% if person %}
+               <br>
+                <h1>Results</h1>
+              {% endif %}
+              {% for p in person %}
+                <p><a href='/person/?name={{ p['name'] }}' >{{ p['name'] }}</a></p> 
+              {% endfor %}
+              {% if person %}
+               <br><br>
+               <h2> Search again</h2>
+              {% endif %}
+            </p>
+          </div>
+      </ul>
+
       <form action="" method="post" enctype="multipart/form-data">
            {{ form.csrf }}
 
@@ -39,7 +57,6 @@
               </div>
              <br>
              <div class="grads">
-             <p name="year" id="year">Graduation Year: </p>
              <label for="year">Graduation Year: </label>
              <div class="form-control" id="year" name="year"> </div>
               </div>
@@ -73,15 +90,7 @@
            </div>
 
       </form>
-      <ul>
-          <div class="about">
-            <p>
-              {% for p in person %}
-                <p> {{ 'name' }} : {{ p['name'] }} </p>
-              {% endfor %}
-            </p>
-          </div>
-      </ul>
+      
 
    </body>
 </html>
