@@ -34,6 +34,10 @@
         {% endwith %}
         <form action="" method="post" enctype="multipart/form-data">
             {{ form.csrf }}
+            <div class="columns">
+            <div class="nothing1">
+                <p></p>
+            </div>
 
             <div class="form-group">
               <label for="name">Name: </label>
@@ -78,7 +82,12 @@
               <br><br>
               <input type="checkbox" class="form-control" name="hidden">Hidden<br>
             </div>
-            <div class="input submit">
+            <div class="nothing2">
+                <p></p>
+            </div>
+
+          </div>
+            <div class="inputSubmit">
                 <input type="submit" value="Submit" />
             </div>
         </form>
