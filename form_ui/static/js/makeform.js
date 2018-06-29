@@ -1,5 +1,4 @@
 function makeSelect(value='') {
-	console.log(value);
 	var myDiv = document.getElementById('year');
 	var d = new Date();
 	var y = d.getFullYear() + 4;

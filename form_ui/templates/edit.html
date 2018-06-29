@@ -38,7 +38,11 @@
               <label for="year">Graduation Year: </label>
               <div class="form-control" id="year" name="year"> </div>
               <!-- AUTOFILL YEAR -->
-              <input type="checkbox" class="form-control" name="ex" value="{{ person['ex'] }}">Expected Degree<br><br>
+              {% if person['ex'] == 1 %}
+                <input type="checkbox" class="form-control" name="ex" value="{{ person['ex'] }}" checked>Expected Degree<br><br>
+              {% else %}
+                <input type="checkbox" class="form-control" name="ex" value="{{ person['ex'] }}">Expected Degree<br><br>
+              {% endif %}
               <label for="occupation">Occupation or industry: </label>
               <input type="text" class="form-control" id="occupation" name="occupation" value="{{ person['occupation'] }}">
               <br><br>
@@ -71,7 +75,11 @@
               <div id="container"></div>
               <a href="#" id="filldetails" onclick="moreFacts()">Add another fact</a> 
               <br><br>
-              <input type="checkbox" class="form-control" name="hidden" value="{{ person['hidden'] }}">Hidden<br>
+              {% if person['hidden'] == 1 %}
+                <input type="checkbox" class="form-control" name="hidden" value="{{ person['hidden'] }}" checked>Hidden<br>
+              {% else %}
+                <input type="checkbox" class="form-control" name="hidden" value="{{ person['hidden'] }}">Hidden<br>
+              {% endif %}
             </div>
             <div class="input submit">
                 <input type="submit" value="Submit" />
