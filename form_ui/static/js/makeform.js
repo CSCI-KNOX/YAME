@@ -1,4 +1,5 @@
-function makeSelect() {
+function makeSelect(value='') {
+	console.log(value);
 	var myDiv = document.getElementById('year');
 	var d = new Date();
 	var y = d.getFullYear() + 4;
@@ -25,6 +26,7 @@ function makeSelect() {
 	    option.text = array[i];
 	    selectList.appendChild(option);
 	}
+	selectList.value = value;
 }
 
 function moreFacts() {
@@ -54,4 +56,4 @@ function moreFacts() {
     container.appendChild(document.createElement("br"));
 }
 
-window.onload = makeSelect;
+// window.onload = makeSelect;
