@@ -13,9 +13,10 @@ function makeSelect(value='') {
 	myDiv.appendChild(selectList);
 
 	var option = document.createElement("option");
-	option.setAttribute("value", '');
+	option.setAttribute("value", ' -- select -- ');
 	option.text = '';
 	option.selected = true;
+	option.disabled = true;
 	selectList.appendChild(option);
 
 	//Create and append the options

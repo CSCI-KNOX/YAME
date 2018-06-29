@@ -14,14 +14,17 @@
               <h1 class="logo">Edit {{ person['name'] }}</h1>
               <strong><nav>
                 <ul class="menu">
-                  <li><a href="{{ url_for('hello') }}">Home</a></li>
+                  <li><a href="{{ url_for('hello') }}">Add a Person</a></li>
                   <li><a href="{{ url_for('people') }}">People In Database</a></li>
+                  <li><a href="{{ url_for('search') }}">Search for a person</a></li>
+                  <li><a href="{{ url_for('display') }}">Display</a></li>
                 </ul>
               </nav></strong>
             </div>
           </header>
     	<div class="about">
-	    	<p>This is a placeholder for the edit page.</p>
+        <br>
+	    	<p>Edit {{ person['name'] }}'s profile</p>
         <!-- Pull person passed in from database and display their information in the form -->
         <form action="" method="post" enctype="multipart/form-data">
             {{ form.csrf }}
