@@ -18,10 +18,8 @@ def getOne(toFind): #get a person named p, if duplicates, finds the most recentl
     client = pymongo.MongoClient("mongodb+srv://erinruby:colorado18@yame-project-6ex3z.mongodb.net/test?retryWrites=true") #ERIN's LOGIN
     db = client.prototype #name of the db
     col = client.people #name of the collection
-    cursor = {}
-    for s in toFind:
-        if toFind[s] != '': #only search on attribute that was entered in the form
-            cursor = db.people.find({s: re.compile(toFind[s], re.IGNORECASE)})
+    cursor = db.people.find({"$or": [{s: re.compile(toFind[s], re.IGNORECASE)} for s in toFind if toFind[s] != '']})
+    # ------------
     exist = 0
     person = []
     for att in cursor:
@@ -32,7 +30,7 @@ def getOne(toFind): #get a person named p, if duplicates, finds the most recentl
         person = 'none'
     return person
 
-def getOneforDisplay(name): #get a person named p, if duplicates, finds the most recently added one
+def getOneforDisplay(name): #get a person named name
     client = pymongo.MongoClient("mongodb+srv://erinruby:colorado18@yame-project-6ex3z.mongodb.net/test?retryWrites=true") #ERIN's LOGIN
     db = client.prototype #name of the db
     col = client.people #name of the collection
