@@ -50,7 +50,7 @@
               <input type="text" class="form-control" id="occupation" name="occupation" value="{{ person['occupation'] }}">
               <br><br>
               <span class="btn btn-default btn-file">Upload An Image: <input type="file" name="image"></span>
-              <!-- AUTOFILL IMAGE -->
+              <p><img src="../static/imj/{{ person['image_name'] }}' width='200' height='160' alt='{{ person['alt_txt'] }}' title='{{ person['alt_txt'] }}"></p>
               <br>
               <label for="alt_txt">Alt text: </label>
               <input type="text" class="form-control" id="alt_txt" name="alt_txt" value="{{ person['alt_txt'] }}">

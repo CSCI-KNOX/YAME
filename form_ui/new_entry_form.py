@@ -95,7 +95,7 @@ def edit():
             filename = file.filename
         # Use default photo
         else:
-            filename = 'default.jpg'
+            filename = person['image_name']
         if form.validate():
             flash(person['name'])
             edit_person.editOne(person['_id'], name, degree, school, ex, year, occupation, facts, filename, alt_txt, hidden)
