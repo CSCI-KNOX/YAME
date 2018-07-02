@@ -29,20 +29,8 @@
         <button class="tablink" onclick="openCity('Person{{ i }}', this, 'green')">{{ personarr[i]['name'] }}</button>
       {% endfor %}
       </div>
-
-      <script type="text/javascript">
-        $(document).ready(
-          function(){
-            $('#image_rotate').innerfade({   
-                speed: 'slow',   
-                timeout:3000 ,   
-                type: 'sequence',   
-                containerheight: '248px'  
-            });
-          }
-        );
-      </script>
-
+      <button onclick="scrollMe('left')"> < </button>
+      <button onclick="scrollMe('right')"> > </button>
     </body>
 </html>
 

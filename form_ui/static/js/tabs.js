@@ -18,3 +18,12 @@ function openCity(cityName, elmnt, color) {
     // Add the specific color to the button used to open the tab content
     elmnt.style.backgroundColor = '#777';
 }
+
+function scrollMe(direction){
+    if (direction == 'left') {
+        document.getElementById("image_rotate").scrollLeft -= 100;
+    }
+    else {
+        document.getElementById("image_rotate").scrollLeft += 100;
+    }
+}
