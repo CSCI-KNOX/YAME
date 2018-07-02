@@ -114,12 +114,13 @@ def person():
 
 @app.route("/display/", methods=['GET', 'POST'])
 def display():
-    name = request.args.get('name')
-    if name==None:
-        personarr = retrieve_from_db.getAll()
-        name = np.random.choice(personarr)
-    person = retrieve_from_db.getOneforDisplay(name)
-    return render_template('display.html', person=person)
+    # name = request.args.get('name')
+    # if name==None:
+    #     personarr = retrieve_from_db.getAll()
+    #     name = np.random.choice(personarr)
+    # person = retrieve_from_db.getOneforDisplay(name)
+    personarr = retrieve_from_db.getAll()
+    return render_template('display.html', personarr=personarr) # person=person
 
 @app.route("/search/", methods=['GET', 'POST'])
 def search():

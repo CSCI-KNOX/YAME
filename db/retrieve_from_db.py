@@ -67,12 +67,12 @@ def getAll(): #get all names in the database to print to the screen
     col = client.people #name of the collection
 
     cursor = db.people.find({'hidden' : 0})
-    personarr = []
-    for att in cursor:
-        n = att["name"]
-        n = n.replace('+', ' ')
-        personarr.append(n)
-    return personarr
+    # personarr = []
+    # for att in cursor:
+    #     n = att["name"]
+    #     n = n.replace('+', ' ')
+    #     personarr.append(n)
+    return cursor
 
 # def main():
 #

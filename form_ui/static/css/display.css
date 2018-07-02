@@ -21,8 +21,8 @@ img {
     margin: 0 auto;
 }
 .about {
-	background-color: white;
-	width: 30%;
+	background-color: #777;
+	width: 100%;
 }
 p {
 	padding: 0 20px;
@@ -59,5 +59,45 @@ p.alt_txt {
 p.hidden {
 	display: none;
 }
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the tab buttons */
+.tablink {
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 25%;
+}
+
+/* Change background color of buttons on hover */
+.tablink:hover {
+    background-color: #777;
+}
+
+/* Set default styles for tab content */
+.tabcontent {
+    color: white;
+    display: none;
+    padding: 50px;
+    text-align: center;
+}
+
+/* Style each tab content individually */ 
+#Person1 {
+	height: 30em;
+	display: block;
+}
+#Person2 {height: 30em;}
+#Person3 {height: 30em;}
+#Person4 {height: 30em;}
 
 /* If it is not of a certain display class then don't show it */

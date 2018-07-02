@@ -1,22 +1,68 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>{{ person['name'] }}</title>
+        <title>Display</title>
         <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/display.css') }}">
+        <script src="../static/js/tabs.js" defer></script>
         <!-- <meta http-equiv="refresh" content="1"> -->
     </head>
     <body>
       <div class="about">
-        <h1> {{ person['name'] }} </h1>
-        <p><img src="../static/imj/{{ person['image_name'] }}" width="200" height="160" alt="{{ person['alt_txt'] }}" title="{{ person['alt_txt'] }}"></p>
+      <div id="Person1" class="tabcontent">
+        <h1>{{ personarr[0]['name'] }}</h1>
+        <p><img src="../static/imj/{{ personarr[0]['image_name'] }}" width="200" height="160" alt="{{ personarr[0]['alt_txt'] }}" title="{{ personarr[0]['alt_txt'] }}"></p>
         <p>
-          {% for key in person %}
-            {% if key == 'ex' and person[key] == 1 %}
+          {% for key in personarr[0] %}
+            {% if key == 'ex' and personarr[0][key] == 1 %}
               <p class='expected'>ex </p>
             {% endif %}
-            <p class='{{ key }}'> {{ person[key] }} </p>
+            <p class='{{ key }}'> {{ personarr[0][key] }} </p>
           {% endfor %}
         </p>
       </div>
+
+      <div id="Person2" class="tabcontent">
+        <h1>{{ personarr[1]['name'] }}</h1>
+        <p><img src="../static/imj/{{ personarr[1]['image_name'] }}" width="200" height="160" alt="{{ personarr[1]['alt_txt'] }}" title="{{ personarr[1]['alt_txt'] }}"></p>
+        <p>
+          {% for key in personarr[1] %}
+            {% if key == 'ex' and personarr[1][key] == 1 %}
+              <p class='expected'>ex </p>
+            {% endif %}
+            <p class='{{ key }}'> {{ personarr[1][key] }} </p>
+          {% endfor %}
+        </p>
+      </div>
+
+      <div id="Person3" class="tabcontent">
+        <h1>{{ personarr[2]['name'] }}</h1>
+        <p><img src="../static/imj/{{ personarr[2]['image_name'] }}" width="200" height="160" alt="{{ personarr[2]['alt_txt'] }}" title="{{ personarr[2]['alt_txt'] }}"></p>
+        <p>
+          {% for key in personarr[2] %}
+            {% if key == 'ex' and personarr[2][key] == 1 %}
+              <p class='expected'>ex </p>
+            {% endif %}
+            <p class='{{ key }}'> {{ personarr[2][key] }} </p>
+          {% endfor %}
+        </p>
+      </div>
+
+      <div id="Person4" class="tabcontent">
+        <h1>{{ personarr[3]['name'] }}</h1>
+        <p><img src="../static/imj/{{ personarr[3]['image_name'] }}" width="200" height="160" alt="{{ personarr[3]['alt_txt'] }}" title="{{ personarr[3]['alt_txt'] }}"></p>
+        <p>
+          {% for key in personarr[3] %}
+            {% if key == 'ex' and personarr[3][key] == 1 %}
+              <p class='expected'>ex </p>
+            {% endif %}
+            <p class='{{ key }}'> {{ personarr[3][key] }} </p>
+          {% endfor %}
+        </p>
+      </div>
+    </div>
+        <button class="tablink" onclick="openCity('Person1', this, 'red')" id="defaultOpen">{{ personarr[0]['name'] }}</button>
+        <button class="tablink" onclick="openCity('Person2', this, 'green')">{{ personarr[1]['name'] }}</button>
+        <button class="tablink" onclick="openCity('Person3', this, 'blue')">{{ personarr[2]['name'] }}</button>
+        <button class="tablink" onclick="openCity('Person4', this, 'orange')">{{ personarr[3]['name'] }}</button>
     </body>
 </html>
