@@ -23,11 +23,26 @@
       </div>
       {% endfor %}
     </div>
-    <div class="buttons">
+    <div class="buttons" id="image_rotate">
       <button class="tablink" onclick="openCity('Person0', this, 'red')" id="defaultOpen">{{ personarr[0]['name'] }}</button>
       {% for i in range(1, personarr.count()) %}
         <button class="tablink" onclick="openCity('Person{{ i }}', this, 'green')">{{ personarr[i]['name'] }}</button>
       {% endfor %}
       </div>
+
+      <script type="text/javascript">
+        $(document).ready(
+          function(){
+            $('#image_rotate').innerfade({   
+                speed: 'slow',   
+                timeout:3000 ,   
+                type: 'sequence',   
+                containerheight: '248px'  
+            });
+          }
+        );
+      </script>
+
     </body>
 </html>
+
