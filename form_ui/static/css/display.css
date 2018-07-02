@@ -23,6 +23,7 @@ img {
 .about {
 	background-color: #777;
 	width: 100%;
+	height: 30em;
 }
 p {
 	padding: 0 20px;
@@ -92,12 +93,8 @@ p.hidden {
 }
 
 /* Style each tab content individually */ 
-#Person1 {
-	height: 30em;
+#Person0 {
 	display: block;
-}
-#Person2, #Person3, #Person4 {
-	height: 30em;
 }
 
 /* If it is not of a certain display class then don't show it */
