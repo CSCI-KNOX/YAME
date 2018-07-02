@@ -70,7 +70,7 @@ p.hidden {
     background-color: #555;
     color: white;
     float: left;
-    border: none;
+    border: solid 1px #777;
     outline: none;
     cursor: pointer;
     padding: 14px 16px;
@@ -96,8 +96,8 @@ p.hidden {
 	height: 30em;
 	display: block;
 }
-#Person2 {height: 30em;}
-#Person3 {height: 30em;}
-#Person4 {height: 30em;}
+#Person2, #Person3, #Person4 {
+	height: 30em;
+}
 
 /* If it is not of a certain display class then don't show it */

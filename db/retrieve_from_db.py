@@ -67,11 +67,19 @@ def getAll(): #get all names in the database to print to the screen
     col = client.people #name of the collection
 
     cursor = db.people.find({'hidden' : 0})
-    # personarr = []
-    # for att in cursor:
-    #     n = att["name"]
-    #     n = n.replace('+', ' ')
-    #     personarr.append(n)
+    personarr = []
+    for att in cursor:
+        n = att["name"]
+        n = n.replace('+', ' ')
+        personarr.append(n)
+    return personarr
+
+def getAllContent():
+    client = pymongo.MongoClient("mongodb+srv://erinruby:colorado18@yame-project-6ex3z.mongodb.net/test?retryWrites=true") #ERIN's LOGIN
+    db = client.prototype #name of the db
+    col = client.people #name of the collection
+
+    cursor = db.people.find({'hidden' : 0})
     return cursor
 
 # def main():

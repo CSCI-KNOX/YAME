@@ -119,7 +119,7 @@ def display():
     #     personarr = retrieve_from_db.getAll()
     #     name = np.random.choice(personarr)
     # person = retrieve_from_db.getOneforDisplay(name)
-    personarr = retrieve_from_db.getAll()
+    personarr = retrieve_from_db.getAllContent()
     return render_template('display.html', personarr=personarr) # person=person
 
 @app.route("/search/", methods=['GET', 'POST'])
