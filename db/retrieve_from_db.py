@@ -19,7 +19,6 @@ def getOne(toFind): #get a person named p, if duplicates, finds the most recentl
     db = client.prototype #name of the db
     col = client.people #name of the collection
     cursor = db.people.find({"$or": [{s: re.compile(toFind[s], re.IGNORECASE)} for s in toFind if toFind[s] != '']})
-    # ------------
     exist = 0
     person = []
     for att in cursor:
