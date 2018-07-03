@@ -1,4 +1,4 @@
-function makeSelect() {
+function makeSelect(value='') {
 	var myDiv = document.getElementById('year');
 	var d = new Date();
 	var y = d.getFullYear() + 4;
@@ -13,9 +13,10 @@ function makeSelect() {
 	myDiv.appendChild(selectList);
 
 	var option = document.createElement("option");
-	option.setAttribute("value", '');
+	option.setAttribute("value", ' -- select -- ');
 	option.text = '';
 	option.selected = true;
+	option.disabled = true;
 	selectList.appendChild(option);
 
 	//Create and append the options
@@ -25,6 +26,7 @@ function makeSelect() {
 	    option.text = array[i];
 	    selectList.appendChild(option);
 	}
+	selectList.value = value;
 }
 
 function moreFacts() {
@@ -54,4 +56,4 @@ function moreFacts() {
     container.appendChild(document.createElement("br"));
 }
 
-window.onload = makeSelect;
+// window.onload = makeSelect;

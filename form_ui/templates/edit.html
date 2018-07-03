@@ -8,19 +8,23 @@
       <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <meta name="viewport" content="width = device-width, initial-scale =1.0"/>
       <script src="../static/js/makeform.js"></script>
+      <body onload="makeSelect('{{ person['year'] }}')">
     	<header>
             <div class="container">
               <h1 class="logo">Edit {{ person['name'] }}</h1>
               <strong><nav>
                 <ul class="menu">
-                  <li><a href="{{ url_for('hello') }}">Home</a></li>
+                  <li><a href="{{ url_for('hello') }}">Add a Person</a></li>
                   <li><a href="{{ url_for('people') }}">People In Database</a></li>
+                  <li><a href="{{ url_for('search') }}">Search for a person</a></li>
+                  <li><a href="{{ url_for('display') }}">Display</a></li>
                 </ul>
               </nav></strong>
             </div>
           </header>
     	<div class="about">
-	    	<p>This is a placeholder for the edit page.</p>
+        <br>
+	    	<p>Edit {{ person['name'] }}'s profile</p>
         <!-- Pull person passed in from database and display their information in the form -->
         <form action="" method="post" enctype="multipart/form-data">
             {{ form.csrf }}
@@ -37,12 +41,16 @@
               <label for="year">Graduation Year: </label>
               <div class="form-control" id="year" name="year"> </div>
               <!-- AUTOFILL YEAR -->
-              <input type="checkbox" class="form-control" name="ex" value="{{ person['ex'] }}">Expected Degree<br><br>
+              {% if person['ex'] == 1 %}
+                <input type="checkbox" class="form-control" name="ex" value="{{ person['ex'] }}" checked>Expected Degree<br><br>
+              {% else %}
+                <input type="checkbox" class="form-control" name="ex" value="{{ person['ex'] }}">Expected Degree<br><br>
+              {% endif %}
               <label for="occupation">Occupation or industry: </label>
               <input type="text" class="form-control" id="occupation" name="occupation" value="{{ person['occupation'] }}">
               <br><br>
               <span class="btn btn-default btn-file">Upload An Image: <input type="file" name="image"></span>
-              <!-- AUTOFILL IMAGE -->
+              <p><img src="../static/imj/{{ person['image_name'] }}' width='200' height='160' alt='{{ person['alt_txt'] }}' title='{{ person['alt_txt'] }}"></p>
               <br>
               <label for="alt_txt">Alt text: </label>
               <input type="text" class="form-control" id="alt_txt" name="alt_txt" value="{{ person['alt_txt'] }}">
@@ -70,7 +78,11 @@
               <div id="container"></div>
               <a href="#" id="filldetails" onclick="moreFacts()">Add another fact</a> 
               <br><br>
-              <input type="checkbox" class="form-control" name="hidden" value="{{ person['hidden'] }}">Hidden<br>
+              {% if person['hidden'] == 1 %}
+                <input type="checkbox" class="form-control" name="hidden" value="{{ person['hidden'] }}" checked>Hidden<br>
+              {% else %}
+                <input type="checkbox" class="form-control" name="hidden" value="{{ person['hidden'] }}">Hidden<br>
+              {% endif %}
             </div>
             <div class="input submit">
                 <input type="submit" value="Submit" />

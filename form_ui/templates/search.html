@@ -15,7 +15,7 @@
              <h1 class="logo">Search for {{ request.form['name'] }}</h1>
              <strong><nav>
                <ul class="menu">
-                <li><a href="{{ url_for('hello') }}">Home</a></li>
+                <li><a href="{{ url_for('hello') }}">Add a Person</a></li>
                 <li><a href="{{ url_for('people') }}">People In Database</a></li>
                 <li><a href="{{ url_for('search') }}">Search for a person</a></li>
                 <li><a href="{{ url_for('display') }}">Display</a></li>
@@ -27,18 +27,18 @@
           <div class="about">
             <p>
               {% if person %}
-               <br>
+                <br>
                 <h2>Results</h2>
               {% endif %}
               {% if person == 'none' %}
                 <p>No results found.</p>
               {% endif %}
               {% for p in person %}
-                <p><a href='/person/?name={{ p['name'] }}' >{{ p['name'] }}</a></p> 
+                <p><a href='/person/?name={{ p['name'] }}'>{{ p['name'] }}</a></p> 
               {% endfor %}
               {% if person %}
-               <br><br>
-               <h3> Search again</h3>
+                <br><br>
+                <h3> Search again</h3>
               {% endif %}
             </p>
           </div>
@@ -48,7 +48,7 @@
            {{ form.csrf }}
            <div class="columns">
             <div class="nothing1">
-                <p></p>
+              <p></p>
             </div>
            <div class="form-group">
             <div class="names">
@@ -88,20 +88,16 @@
                <option value="libraries">University Libraries</option>
                <option value="envdesign">Program in Environmental Design</option>
              </select>
-           </div>
-             <br>
-           </div>
-           <div class="nothing2">
-                <p></p>
             </div>
-
+          <br>
           </div>
-           <div class="inputSubmit">
-               <input type="submit" value="Submit" />
-           </div>
-
+          <div class="nothing2">
+            <p></p>
+          </div>
+          </div>
+          <div class="inputSubmit">
+            <input type="submit" value="Submit" />
+          </div>
       </form>
-      
-
    </body>
 </html>

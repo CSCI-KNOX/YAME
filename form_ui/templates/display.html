@@ -1,22 +1,36 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>{{ person['name'] }}</title>
+        <title>Display</title>
         <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/display.css') }}">
+        <script src="../static/js/tabs.js" defer></script>
         <!-- <meta http-equiv="refresh" content="1"> -->
     </head>
     <body>
       <div class="about">
-        <h1> {{ person['name'] }} </h1>
-        <p><img src="../static/imj/{{ person['image_name'] }}" width="200" height="160" alt="{{ person['alt_txt'] }}" title="{{ person['alt_txt'] }}"></p>
+        {% for i in range(personarr.count()) %}
+      <div id="Person{{ i }}" class="tabcontent">
+        <h1>{{ personarr[i]['name'] }}</h1>
+        <p><img src='../static/imj/{{ personarr[i]['image_name'] }}' width='200' height='160' alt='{{ personarr[i]['alt_txt'] }}' title='{{ personarr[i]['alt_txt'] }}'></p>
         <p>
-          {% for key in person %}
-            {% if key == 'ex' and person[key] == 1 %}
+          {% for key in personarr[i] %}
+            {% if key == 'ex' and personarr[i][key] == 1 %}
               <p class='expected'>ex </p>
             {% endif %}
-            <p class='{{ key }}'> {{ person[key] }} </p>
+            <p class='{{ key }}'> {{ personarr[i][key] }} </p>
           {% endfor %}
         </p>
       </div>
+      {% endfor %}
+    </div>
+    <div class="buttons" id="image_rotate">
+      <button class="tablink" onclick="openCity('Person0', this, 'red')" id="defaultOpen">{{ personarr[0]['name'] }}</button>
+      {% for i in range(1, personarr.count()) %}
+        <button class="tablink" onclick="openCity('Person{{ i }}', this, 'green')">{{ personarr[i]['name'] }}</button>
+      {% endfor %}
+      </div>
+      <button onclick="scrollMe('left')"> < </button>
+      <button onclick="scrollMe('right')"> > </button>
     </body>
 </html>
+
