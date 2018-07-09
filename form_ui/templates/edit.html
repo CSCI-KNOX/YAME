@@ -1,93 +1,96 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Edit</title>
-    </head>
-    <body>
-      <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/search31.css') }}">
-      <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
-    <meta name="viewport" content="width = device-width, initial-scale =1.0"/>
-      <script src="../static/js/makeform.js"></script>
-      <body onload="makeSelect('{{ person['year'] }}')">
-    	<header>
-            <div class="container">
-              <h1 class="logo">Edit {{ person['name'] }}</h1>
-              <strong><nav>
-                <ul class="menu">
-                  <li><a href="{{ url_for('hello') }}">Add a Person</a></li>
-                  <li><a href="{{ url_for('people') }}">People In Database</a></li>
-                  <li><a href="{{ url_for('search') }}">Search for a person</a></li>
-                  <li><a href="{{ url_for('display') }}">Display</a></li>
-                </ul>
-              </nav></strong>
-            </div>
-          </header>
-    	<div class="about">
-        <br>
-	    	<p>Edit {{ person['name'] }}'s profile</p>
-        <!-- Pull person passed in from database and display their information in the form -->
-        <form action="" method="post" enctype="multipart/form-data">
-            {{ form.csrf }}
+	 <head>
+		  <title>Edit</title>
+	 </head>
+	 <body>
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/search31.css') }}">
+		<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+	 <meta name="viewport" content="width = device-width, initial-scale =1.0"/>
+		<script src="../static/js/makeform.js"></script>
+		<body onload="makeSelect('{{ person['year'] }}')">
+		<header>
+				<div class="container">
+				  <h1 class="logo">Edit {{ person['name'] }}</h1>
+				  <strong><nav>
+					 <ul class="menu">
+						<li><a href="{{ url_for('hello') }}">Add a Person</a></li>
+						<li><a href="{{ url_for('people') }}">People In Database</a></li>
+						<li><a href="{{ url_for('search') }}">Search for a person</a></li>
+						<li><a href="{{ url_for('display') }}">Display</a></li>
+					 </ul>
+				  </nav></strong>
+				</div>
+			 </header>
+		<div class="about">
+		  <br>
+			<p>Edit {{ person['name'] }}'s profile</p>
+		  <!-- Pull person passed in from database and display their information in the form -->
+		  <form action="" method="post" enctype="multipart/form-data">
+				{{ form.csrf }}
 
-            <div class="form-group">
-              <label for="name">Name: </label>
-              <input type="text" class="form-control" id="name" name="name" value="{{ person['name'] }}">
-              <!-- show image when uploaded -->
-              <br>
-              <label for="degree">Degree or Faculty/Staff: </label>
-              <input type="text" class="form-control" id="degree" name="degree" value="{{ person['degree'] }}">
-              <br>
-              <br>
-              <label for="year">Graduation Year: </label>
-              <div class="form-control" id="year" name="year"> </div>
-              <!-- AUTOFILL YEAR -->
-              {% if person['ex'] == 1 %}
-                <input type="checkbox" class="form-control" name="ex" value="{{ person['ex'] }}" checked>Expected Degree<br><br>
-              {% else %}
-                <input type="checkbox" class="form-control" name="ex" value="{{ person['ex'] }}">Expected Degree<br><br>
-              {% endif %}
-              <label for="occupation">Occupation or industry: </label>
-              <input type="text" class="form-control" id="occupation" name="occupation" value="{{ person['occupation'] }}">
-              <br><br>
-              <span class="btn btn-default btn-file">Upload An Image: <input type="file" name="image"></span>
-              <p><img src="../static/imj/{{ person['image_name'] }}' width='200' height='160' alt='{{ person['alt_txt'] }}' title='{{ person['alt_txt'] }}"></p>
-              <br>
-              <label for="alt_txt">Alt text: </label>
-              <input type="text" class="form-control" id="alt_txt" name="alt_txt" value="{{ person['alt_txt'] }}">
-              <!-- show image when uploaded -->
-              <br><br>
-              <label for="school">School: </label>
-              <select name="school" value="{{ person['school'] }}">
-                <option value="College of Arts & Sciences">College of Arts & Sciences</option>
-                <option value="Leeds School of Business">Leeds School of Business</option>
-                <option value="School of Education">School of Education</option>
-                <option value="College of Engineering and Applied Science">College of Engineering and Applied Science</option>
-                <option value="Graduate School">Graduate School</option>
-                <option value="University of Colorado Law School">University of Colorado Law School</option>
-                <option value="College of Media, Communication and Information">College of Media, Communication and Information</option>
-                <option value="College of Music">College of Music</option>
-                <option value="Continuing Education and Professional Studies">Continuing Education and Professional Studies</option>
-                <option value="University Libraries">University Libraries</option>
-                <option value="Program in Environmental Design">Program in Environmental Design</option>
-              </select>
-              <!-- AUTOFILL SCHOOL -->
-              <br><br>
-              <!-- Maybe store number of facts somewhere in database so we know how many forms to show and populate -->
-              <label for="facts">Fact: </label>
-              <input type="text" class="form-control" id="facts" name="facts" value="{{ person['facts'] }}"><input type="checkbox" class="form-control" name="name"">Show on display<br>
-              <div id="container"></div>
-              <a href="#" id="filldetails" onclick="moreFacts()">Add another fact</a> 
-              <br><br>
-              {% if person['hidden'] == 1 %}
-                <input type="checkbox" class="form-control" name="hidden" value="{{ person['hidden'] }}" checked>Hidden<br>
-              {% else %}
-                <input type="checkbox" class="form-control" name="hidden" value="{{ person['hidden'] }}">Hidden<br>
-              {% endif %}
-            </div>
-            <div class="input submit">
-                <input type="submit" value="Submit" />
-            </div>
-        </form>
-	    </div>
-    </body>
+				<div class="form-group">
+				  <label for="name">Name: </label>
+				  <input type="text" class="form-control" id="name" name="name" value="{{ person['name'] }}">
+				  <!-- show image when uploaded -->
+				  <br>
+				  <label for="degree">Degree or Faculty/Staff: </label>
+				  <input type="text" class="form-control" id="degree" name="degree" value="{{ person['degree'] }}">
+				  <br>
+				  <br>
+				  <label for="year">Graduation Year: </label>
+				  <div class="form-control" id="year" name="year"> </div>
+				  <!-- AUTOFILL YEAR -->
+				  {% if person['ex'] == 1 %}
+					 <input type="checkbox" class="form-control" name="ex" value="{{ person['ex'] }}" checked>Expected Degree<br><br>
+				  {% else %}
+					 <input type="checkbox" class="form-control" name="ex" value="{{ person['ex'] }}">Expected Degree<br><br>
+				  {% endif %}
+				  <label for="occupation">Occupation or industry: </label>
+				  <input type="text" class="form-control" id="occupation" name="occupation" value="{{ person['occupation'] }}">
+				  <br><br>
+				  <span class="btn btn-default btn-file">Upload An Image: <input type="file" name="image"></span>
+				  <p><img src="../static/imj/{{ person['image_name'] }}' width='200' height='160' alt='{{ person['alt_txt'] }}' title='{{ person['alt_txt'] }}"></p>
+				  <br>
+				  <label for="alt_txt">Alt text: </label>
+				  <br>
+				  <span class="btn btn-default btn-file">Upload An Icon: <input type="file" name="icon"></span>
+				  <p><img src="../static/imj/{{ person['icon_name'] }}' width='200' height='160'"></p>
+				  <input type="text" class="form-control" id="alt_txt" name="alt_txt" value="{{ person['alt_txt'] }}">
+				  <!-- show image when uploaded -->
+				  <br><br>
+				  <label for="school">School: </label>
+				  <select name="school" value="{{ person['school'] }}">
+					 <option value="College of Arts & Sciences">College of Arts & Sciences</option>
+					 <option value="Leeds School of Business">Leeds School of Business</option>
+					 <option value="School of Education">School of Education</option>
+					 <option value="College of Engineering and Applied Science">College of Engineering and Applied Science</option>
+					 <option value="Graduate School">Graduate School</option>
+					 <option value="University of Colorado Law School">University of Colorado Law School</option>
+					 <option value="College of Media, Communication and Information">College of Media, Communication and Information</option>
+					 <option value="College of Music">College of Music</option>
+					 <option value="Continuing Education and Professional Studies">Continuing Education and Professional Studies</option>
+					 <option value="University Libraries">University Libraries</option>
+					 <option value="Program in Environmental Design">Program in Environmental Design</option>
+				  </select>
+				  <!-- AUTOFILL SCHOOL -->
+				  <br><br>
+				  <!-- Maybe store number of facts somewhere in database so we know how many forms to show and populate -->
+				  <label for="facts">Fact: </label>
+				  <input type="text" class="form-control" id="facts" name="facts" value="{{ person['facts'] }}"><input type="checkbox" class="form-control" name="name"">Show on display<br>
+				  <div id="container"></div>
+				  <a href="#" id="filldetails" onclick="moreFacts()">Add another fact</a>
+				  <br><br>
+				  {% if person['hidden'] == 1 %}
+					 <input type="checkbox" class="form-control" name="hidden" value="{{ person['hidden'] }}" checked>Hidden<br>
+				  {% else %}
+					 <input type="checkbox" class="form-control" name="hidden" value="{{ person['hidden'] }}">Hidden<br>
+				  {% endif %}
+				</div>
+				<div class="input submit">
+					 <input type="submit" value="Submit" />
+				</div>
+		  </form>
+		 </div>
+	 </body>
 </html>

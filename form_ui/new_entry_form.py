@@ -50,7 +50,10 @@ def hello():
         facts=request.form['facts']
         file = request.files['image']
         alt_txt = request.form['alt_txt']
+        icon = request.files['icon']
         hidden = checkbox('hidden')
+
+#THIS DOES NOT SEEM TO BE WORKING ??????????/ help
         if file:
             f = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
             file.save(f)
@@ -58,9 +61,19 @@ def hello():
         # Use default photo
         else:
             filename = 'default.jpg'
+
+        if icon:
+            f = os.path.join(app.config['UPLOAD_FOLDER'], icon.filename)
+            icon.save(f)
+            iconname = icon.filename
+        # Use default photo
+        else:
+            iconname = 'default.jpg'
+#.........////////////////???????????
         if form.validate():
             flash(filename)
-            add_person.addOne(name, degree, school, ex, year, occupation, facts, filename, alt_txt, hidden)
+            flash(iconname)
+            add_person.addOne(name, degree, school, ex, year, occupation, facts, filename, alt_txt, iconname, hidden)
             print("upload to database successful")
         else:
             flash('All the form fields are required.')
@@ -87,6 +100,7 @@ def edit():
         occupation=request.form['occupation']
         facts=request.form['facts']
         file = request.files['image']
+        icon = request.files['icon']
         alt_txt = request.form['alt_txt']
         hidden = checkbox('hidden')
         if file:
@@ -98,7 +112,7 @@ def edit():
             filename = person['image_name']
         if form.validate():
             flash(person['name'])
-            edit_person.editOne(person['_id'], name, degree, school, ex, year, occupation, facts, filename, alt_txt, hidden)
+            edit_person.editOne(person['_id'], name, degree, school, ex, year, occupation, facts, filename, alt_txt, icon, hidden)
             print("edit to database successful")
         else:
             flash('All the form fields are required.')

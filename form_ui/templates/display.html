@@ -26,7 +26,7 @@
     <div class="buttons" id="image_rotate">
       <button class="tablink" onclick="openCity('Person0', this, 'red')" id="defaultOpen">{{ personarr[0]['name'] }}</button>
       {% for i in range(1, personarr.count()) %}
-        <button class="tablink" onclick="openCity('Person{{ i }}', this, 'green')"><img src='../static/imj/{{ personarr[i]['image_name'] }}' width='200' height='160' alt='{{ personarr[i]['alt_txt'] }}' title='{{ personarr[i]['alt_txt'] }}'></button>
+        <button class="tablink" onclick="openCity('Person{{ i }}', this, 'green')"><img src='../static/imj/{{ personarr[i]['icon_name'] }}' width='200' height='160' alt='{{ personarr[i]['alt_txt'] }}' title='{{ personarr[i]['alt_txt'] }}'></button>
         <!-- looking to replace all person images in scroll bar with corresponding graphics in img folder, match graphics to person in db for this-->
         {% endfor %}
       </div>
@@ -34,4 +34,3 @@
       <button onclick="scrollMe('right')"> > </button>
     </body>
 </html>
-
