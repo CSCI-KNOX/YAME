@@ -1,5 +1,4 @@
-function openCity(cityName, elmnt, color) {
-    // Hide all elements with class="tabcontent" by default */
+function openCity(cityName, elmnt) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
@@ -21,9 +20,10 @@ function openCity(cityName, elmnt, color) {
 
 function scrollMe(direction){
     if (direction == 'left') {
-        document.getElementById("image_rotate").scrollLeft -= 100;
+        document.getElementById("image_rotate").scrollLeft -= 120;
     }
     else {
-        document.getElementById("image_rotate").scrollLeft += 100;
+        document.getElementById("image_rotate").scrollLeft += 120;
     }
 }
+

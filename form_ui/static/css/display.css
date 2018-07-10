@@ -60,22 +60,38 @@ p.alt_txt {
 p.hidden {
 	display: none;
 }
+p.icon {
+	display: none;
+}
+p.icon_name {
+	display: none;
+}
 .tab {
+	width: 100%;
     overflow: hidden;
     border: 1px solid #ccc;
     background-color: #f1f1f1;
 }
 .buttons {
-	width: 100%;
+	width: 98%;
+	min-width: 100%;
 	height: 200px;
 	display: inline-flex;
+	white-space: nowrap;
 	overflow-x: scroll;
+	overflow-y: hidden;
+	-webkit-overflow-scrolling: touch;
+}
+.loop {
+    height: 200px;
+    max-width: 1000px;
+    white-space: nowrap;
 }
 
 /* Style the tab buttons */
 .tablink {
-    background-color: #555;
-    color: white;
+    background-color: gainsboro;
+    color: black;
     float: left;
     border: solid 1px #777;
     outline: none;
@@ -107,3 +123,35 @@ p.hidden {
 }
 
 /* If it is not of a certain display class then don't show it */
+
+img {
+	max-width: 100%;
+    max-height: 100%;
+}
+
+/* Drone animation styling */
+body{
+
+}
+       
+#movingImage{
+width: 20%;
+border: 0px;
+z-index: 2;
+}
+#firstImage {
+width: 20%;
+border: 0px;
+z-index: 1;
+}
+#movingImage:active, :focus {
+outline: 0;
+border: none;
+-moz-outline-style: none;
+
+}
+#firstImage:active, :focus {
+outline: 0;
+border: none;
+-moz-outline-style: none;
+}
