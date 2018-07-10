@@ -47,20 +47,25 @@
         // The point at which the page will loop when scrolling down
         var loopPoint = 240*{{ personarr.count() }} - $(window).width();
 
-        console.log($(window).width());
-
         // Define a function which runs whenever the scroll position of $c changes
         $e.scroll(function () {
-            console.log($e.scrollLeft());
+          // just in case the window changes size
+          var i = 0;
+          if (i%1000 == 0) {
+            var loopPoint = 240*{{ personarr.count() }} - $(window).width();
+          }
+          i = i + 1;
             // If the new scroll position matches our loop point;
             if ($e.scrollLeft() === loopPoint) {
                 // Scroll to (almost) the the top ('0' would be the top; we do this so we don't loop back again instantly)
-                $e.scrollLeft(1);
+                // $e.scrollLeft(1);
+                $e.animate({scrollLeft: 1}, 750);
             }
             // Otherwise, if the new scroll position = the top of the element
             else if ($e.scrollLeft() === 0) {
                 // Scroll to (almost) the bottom, we can use (our loop point - 1)
-                $e.scrollLeft(loopPoint - 1);
+                // $e.scrollLeft(loopPoint - 1);
+                $e.animate({scrollLeft: loopPoint-1}, 750);
             }
         });
     });
