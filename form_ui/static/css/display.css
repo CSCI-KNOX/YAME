@@ -7,26 +7,44 @@
     -webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
-body {
-	background-color: lightgray;
+body {   
+	 text-align: center;
+	 background-image: url("https://i.imgur.com/BEpyK.jpg");
+	 /*background-repeat: no-repeat;*/
+
 }
 h1 {
-	font-size: 36px;
 	text-align: center;
-	padding: 10px 0 0 0;
+	font-size: 36px;
+	padding: 10px 0px 10px 0px;
 	margin: 0;
 }
 img {
 	display: block;
     margin: 0 auto;
 }
+.container{
+  display: flex;
+  flex:1;
+}
+.nothing1{
+	width:33.3%;
+	order:1;
+}
+.nothing2{
+	width: 33.3%;
+	order:3;
+}
 .about {
 	background-color: #777;
-	width: 100%;
+	text-align: left;
+	/*width: 100%;*/
 	height: 30em;
+	order:2;
 }
 p {
 	padding: 0 20px;
+	padding-bottom: 10px;
 }
 p._id {
 	display: none;
@@ -46,9 +64,11 @@ p.expected {
 }
 p.year {
 	display: inline-block;
+	padding-bottom: 10px;
 }
 p.facts {
 	white-space: pre-wrap;
+	padding-bottom: 10px;
 	padding-bottom: 10px;
 }
 p.image_name {
@@ -111,8 +131,11 @@ p.icon_name {
 .tabcontent {
     color: white;
     display: none;
-    padding: 50px;
-    text-align: center;
+    padding-bottom: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 30px;
+    
 }
 
 /* Style each tab content individually */ 
@@ -128,9 +151,6 @@ img {
 }
 
 /* Drone animation styling */
-body{
-
-}
        
 #movingImage{
 width: 20%;
