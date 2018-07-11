@@ -13,12 +13,14 @@
         <div class="nothing1">
               <p></p>
         </div>
+      <div class="forAbout">
       <div class="about">
         {% for i in range(personarr.count()) %}
       <div id="Person{{ i }}" class="tabcontent">
         <h1>{{ personarr[i]['name'] }}</h1>
-        <p><img src='../static/imj/{{ personarr[i]['image_name'] }}' width='200' height='160' alt='{{ personarr[i]['alt_txt'] }}' title='{{ personarr[i]['alt_txt'] }}'></p>
+        <p><img id="personImg" src='../static/imj/{{ personarr[i]['image_name'] }}' width='400' height='320' alt='{{ personarr[i]['alt_txt'] }}' title='{{ personarr[i]['alt_txt'] }}'></p>
         <p>
+          <div class="info">
           {% for key in personarr[i] %}
             {% if key == 'ex' and personarr[i][key] == 1 %}
               <p class='expected'>ex </p>
@@ -27,8 +29,10 @@
           {% endfor %}
         </p>
       </div>
+    </div>
       {% endfor %}
     </div>
+  </div>
     <div class="nothing2">
         <p></p>
       </div>
