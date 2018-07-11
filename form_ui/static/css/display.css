@@ -7,26 +7,62 @@
     -webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
-body {
-	background-color: lightgray;
+body {   
+	 text-align: center;
+	 background-image: url("https://i.imgur.com/BEpyK.jpg");
+	 /*background-repeat: no-repeat;*/
+
 }
 h1 {
-	font-size: 36px;
 	text-align: center;
-	padding: 10px 0 0 0;
+	font-size: 36px;
+	padding: 10px 0px 10px 0px;
 	margin: 0;
+	opacity: 1.0;
 }
 img {
 	display: block;
     margin: 0 auto;
+    opacity: 1.0;
 }
-.about {
+.container{
+  display: flex;
+  flex:1;
+
+}
+.nothing1{
+	min-width:10%;
+	width: 33.3%;
+	order:1;
+}
+.nothing2{
+	min-width: 10%;
+	width: 33.3%;
+	order:3;
+}
+.forAbout{
 	background-color: #777;
 	width: 100%;
-	height: 30em;
+	height: 45em;
+	order:2;
+	opacity: 0.97;
 }
+.about {
+	text-align: left;
+	width: 100%;
+	height: 45em;
+	order:2;
+	opacity: 1;
+	/*padding-bottom: 50px;*/
+}
+.info{
+	padding-left: 50px;
+}
+
 p {
 	padding: 0 20px;
+	padding-bottom: 10px;
+	opacity: 1.0;
 }
 p._id {
 	display: none;
@@ -46,10 +82,11 @@ p.expected {
 }
 p.year {
 	display: inline-block;
+	padding-bottom: 10px;
 }
 p.facts {
 	white-space: pre-wrap;
-	padding-bottom: 10px;
+	/*padding-bottom: 100px;*/
 }
 p.image_name {
 	display: none;
@@ -65,6 +102,12 @@ p.icon {
 }
 p.icon_name {
 	display: none;
+}
+#personImg{
+	padding-right: 0px;
+	padding-left: 0px;
+	padding: 0 0px;
+
 }
 .tab {
 	width: 100%;
@@ -84,6 +127,7 @@ p.icon_name {
 .loop {
     height: 200px;
     white-space: nowrap;
+    padding-top: 5px;
 }
 
 /* Style the tab buttons */
@@ -111,8 +155,9 @@ p.icon_name {
 .tabcontent {
     color: white;
     display: none;
-    padding: 50px;
-    text-align: center;
+    padding-bottom: 50px;
+    padding-top: 30px;
+    
 }
 
 /* Style each tab content individually */ 
@@ -125,12 +170,10 @@ p.icon_name {
 img {
 	max-width: 100%;
     max-height: 100%;
+    opacity: 1.0;
 }
 
 /* Drone animation styling */
-body{
-
-}
        
 #movingImage{
 width: 20%;
