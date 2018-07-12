@@ -160,11 +160,8 @@ def search():
             toFind['year'] = request.form['year']
         except:
             toFind['year'] = ''
-        toFind['occupation'] = request.form['occupation']
+        # toFind['occupation'] = request.form['occupation']
         # person = retrieve_from_db.getOne(toFind)
-    else:
-        name = 'nothing'
-        degree = 'nothing'
     # person = retrieve_from_db.getOne(toFind)
     return render_template('search.html', form=form, person=person, alphabet=alphabet)
 if __name__ == "__main__":
