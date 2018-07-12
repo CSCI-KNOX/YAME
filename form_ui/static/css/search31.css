@@ -54,6 +54,7 @@ a:hover{
 }
 .nothing1{
 	width:33.3%;
+
 	order:1;
 }
 .nothing2{
@@ -106,5 +107,6 @@ input[type=text]:focus {
        color: #7f704d;
      }
 .inputSubmit{
+	text-align: center;
 	padding-bottom: 30px;
 }     
