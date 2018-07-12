@@ -140,12 +140,18 @@ def display():
 def search():
     form = ReusableForm(request.form)
     print (form.errors)
+    alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
+    'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
     person = []
     toFind = {}
     if request.method == 'POST':
-        # name=request.form['name'] # key value pairs
-        toFind['name'] = request.form['name']
-        toFind['degree'] = request.form['degree']
+        try:
+            letter = request.form['name']
+            print (letter)
+            person = retrieve_from_db.searchByLetter(letter)
+        except:
+            toFind['name'] = 'name'
+        # toFind['degree'] = request.form['degree']
         try:
             toFind['school'] = request.form['school']
         except:
@@ -155,11 +161,11 @@ def search():
         except:
             toFind['year'] = ''
         toFind['occupation'] = request.form['occupation']
-        person = retrieve_from_db.getOne(toFind)
+        # person = retrieve_from_db.getOne(toFind)
     else:
         name = 'nothing'
         degree = 'nothing'
     # person = retrieve_from_db.getOne(toFind)
-    return render_template('search.html', form=form, person=person)
+    return render_template('search.html', form=form, person=person, alphabet=alphabet)
 if __name__ == "__main__":
     app.run()

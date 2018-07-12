@@ -34,7 +34,7 @@
                 <p>No results found.</p>
               {% endif %}
               {% for p in person %}
-                <p><a href='/person/?name={{ p['name'] }}'>{{ p['name'] }}</a></p> 
+                <p><a href='/person/?name={{ p['name'] }}'>{{ p['name'] }}</a></p>
               {% endfor %}
               {% if person %}
                 <br><br>
@@ -52,15 +52,21 @@
             </div>
            <div class="form-group">
             <div class="names">
-             <label for="name">Name: </label>
-             <input type="text" class="form-control" id="name" name="name">
+             <!-- <label for="name">Name: </label>
+             <input type="text" class="form-control" id="name" name="name"> -->
+             <table>
+                <tr>
+                   {% for letter in alphabet %}
+                   <td><input type = "submit" class="form-control" value = {{letter}} id="name" name="name"></td>
+                   {% endfor %}
+                </tr>
+            </table>
            </div>
-             <!-- show image when uploaded -->
              <br>
-             <div class="degSta">
+             <!-- <div class="degSta">
              <label for="degree">Degree or Faculty/Staff: </label>
              <input type="text" class="form-control" id="degree" name="degree">
-              </div>
+              </div> -->
              <br>
              <div class="grads">
              <label for="year">Graduation Year: </label>
