@@ -29,31 +29,31 @@ function makeSelect(value='') {
 	selectList.value = value;
 }
 
-function moreFacts() {
-    var container = document.getElementById("container");
-    container.appendChild(document.createTextNode("Fact: "));
-    var input = document.createElement("input");
-    input.type = "text";
-    input.class = "form-control";
-    input.id = "facts";
-    input.name = "facts";
-    container.appendChild(input);
+// function moreFacts() {
+//     var container = document.getElementById("container");
+//     container.appendChild(document.createTextNode("Fact: "));
+//     var input = document.createElement("input");
+//     input.type = "text";
+//     input.class = "form-control";
+//     input.id = "facts";
+//     input.name = "facts";
+//     container.appendChild(input);
 
-    var checkbox = document.createElement('input');
-	checkbox.type = "checkbox";
-	checkbox.name = "name";
-	checkbox.class = "form-control";
-	checkbox.value = "value";
-	checkbox.id = "id";
+//     var checkbox = document.createElement('input');
+// 	checkbox.type = "checkbox";
+// 	checkbox.name = "name";
+// 	checkbox.class = "form-control";
+// 	checkbox.value = "value";
+// 	checkbox.id = "id";
 
-	var label = document.createElement('label')
-	label.htmlFor = "id";
-	label.appendChild(document.createTextNode('Show on display'));
+// 	var label = document.createElement('label')
+// 	label.htmlFor = "id";
+// 	label.appendChild(document.createTextNode('Show on display'));
 
-	container.appendChild(checkbox);
-	container.appendChild(label);
+// 	container.appendChild(checkbox);
+// 	container.appendChild(label);
 
-    container.appendChild(document.createElement("br"));
-}
+//     container.appendChild(document.createElement("br"));
+// }
 
 // window.onload = makeSelect;

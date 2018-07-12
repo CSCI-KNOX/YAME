@@ -63,19 +63,28 @@ a:hover{
 	text-align: left;
 	order:2;
 }
+textarea {
+	height: 100px;
+	width:500px;
+	border-radius: 3px;
+	margin-bottom: -2em;
+}
 input[type=text] {
       background-color: rgb(248, 247, 255);
       padding: 4px 5px;
       margin: 8px 0;
       font-size: 1.1em;
       border: 2px solid #ffd679;
-      border-radius: 12px;
+      border-radius: 3px;
       transition: all 500ms ease-in-out;
       cursor: pointer;
       color: #7f704d;
 }
 input[type=checkbox] {
       margin: 8px 0;
+}
+input[name=hidden] {
+	margin-top: 30px;
 }
 
 input[type=text]:focus {
