@@ -129,8 +129,7 @@ p.icon_name {
 .tab {
 	width: 100%;
     overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
+    background-color: black;
 }
 .buttons {
 	width: 100%;
@@ -148,14 +147,14 @@ p.icon_name {
 
 /* Style the tab buttons */
 .tablink {
-    background-color: gainsboro;
+    background-color: black;
     color: black;
     float: left;
-    border: solid 1px #777;
     outline: none;
     cursor: pointer;
     font-size: 17px;
     min-width: 240px;
+    border: none;
 }
 
 .buttons::-webkit-scrollbar { 
