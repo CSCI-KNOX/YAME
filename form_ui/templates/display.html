@@ -10,14 +10,13 @@
     </head>
     <body>
       <div class="container">
-        <div class="nothing1">
+       <!--  <div class="nothing1">
               <p></p>
-        </div>
+        </div> -->
       <div class="forAbout">
       <div class="about">
         {% for i in range(personarr.count()) %}
       <div id="Person{{ i }}" class="tabcontent">
-        <h1>{{ personarr[i]['name'] }}</h1>
         <p><img id="personImg" src='../static/imj/{{ personarr[i]['image_name'] }}' width='400' height='320' alt='{{ personarr[i]['alt_txt'] }}' title='{{ personarr[i]['alt_txt'] }}'></p>
         <p>
           <div class="info">
@@ -33,15 +32,14 @@
       {% endfor %}
     </div>
   </div>
-    <div class="nothing2">
+    <!-- <div class="nothing2">
         <p></p>
-      </div>
+      </div> -->
   </div>
     <div class="loop">
       <div class="buttons" id="image_rotate">
-        <button class="tablink" onclick="openCity('Person0', this)" id='defaultOpen'><img src='../static/imj/{{ personarr[0]['icon_name'] }}' ></button>
-        {% for i in range(1, personarr.count()) %}
-            <button class="tablink" onclick="openCity('Person{{ i }}', this)"><img src='../static/imj/{{ personarr[i]['icon_name'] }}' ></button>
+        {% for i in range(personarr.count()) %}
+            <button class="tablink" onclick="openCity('Person{{ i }}', this)"><img src='../static/imj/{{ personarr[i]['image_name'] }}' ></button>
           <!-- looking to replace all person images in scroll bar with corresponding graphics in img folder, match graphics to person in db for this-->
           {% endfor %}
         </div>

@@ -9,8 +9,12 @@
 }
 body {   
 	 text-align: center;
-	 background-image: url("https://i.imgur.com/BEpyK.jpg");
-	 /*background-repeat: no-repeat;*/
+	 background: url("https://www.colorado.edu/coloradan/sites/default/files/article-image/cu_first_football_team-1.jpg") no-repeat center center fixed;
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	 font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 
 }
 h1 {
@@ -24,13 +28,17 @@ img {
 	display: block;
     margin: 0 auto;
     opacity: 1.0;
+    max-height: 100%;
+	width: auto;
+	height: auto;
+
 }
 .container{
   display: flex;
   flex:1;
 
 }
-.nothing1{
+/*.nothing1{
 	min-width:10%;
 	width: 33.3%;
 	order:1;
@@ -39,18 +47,18 @@ img {
 	min-width: 10%;
 	width: 33.3%;
 	order:3;
-}
+}*/
 .forAbout{
-	background-color: #777;
+	background-color: black;
 	width: 100%;
-	height: 45em;
+	height: 50em;
 	order:2;
 	opacity: 0.97;
 }
 .about {
 	text-align: left;
 	width: 100%;
-	height: 45em;
+	height: 50em;
 	order:2;
 	opacity: 1;
 	/*padding-bottom: 50px;*/
@@ -60,21 +68,30 @@ img {
 }
 
 p {
-	padding: 0 20px;
+	padding: 0;
 	padding-bottom: 10px;
 	opacity: 1.0;
+	display: inline-block;
 }
 p._id {
 	display: none;
 }
 p.name {
-	display: none;
+	font-size: 30px;
+	font-weight: bold;
+	padding-right: 15px;
 }
 p.image {
 	display: none;
 }
 p.ex {
 	display: none;
+}
+p.school{
+	display: none;
+}
+p.occupation{
+	display: block;
 }
 p.expected {
 	display: inline-block;
@@ -127,7 +144,6 @@ p.icon_name {
 .loop {
     height: 200px;
     white-space: nowrap;
-    padding-top: 5px;
 }
 
 /* Style the tab buttons */
@@ -138,7 +154,6 @@ p.icon_name {
     border: solid 1px #777;
     outline: none;
     cursor: pointer;
-    padding: 14px 16px;
     font-size: 17px;
     min-width: 240px;
 }
@@ -156,7 +171,6 @@ p.icon_name {
     color: white;
     display: none;
     padding-bottom: 50px;
-    padding-top: 30px;
     
 }
 
