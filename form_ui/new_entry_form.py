@@ -163,5 +163,7 @@ def search():
             toFind['year'] = ''
     # person = retrieve_from_db.getOne(toFind)
     return render_template('search.html', form=form, person=person, alphabet=alphabet)
+
+
 if __name__ == "__main__":
     app.run()
