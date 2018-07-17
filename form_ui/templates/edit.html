@@ -79,17 +79,17 @@
 				  <!-- AUTOFILL SCHOOL -->
 				  <br><br>
 				  <!-- Maybe store number of facts somewhere in database so we know how many forms to show and populate -->
-				  <label for="facts">Fact: </label>
-				  <input type="text" class="form-control" id="facts" name="facts" value="{{ person['facts'] }}"><input type="checkbox" class="form-control" name="name"">Show on display<br>
+				  <label for="facts">Story: </label>
+				  <input type="text" class="form-control" id="facts" name="facts" value="{{ person['facts'] }}">
+				  <!-- <input type="checkbox" class="form-control" name="name">Show on display<br> -->
 				  <div id="container"></div>
-				  <a href="#" id="filldetails" onclick="moreFacts()">Add another fact</a>
-				  <br><br>
+				  <!-- <a href="#" id="filldetails" onclick="moreFacts()">Add another fact</a> -->
 				  {% if person['hidden'] == 1 %}
 					 <input type="checkbox" class="form-control" name="hidden" value="{{ person['hidden'] }}" checked>Hidden<br>
 				  {% else %}
 					 <input type="checkbox" class="form-control" name="hidden" value="{{ person['hidden'] }}">Hidden<br>
 				  {% endif %}
-				
+
 				<div class="inputSubmit">
 					 <input type="submit" value="Submit" />
 				</div>

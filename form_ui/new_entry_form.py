@@ -150,18 +150,17 @@ def search():
             print (letter)
             person = retrieve_from_db.searchByLetter(letter)
         except:
-            toFind['name'] = 'name'
-        # toFind['degree'] = request.form['degree']
+            toFind['name'] = ''
         try:
             toFind['school'] = request.form['school']
+            person = retrieve_from_db.getOne(toFind)
         except:
             toFind['school'] = ''
         try:
             toFind['year'] = request.form['year']
+            person = retrieve_from_db.getOne(toFind)
         except:
             toFind['year'] = ''
-        # toFind['occupation'] = request.form['occupation']
-        # person = retrieve_from_db.getOne(toFind)
     # person = retrieve_from_db.getOne(toFind)
     return render_template('search.html', form=form, person=person, alphabet=alphabet)
 if __name__ == "__main__":
