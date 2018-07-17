@@ -139,6 +139,8 @@ p.icon_name {
 	overflow-x: scroll;
 	overflow-y: hidden;
 	-webkit-overflow-scrolling: touch;
+	position: relative;
+	z-index: 1;
 }
 .loop {
     height: 200px;
@@ -155,6 +157,8 @@ p.icon_name {
     font-size: 17px;
     min-width: 240px;
     border: none;
+    z-index: 1;
+    position: relative;
 }
 
 .buttons::-webkit-scrollbar { 
@@ -170,6 +174,8 @@ p.icon_name {
     color: white;
     display: none;
     padding-bottom: 50px;
+    z-index: 1;
+    position: relative;
     
 }
 
@@ -185,6 +191,21 @@ img {
     max-height: 100%;
     opacity: 1.0;
 }
+#arrowL{
+	width: 7%;
+	position: absolute;
+	left: 9px;
+	top: 812px;
+	z-index: 3;
+}
+#arrowR{
+	width: 7%;
+	position: absolute;
+	left: 657px;
+	top: 812px;
+	z-index: 3;
+}
+
 
 /* Drone animation styling */
        
