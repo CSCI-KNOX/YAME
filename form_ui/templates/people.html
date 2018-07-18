@@ -1,3 +1,5 @@
+<!-- THIS IS THE INDEX PAGE -->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -30,5 +32,13 @@
         </p>
 
 	    </div>
+       <table>
+          <tr>
+            {% for letter in alphabet %}
+            <td><input type = "submit" class="form-control" value = {{letter}} id="name" name="name"></td>
+            {% endfor %}
+          </tr>
+      </table>
+
     </body>
 </html>
