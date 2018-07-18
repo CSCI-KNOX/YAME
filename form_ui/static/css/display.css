@@ -205,7 +205,50 @@ img {
 	top: 812px;
 	z-index: 3;
 }
-
+.categories{
+	background-color: grey;
+	display: flex;
+  	flex:1;
+}
+.tab1{
+	color: white;
+	font-size: 24px;
+	background-color: black;
+	min-width:10%;
+	width: 32%;
+	height: 60px;
+	order:1;
+	opacity: 0.97;
+	padding-top: 15px;
+	margin-right: 2%;
+	z-index: 4;
+}
+.tab2{
+	color: white;
+	font-size: 24px;
+	background-color: black;
+	min-width:10%;
+	width: 32%;
+	height: 60px;
+	order:2;
+	opacity: 0.97;
+	padding-top: 15px;
+	margin-right: 2%;
+	z-index: 4;
+}
+.tab3{
+	color: white;
+	font-size: 24px;
+	background-color: black;
+	min-width:10%;
+	width: 32%;
+	height: 60px;
+	order:3;
+	padding-top: 15px;
+	opacity: 0.97;
+	z-index: 4;
+	
+}
 
 /* Drone animation styling */
        
