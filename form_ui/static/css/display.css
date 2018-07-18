@@ -36,6 +36,7 @@ img {
 .container{
   display: flex;
   flex:1;
+  background-color: black;
 
 }
 /*.nothing1{
@@ -49,18 +50,21 @@ img {
 	order:3;
 }*/
 .forAbout{
-	background-color: black;
+	position: relative;
 	width: 100%;
 	height: 50em;
 	order:2;
 	opacity: 0.97;
+	z-index: 3;
 }
 .about {
 	text-align: left;
+	position: relative;
 	width: 100%;
 	height: 50em;
 	order:2;
 	opacity: 1;
+	
 	/*padding-bottom: 50px;*/
 }
 .info{
@@ -91,6 +95,8 @@ p.school{
 	display: none;
 }
 p.occupation{
+	padding-top: 40px;
+	color: black;
 	display: block;
 }
 p.expected {
@@ -103,6 +109,7 @@ p.year {
 }
 p.facts {
 	white-space: pre-wrap;
+	color: black;
 	/*padding-bottom: 100px;*/
 }
 p.image_name {
@@ -205,8 +212,64 @@ img {
 	top: 812px;
 	z-index: 3;
 }
-
-
+.categories{
+	background-color: grey;
+	display: flex;
+  	flex:1;
+}
+.tab1{
+	position: relative;
+	color: rgb(208, 186, 126);
+	font-size: 24px;
+	background-color: black;
+	min-width:10%;
+	width: 33.2%;
+	height: 80px;
+	order:1;
+	padding-top: 10px;
+	margin-right: 0.4%;
+	z-index: 4;
+}
+.tab2{
+	position: relative;
+	color:rgb(208, 186, 126);
+	font-size: 24px;
+	background-color: black;
+	min-width:10%;
+	width: 33.2%;
+	height: 80px;
+	order:2;
+	padding-top: 10px;
+	margin-right: 0.4%;
+	z-index: 4;
+}
+.tab3{
+	position: relative;
+	color:rgb(208, 186, 126);
+	font-size: 24px;
+	background-color: black;
+	min-width:10%;
+	width: 33.2%;
+	height: 80px;
+	order:3;
+	padding-top: 10px;
+	z-index: 4;
+	
+}
+.tab1:hover, .tab2:hover, .tab3:hover{
+	background-color: rgb(208, 186, 126);
+	color: black;
+}
+#greyCirc{
+	position: absolute;
+	top: 661px;
+	z-index: 2;
+}
+#blackCirc{
+	position: absolute;
+	top: 1067px;
+	z-index: 5;
+}
 /* Drone animation styling */
        
 #movingImage{

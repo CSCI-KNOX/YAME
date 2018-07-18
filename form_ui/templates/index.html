@@ -26,14 +26,14 @@
       <ul>
           <div class="about">
             <p>
-              {% if person %}
+              {% if personarr %}
                 <br>
                 <h2>Results</h2>
               {% endif %}
-              {% if person == 'none' %}
+              {% if personarr == 'none' %}
                 <p>No results found.</p>
               {% endif %}
-              {% for p in person %}
+              {% for p in personarr %}
                 <p><a href='/person/?name={{ p['name'] }}'>{{ p['name'] }}</a></p>
               {% endfor %}
               {% if person %}
