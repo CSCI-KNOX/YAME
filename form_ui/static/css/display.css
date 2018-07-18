@@ -139,6 +139,8 @@ p.icon_name {
 	overflow-x: scroll;
 	overflow-y: hidden;
 	-webkit-overflow-scrolling: touch;
+	position: relative;
+	z-index: 1;
 }
 .loop {
     height: 200px;
@@ -155,6 +157,8 @@ p.icon_name {
     font-size: 17px;
     min-width: 240px;
     border: none;
+    z-index: 1;
+    position: relative;
 }
 
 .buttons::-webkit-scrollbar { 
@@ -170,6 +174,8 @@ p.icon_name {
     color: white;
     display: none;
     padding-bottom: 50px;
+    z-index: 1;
+    position: relative;
     
 }
 
@@ -184,6 +190,64 @@ img {
 	max-width: 100%;
     max-height: 100%;
     opacity: 1.0;
+}
+#arrowL{
+	width: 7%;
+	position: absolute;
+	left: 9px;
+	top: 812px;
+	z-index: 3;
+}
+#arrowR{
+	width: 7%;
+	position: absolute;
+	left: 657px;
+	top: 812px;
+	z-index: 3;
+}
+.categories{
+	background-color: grey;
+	display: flex;
+  	flex:1;
+}
+.tab1{
+	color: white;
+	font-size: 24px;
+	background-color: black;
+	min-width:10%;
+	width: 32%;
+	height: 60px;
+	order:1;
+	opacity: 0.97;
+	padding-top: 15px;
+	margin-right: 2%;
+	z-index: 4;
+}
+.tab2{
+	color: white;
+	font-size: 24px;
+	background-color: black;
+	min-width:10%;
+	width: 32%;
+	height: 60px;
+	order:2;
+	opacity: 0.97;
+	padding-top: 15px;
+	margin-right: 2%;
+	z-index: 4;
+}
+.tab3{
+	color: white;
+	font-size: 24px;
+	background-color: black;
+	min-width:10%;
+	width: 32%;
+	height: 60px;
+	order:3;
+	padding-top: 15px;
+	opacity: 0.97;
+	z-index: 4;
+	
 }
 
 /* Drone animation styling */
