@@ -4,30 +4,31 @@ import gridfs
 import os
 #hello
 #example: python add_person.py erin cs student
-def addOne(name, degree, school, ex, year, occupation, facts, photo, alt_txt, hidden):
+def addOne(name, degree, occupation, icon_filename, image1_filename, paragraph1, 
+                image2_filename, paragraph2, image3_filename, paragraph3, hidden, category):
     client = pymongo.MongoClient("mongodb+srv://erinruby:colorado18@yame-project-6ex3z.mongodb.net/test?retryWrites=true") #ERIN's LOGIN
     db = client.prototype #name of the db
     col = client.people #name of the collection
 
-    # name = sys.argv[1]
-    # degree = sys.argv[2]
-    # occupation = sys.argv[3]
-    # photo = sys.argv[4]
-
     fs=gridfs.GridFS(db)
-    im = fs.put(open('../form_ui/static/imj/{0}'.format(photo), 'rb'), filename='{0}'.format(photo)) #store the photo in the db
+    icon = fs.put(open('../form_ui/static/imj/{0}'.format(icon_filename), 'rb'), filename='{0}'.format(icon_filename)) #store the photo in the db
+    image1 = fs.put(open('../form_ui/static/imj/{0}'.format(image1_filename), 'rb'), filename='{0}'.format(image1_filename)) #store the photo in the db
+    image2 = fs.put(open('../form_ui/static/imj/{0}'.format(image2_filename), 'rb'), filename='{0}'.format(image2_filename)) #store the photo in the db
+    image3 = fs.put(open('../form_ui/static/imj/{0}'.format(image3_filename), 'rb'), filename='{0}'.format(image3_filename)) #store the photo in the db
+
 
     person = {"name": name,
             "degree": degree,
-            "school": school,
-            "ex": ex,
-            "year": year,
             "occupation": occupation,
-            "facts": facts,
-            "image": im,
-            "image_name": photo,
-            "alt_txt": alt_txt,
-            "hidden": hidden}
+            "icon": icon,
+            "image1": image1,
+            "paragraph1": paragraph1,
+            "image2": image2,
+            "paragraph2": paragraph2,
+            "image3": image3,
+            "paragraph3": paragraph3,
+            "hidden": hidden,
+            "category": category}
     if (db.people.insert_one(person).inserted_id != 0):
         print (person['name'], "successfully added!")
 

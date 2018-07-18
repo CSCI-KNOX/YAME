@@ -28,7 +28,7 @@
             {% if messages %}
                 <ul>
                     {% for message in messages %}
-                        <img src="/static/imj/{{ message[1] }}" width="200" height="160" alt="image">
+                        {{ message[1] }}
                     {% endfor %}
                 </ul>
             {% endif %}
@@ -41,56 +41,49 @@
             </div>
 
             <div class="form-group">
-              <label for="name">Name: </label>
+              <label for="name">Title: </label>
               <input type="text" class="form-control" id="name" name="name">
               <!-- show image when uploaded -->
               <br><br>
-              <label for="degree">Degree or Faculty/Staff: </label>
+              <label for="degree">Subtitle: </label>
               <input type="text" class="form-control" id="degree" name="degree">
               <br>
               <br>
-              <label for="year">Graduation Year: </label>
-              <div class="form-control" id="year" name="year"> </div>
-              <input type="checkbox" class="form-control" name="ex">Expected Degree<br><br>
-              <label for="occupation">Occupation or industry: </label>
+              <label for="occupation">Heading: </label>
               <input type="text" class="form-control" id="occupation" name="occupation">
               <br><br>
-              <span class="btn btn-default btn-file">Upload An Image: <input type="file" name="image"></span>
-              <br>
-              <label for="alt_txt">Alt text: </label>
-              <input type="text" class="form-control" id="alt_txt" name="alt_txt">
-              <!-- show image when uploaded -->
-              <br>
               <span class="btn btn-default btn-file">Upload An Icon: <input type="file" name="icon"></span>
+              <br><br>
+              <span class="btn btn-default btn-file">Upload First Image: <input type="file" name="image1"></span>
+              <!-- <br>
+              <label for="alt_txt">Alt text: </label>
+              <input type="text" class="form-control" id="alt_txt" name="alt_txt"> -->
               <br>
-              <!-- show image when uploaded -->
-
-              <br><br>
-              <label for="school">School: </label>
-              <select name="school">
-                <option disabled selected value> -- select -- </option>
-                <option value="College of Arts & Sciences">College of Arts & Sciences</option>
-                <option value="Leeds School of Business">Leeds School of Business</option>
-                <option value="School of Education">School of Education</option>
-                <option value="College of Engineering and Applied Science">College of Engineering and Applied Science</option>
-                <option value="Graduate School">Graduate School</option>
-                <option value="University of Colorado Law School">University of Colorado Law School</option>
-                <option value="College of Media, Communication and Information">College of Media, Communication and Information</option>
-                <option value="College of Music">College of Music</option>
-                <option value="Continuing Education and Professional Studies">Continuing Education and Professional Studies</option>
-                <option value="University Libraries">University Libraries</option>
-                <option value="Program in Environmental Design">Program in Environmental Design</option>
-              </select>
-              <br><br>
-              <label for="facts">Story: </label>
-              <textarea class="form-control" id="facts" name="facts"></textarea>
-              <!-- <input type="checkbox" class="form-control" name="name">Show on display<br>
-              <div id="container"></div> -->
-              <!-- <a href="#" id="filldetails" onclick="moreFacts()">Add another fact</a> -->
+              <label for="facts">First Paragraph: </label>
+              <textarea class="form-control" id="paragraph1" name="paragraph1"></textarea>
+              <br><br><br><br>
+              <span class="btn btn-default btn-file">Upload Second Image: <input type="file" name="image2"></span>
+<!--               <br>
+              <label for="alt_txt">Alt text: </label>
+              <input type="text" class="form-control" id="alt_txt" name="alt_txt"> -->
+              <br>
+              <label for="facts">Second Paragraph: </label>
+              <textarea class="form-control" id="paragraph2" name="paragraph2"></textarea>
+              <br><br><br><br>
+              <span class="btn btn-default btn-file">Upload Third Image: <input type="file" name="image3"></span>
+<!--               <br>
+              <label for="alt_txt">Alt text: </label>
+              <input type="text" class="form-control" id="alt_txt" name="alt_txt"> -->
+              <br>
+              <label for="facts">Third Paragraph: </label>
+              <textarea class="form-control" id="paragraph3" name="paragraph3"></textarea>
               <br><br>
               <input type="checkbox" class="form-control" name="hidden">Hidden<br>
+              <br>
+              <input type="checkbox" class="form-control" name="category">Category<br>
             </div>
             <div class="nothing2">
+                <!-- <img src="/static/imj/form_use.png"> -->
                 <p></p>
             </div>
 
