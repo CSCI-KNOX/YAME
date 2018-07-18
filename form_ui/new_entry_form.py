@@ -69,8 +69,15 @@ def hello():
 
 @app.route("/people/", methods=['GET', 'POST'])
 def people():
+    form = ReusableForm(request.form)
     personarr = retrieve_from_db.getAll() #returns all people in the database
-    return render_template('people.html', people = personarr)
+    personarr.sort()
+    alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
+    'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+    # letter = request.form['name']
+    # print (letter)
+    # person = retrieve_from_db.searchByLetter(letter)
+    return render_template('people.html', person = person, people = personarr, alphabet=alphabet)
 
 
 @app.route("/edit/", methods=['GET', 'POST'])
@@ -148,5 +155,7 @@ def search():
             toFind['year'] = ''
     # person = retrieve_from_db.getOne(toFind)
     return render_template('search.html', form=form, person=person, alphabet=alphabet)
+
+
 if __name__ == "__main__":
     app.run()
