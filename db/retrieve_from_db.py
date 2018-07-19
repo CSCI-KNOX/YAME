@@ -28,7 +28,7 @@ def searchByLetter(letter):
         print ("Cannot find who you are looking for")
         person = 'none'
     return person
-def getOne(toFind): #get a person named p, if duplicates, finds the most recently added one
+def getOne(toFind): #toFind is {}
     client = pymongo.MongoClient("mongodb+srv://erinruby:colorado18@yame-project-6ex3z.mongodb.net/test?retryWrites=true") #ERIN's LOGIN
     db = client.prototype #name of the db
     # col = client.people #name of the collection
@@ -88,13 +88,21 @@ def getAll(): #get all names in the database to print to the screen
         personarr.append(n)
     return personarr
 
-def getAllContent():
+def getAllContent(att, value):
     client = pymongo.MongoClient("mongodb+srv://erinruby:colorado18@yame-project-6ex3z.mongodb.net/test?retryWrites=true") #ERIN's LOGIN
     db = client.prototype #name of the db
     col = client.people #name of the collection
 
-    cursor = db.people.find({'hidden' : 0})
+    cursor = db.people.find({'hidden' : 0, att :value})
     return cursor
+def getAllCategories(att, value):
+    client = pymongo.MongoClient("mongodb+srv://erinruby:colorado18@yame-project-6ex3z.mongodb.net/test?retryWrites=true") #ERIN's LOGIN
+    db = client.prototype #name of the db
+    col = client.people #name of the collection
+
+    cursor = db.people.find({'iscategory' : 1, att :value})
+    return cursor
+
 def getPhotoFileName(id):
     client = pymongo.MongoClient("mongodb+srv://erinruby:colorado18@yame-project-6ex3z.mongodb.net/test?retryWrites=true") #ERIN's LOGIN
     db = client.prototype #name of the db
