@@ -4,7 +4,10 @@
         <title>Display</title>
         <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/display.css') }}">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script type="text/javascript" src="slick/slick.min.js"></script>
         <script src="../static/js/tabs.js" defer></script>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.0/slick/slick-theme.css"/>
+
 
         <!-- <meta http-equiv="refresh" content="1"> -->
     </head>
@@ -17,7 +20,7 @@
       <div class="about">
         {% for i in range(personarr.count()) %}
       <div id="Person{{ i }}" class="tabcontent">
-        <p><img id="personImg" src='../static/imj/{{ personarr[i]['image_name'] }}' width='400' height='320' alt='{{ personarr[i]['alt_txt'] }}' title='{{ personarr[i]['alt_txt'] }}'></p>
+        <p><img id="personImg" src='../static/imj/{{ personarr[i]['name'] }}_image1' width='400' height='320'></p>
         <p>
           <div class="info">
           {% for key in personarr[i] %}
@@ -37,13 +40,10 @@
       </div> -->
   </div>
   <img id= 'greyCirc'src='../static/imj/greyCirc.png' >
-    <div class="loop">
-      <div class="buttons" id="image_rotate">
-        {% for i in range(personarr.count()) %}
-            <button class="tablink" onclick="openCity('Person{{ i }}', this)"><img src='../static/imj/{{ personarr[i]['image_name'] }}' ></button>
-          <!-- looking to replace all person images in scroll bar with corresponding graphics in img folder, match graphics to person in db for this-->
-          {% endfor %}
-        </div>
+    <div class="buttons">
+      {% for i in range(personarr.count()) %}
+          <div><button class="tablink" ><img src='../static/imj/{{ personarr[i]['name'] }}_icon' ></button></div>
+        {% endfor %}
       </div>
       <button onclick="scrollMe('left')"> <img id="arrowL" src='../static/imj/arrowLeft.png' > </button>
       <button onclick="scrollMe('right')"> <img id="arrowR" src='../static/imj/arrowRight.png'> </button>
@@ -54,41 +54,50 @@
        	<p class='tab3'> Athletes </p>
        </div>
        <img id= 'blackCirc'src='../static/imj/blackCirc.png' >
+       <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.0/slick/slick.min.js"></script>
+    </body>
 
       <!-- adding jquery -->
     <script>
- 
-   $(document).ready(function() {
-        // Container element which has a scrollbar
-        var $c = $(".loop");
-        // Child element which is taller than the container
-        var $e = $(".buttons");
-        // The point at which the page will loop when scrolling down
-        var loopPoint = 240*{{ personarr.count() }} - $(window).width();
 
-        // Define a function which runs whenever the scroll position of $c changes
-        $e.scroll(function () {
-          // just in case the window changes size
-          var i = 0;
-          if (i%1000 == 0) {
-            var loopPoint = 240*{{ personarr.count() }} - $(window).width();
-          }
-          i = i + 1;
-            // If the new scroll position matches our loop point;
-            if ($e.scrollLeft() === loopPoint) {
-                // Scroll to (almost) the the top ('0' would be the top; we do this so we don't loop back again instantly)
-                // $e.scrollLeft(1);
-                $e.animate({scrollLeft: 1}, 750);
-            }
-            // Otherwise, if the new scroll position = the top of the element
-            else if ($e.scrollLeft() === 0) {
-                // Scroll to (almost) the bottom, we can use (our loop point - 1)
-                // $e.scrollLeft(loopPoint - 1);
-                $e.animate({scrollLeft: loopPoint-1}, 750);
-            }
+      $(document).ready(function(){
+        $('.buttons').slick({
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 3
         });
-    });
+      });
+ 
+   // $(document).ready(function() {
+   //      // Container element which has a scrollbar
+   //      var $c = $(".loop");
+   //      // Child element which is taller than the container
+   //      var $e = $(".buttons");
+   //      // The point at which the page will loop when scrolling down
+   //      var loopPoint = 240*{{ personarr.count() }} - $(window).width();
+
+   //      // Define a function which runs whenever the scroll position of $c changes
+   //      $e.scroll(function () {
+   //        // just in case the window changes size
+   //        var i = 0;
+   //        if (i%1000 == 0) {
+   //          var loopPoint = 240*{{ personarr.count() }} - $(window).width();
+   //        }
+   //        i = i + 1;
+   //          // If the new scroll position matches our loop point;
+   //          if ($e.scrollLeft() === loopPoint) {
+   //              // Scroll to (almost) the the top ('0' would be the top; we do this so we don't loop back again instantly)
+   //              // $e.scrollLeft(1);
+   //              $e.animate({scrollLeft: 1}, 750);
+   //          }
+   //          // Otherwise, if the new scroll position = the top of the element
+   //          else if ($e.scrollLeft() === 0) {
+   //              // Scroll to (almost) the bottom, we can use (our loop point - 1)
+   //              // $e.scrollLeft(loopPoint - 1);
+   //              $e.animate({scrollLeft: loopPoint-1}, 750);
+   //          }
+   //      });
+   //  });
  
     </script>
-    </body>
 </html>
