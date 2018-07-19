@@ -99,12 +99,15 @@ def getPhotoFileName(id):
     client = pymongo.MongoClient("mongodb+srv://erinruby:colorado18@yame-project-6ex3z.mongodb.net/test?retryWrites=true") #ERIN's LOGIN
     db = client.prototype #name of the db
     col = client.people #name of the collection
-    fscol = client.fs.files
-    cursor = db.fscol.find({'_id':id}) #return everyone in the database
+    fs=gridfs.GridFS(db)
+    cursor = fs.find_one({'_id': id})
     person = []
+    exists = 0
     for att in cursor:
         person.append(att)
-    print ("HEHHHHHEHEHEHLEOLOLOO", person)
+        exists = 1
+    if not exists:
+        print ("Cannot find who you are looking for")
     return person
 
 
@@ -113,8 +116,8 @@ def getPhoto(dbFileName, tempFileName):
     db = client.prototype #name of the db
     col = client.people #name of the collection
     # fs=gridfs.GridFS(db)
-    fs = GridFSBucket(db)
-    file = open('/tempImage/{0}'.format(tempFileName), 'wb')
+    fs=gridfs.GridFSBucket(db)
+    file = open('../db/tempImage/{0}'.format(tempFileName), 'wb')
     fs.download_to_stream_by_name(dbFileName, file)
 
 

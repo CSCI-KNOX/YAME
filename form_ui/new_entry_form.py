@@ -66,10 +66,10 @@ def hello():
         hidden = checkbox('hidden')
         category = checkbox('category')
         # saving all images into folder and getting filenames
-        icon_filename = image(icon, name + '_icon')
-        image1_filename = image(image1, name + '_image1')
-        image2_filename = image(image2, name + '_image2')
-        image3_filename = image(image3, name + '_image3')
+        icon_filename = image(icon, name + '_icon.jpg')
+        image1_filename = image(image1, name + '_image1.jpg')
+        image2_filename = image(image2, name + '_image2.jpg')
+        image3_filename = image(image3, name + '_image3.jpg')
 
         if form.validate():
             add_person.addOne(name, degree, occupation, icon_filename, image1_filename, paragraph1,
@@ -128,9 +128,9 @@ def edit():
 def person():
     name = request.args.get('name')
     person = retrieve_from_db.getOneforDisplay(name)
-    print ("HELLOOO??????", person['icon'])
-    dbFileName = retrieve_from_db.getPhotoFileName(person['icon'])
-    retrieve_from_db.getPhoto(dbFileName['filename'], 'icon')
+    print ("THIS SHOULD SAY TEST PERSON", person['name'])
+    # dbFileName = retrieve_from_db.getPhotoFileName(person['icon'])
+    retrieve_from_db.getPhoto(person['name']+'_icon.jpg', 'icon.jpg')
     return render_template('person.html', person=person)
 
 
