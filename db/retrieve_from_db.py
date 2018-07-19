@@ -95,6 +95,28 @@ def getAllContent():
 
     cursor = db.people.find({'hidden' : 0})
     return cursor
+def getPhotoFileName(id):
+    client = pymongo.MongoClient("mongodb+srv://erinruby:colorado18@yame-project-6ex3z.mongodb.net/test?retryWrites=true") #ERIN's LOGIN
+    db = client.prototype #name of the db
+    col = client.people #name of the collection
+    fscol = client.fs.files
+    cursor = db.fscol.find({'_id':id}) #return everyone in the database
+    person = []
+    for att in cursor:
+        person.append(att)
+    print ("HEHHHHHEHEHEHLEOLOLOO", person)
+    return person
+
+
+def getPhoto(dbFileName, tempFileName):
+    client = pymongo.MongoClient("mongodb+srv://erinruby:colorado18@yame-project-6ex3z.mongodb.net/test?retryWrites=true") #ERIN's LOGIN
+    db = client.prototype #name of the db
+    col = client.people #name of the collection
+    # fs=gridfs.GridFS(db)
+    fs = GridFSBucket(db)
+    file = open('/tempImage/{0}'.format(tempFileName), 'wb')
+    fs.download_to_stream_by_name(dbFileName, file)
+
 
 # def main():
 #

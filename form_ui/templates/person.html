@@ -14,7 +14,7 @@
             <strong><nav>
               <ul class="menu">
                 <li><a href="{{ url_for('hello') }}">Add a Person</a></li>
-                <li><a href="{{ url_for('people') }}">People In Database</a></li>
+                <li><a href="{{ url_for('people') }}">Index</a></li>
                 <li><a href="{{ url_for('search') }}">Search for a person</a></li>
                 <li><a href="{{ url_for('display') }}">Display</a></li>
                 <li><a href='/edit/?name={{ person["name"] }}'>Edit</a></li>
@@ -23,10 +23,10 @@
           </div>
         </header>
     <div class="about">
-      <p><img src="../static/imj/{{ person['name'] }}_image1" width="200" height="160" alt="image"></p>
+      <p><img src="../../db/tempImage/icon" width="200" height="160" alt="image"></p>
       <p>
         {% for key in person %}
-          <p class='{{ key }}'> {{ key }} : {{ person[key] }} </p> 
+          <p class='{{ key }}'> {{ key }} : {{ person[key] }} </p>
         {% endfor %}
       </p>
     </div>

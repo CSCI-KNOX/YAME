@@ -72,7 +72,7 @@ def hello():
         image3_filename = image(image3, name + '_image3')
 
         if form.validate():
-            add_person.addOne(name, degree, occupation, icon_filename, image1_filename, paragraph1, 
+            add_person.addOne(name, degree, occupation, icon_filename, image1_filename, paragraph1,
                 image2_filename, paragraph2, image3_filename, paragraph3, hidden, category)
             print("Upload to database successful.")
         else:
@@ -128,6 +128,9 @@ def edit():
 def person():
     name = request.args.get('name')
     person = retrieve_from_db.getOneforDisplay(name)
+    print ("HELLOOO??????", person['icon'])
+    dbFileName = retrieve_from_db.getPhotoFileName(person['icon'])
+    retrieve_from_db.getPhoto(dbFileName['filename'], 'icon')
     return render_template('person.html', person=person)
 
 
