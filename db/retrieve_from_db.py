@@ -117,7 +117,7 @@ def getPhoto(dbFileName, tempFileName):
     col = client.people #name of the collection
     # fs=gridfs.GridFS(db)
     fs=gridfs.GridFSBucket(db)
-    file = open('../db/tempImage/{0}'.format(tempFileName), 'wb')
+    file = open('../form_ui/static/tempImage/{0}'.format(tempFileName), 'wb')
     fs.download_to_stream_by_name(dbFileName, file)
 
 
