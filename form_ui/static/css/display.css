@@ -74,7 +74,19 @@ p.name {
 	font-weight: bold;
 	padding-right: 15px;
 }
-p.image {
+p.image1 {
+	display: none;
+}
+p.image2 {
+	display: none;
+}
+p.image3 {
+	display: none;
+}
+p.category {
+	display: none;
+}
+p.iscategory {
 	display: none;
 }
 p.ex {

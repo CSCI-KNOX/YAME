@@ -37,7 +37,7 @@
   <img id= 'greyCirc'src='../static/imj/greyCirc.png' >
     <div class="buttons">
       {% for i in range(personarr.count()) %}
-          <div><button class="tablink" ><img src='../static/imj/{{ personarr[i]['name'] }}_icon' ></button></div>
+          <div><button class="tablink" onclick="openCity('Person{{ i }}', this)"><img src='../static/imj/research.jpg' ></button></div> <!-- ../static/imj/{{ personarr[i]['name'] }}_icon -->
         {% endfor %}
       </div>
 <!--       <button onclick="scrollMe('left')"> <img id="arrowL" src='../static/imj/arrowLeft.png' > </button>
@@ -65,7 +65,7 @@
     </script>
     <script type="text/javascript">
       function loadPage(arg) {
-        var newstate = "?arg1=" + arg;
+        var newstate = "?category=" + arg;
         window.history.replaceState(null, null, newstate);
         
       }
