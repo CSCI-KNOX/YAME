@@ -38,16 +38,6 @@ img {
   flex:1;
   background-color: black;
 }
-/*.nothing1{
-	min-width:10%;
-	width: 33.3%;
-	order:1;
-}
-.nothing2{
-	min-width: 10%;
-	width: 33.3%;
-	order:3;
-}*/
 .forAbout{
 	position: relative;
 	width: 100%;
