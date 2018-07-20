@@ -65,8 +65,7 @@
     </script>
     <script type="text/javascript">
       function loadPage(arg) {
-        console.log(arg);
-        var newstate = "?" + arg;
+        var newstate = "?arg1=" + arg;
         window.history.replaceState(null, null, newstate);
         
       }
