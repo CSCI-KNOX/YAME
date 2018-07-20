@@ -2,11 +2,12 @@
 <html>
     <head>
         <title>Display</title>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
         <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/display.css') }}">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script type="text/javascript" src="slick/slick.min.js"></script>
         <script src="../static/js/tabs.js" defer></script>
-        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.0/slick/slick-theme.css"/>
 
 
         <!-- <meta http-equiv="refresh" content="1"> -->
@@ -45,8 +46,8 @@
           <div><button class="tablink" ><img src='../static/imj/{{ personarr[i]['name'] }}_icon' ></button></div>
         {% endfor %}
       </div>
-      <button onclick="scrollMe('left')"> <img id="arrowL" src='../static/imj/arrowLeft.png' > </button>
-      <button onclick="scrollMe('right')"> <img id="arrowR" src='../static/imj/arrowRight.png'> </button>
+<!--       <button onclick="scrollMe('left')"> <img id="arrowL" src='../static/imj/arrowLeft.png' > </button>
+      <button onclick="scrollMe('right')"> <img id="arrowR" src='../static/imj/arrowRight.png'> </button> -->
 
        <div class="categories">
        	<p class='tab1'> People </p>
@@ -62,9 +63,7 @@
 
       $(document).ready(function(){
         $('.buttons').slick({
-            infinite: true,
-            slidesToShow: 3,
-            slidesToScroll: 3
+          infinite: true,
         });
       });
  

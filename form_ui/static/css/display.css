@@ -148,6 +148,11 @@ p.icon_name {
 	position: relative;
 	z-index: 1;
 }*/
+.buttons {
+	margin: auto;
+    width: 50%;
+    padding: 10px;
+}
 .loop {
     height: 200px;
     white-space: nowrap;
