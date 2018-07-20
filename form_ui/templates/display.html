@@ -50,9 +50,9 @@
       <button onclick="scrollMe('right')"> <img id="arrowR" src='../static/imj/arrowRight.png'> </button> -->
 
        <div class="categories">
-       	<p class='tab1'> People </p>
-       	<p class='tab2'> History </p>
-       	<p class='tab3'> Athletes </p>
+       	<p class='tab1' onclick='loadPage("people")'> People </p>
+       	<p class='tab2' onclick='loadPage("history")'> History </p>
+       	<p class='tab3' onclick='loadPage("athletes")'> Athletes </p>
        </div>
        <img id= 'blackCirc'src='../static/imj/blackCirc.png' >
        <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.0/slick/slick.min.js"></script>
@@ -64,39 +64,17 @@
       $(document).ready(function(){
         $('.buttons').slick({
           infinite: true,
+          // autoplay: true,
+          // autoplaySpeed: 2000,
         });
       });
- 
-   // $(document).ready(function() {
-   //      // Container element which has a scrollbar
-   //      var $c = $(".loop");
-   //      // Child element which is taller than the container
-   //      var $e = $(".buttons");
-   //      // The point at which the page will loop when scrolling down
-   //      var loopPoint = 240*{{ personarr.count() }} - $(window).width();
-
-   //      // Define a function which runs whenever the scroll position of $c changes
-   //      $e.scroll(function () {
-   //        // just in case the window changes size
-   //        var i = 0;
-   //        if (i%1000 == 0) {
-   //          var loopPoint = 240*{{ personarr.count() }} - $(window).width();
-   //        }
-   //        i = i + 1;
-   //          // If the new scroll position matches our loop point;
-   //          if ($e.scrollLeft() === loopPoint) {
-   //              // Scroll to (almost) the the top ('0' would be the top; we do this so we don't loop back again instantly)
-   //              // $e.scrollLeft(1);
-   //              $e.animate({scrollLeft: 1}, 750);
-   //          }
-   //          // Otherwise, if the new scroll position = the top of the element
-   //          else if ($e.scrollLeft() === 0) {
-   //              // Scroll to (almost) the bottom, we can use (our loop point - 1)
-   //              // $e.scrollLeft(loopPoint - 1);
-   //              $e.animate({scrollLeft: loopPoint-1}, 750);
-   //          }
-   //      });
-   //  });
- 
+    </script>
+    <script type="text/javascript">
+      function loadPage(arg) {
+        console.log(arg);
+        var newstate = "?" + arg;
+        window.history.replaceState(null, null, newstate);
+        
+      }
     </script>
 </html>
