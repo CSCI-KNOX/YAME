@@ -18,8 +18,8 @@
       <div class="forAbout">
       <div class="about">
       {% set category = request.args.get('category') %}
-      {% if category == 'athletes' %}
-        {% set array = athletesarr %}
+      {% if category == 'people' %}
+        {% set array = peoplecatarr %}
       {% endif %}
       {% for arr in array %}
         {% for i in range(arr.count()) %}
@@ -28,11 +28,17 @@
         <p>
           <div class="info">
           {% for key in arr[i] %}
-            {% if key == 'ex' and arr[i][key] == 1 %}
-              <p class='expected'>ex </p>
+            {% if key != 'paragraph1' and key != 'paragraph2' and key != 'paragraph3' %}
+              <p class='{{ key }}'> {{ arr[i][key] }} </p>
             {% endif %}
-            <p class='{{ key }}'> {{ arr[i][key] }} </p>
           {% endfor %}
+          <div class='paragraph'>
+          {% for key in arr[i] %}
+            {% if key == 'paragraph1' or key == 'paragraph2' or key == 'paragraph3' %}
+              <div><p class='{{ key }}'> {{ arr[i][key] }} </p></div>
+              {% endif %}
+            {% endfor %}
+          </div>
         </p>
       </div>
     </div>
@@ -68,13 +74,18 @@
           // autoplay: true,
           // autoplaySpeed: 2000,
         });
+        $('.paragraph').slick({
+          infinite: true,
+          // autoplay: true,
+          // autoplaySpeed: 2000,
+        });
       });
     </script>
     <script type="text/javascript">
       function loadPage(arg) {
         var newstate = "?category=" + arg;
         window.history.replaceState(null, null, newstate);
-        // location.reload();
+        location.reload();
       }
     </script>
 </html>

@@ -86,6 +86,9 @@ p.image3 {
 p.category {
 	display: none;
 }
+.paragraph {
+	width: 90%;
+}
 p.iscategory {
 	display: none;
 }
