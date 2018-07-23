@@ -10,15 +10,19 @@
         <script src="../static/js/tabs.js" defer></script>
 
 
+
         <!-- <meta http-equiv="refresh" content="1"> -->
     </head>
     <body>
       <div class="container">
       <div class="forAbout">
       <div class="about">
-      {% for arr in athletesarr %}
+      {% set category = request.args.get('category') %}
+      {% if category == 'athletes' %}
+        {% set array = athletesarr %}
+      {% endif %}
+      {% for arr in array %}
         {% for i in range(arr.count()) %}
-        <p>{{ i }}</p>
       <div id="Person{{ i }}" class="tabcontent">
         <p><img id="personImg" src='../static/imj/{{ arr[i]['name'] }}_image1' width='400' height='320'></p>
         <p>
@@ -70,7 +74,7 @@
       function loadPage(arg) {
         var newstate = "?category=" + arg;
         window.history.replaceState(null, null, newstate);
-
+        // location.reload();
       }
     </script>
 </html>
