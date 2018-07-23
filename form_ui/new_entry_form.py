@@ -152,8 +152,8 @@ def display():
     tabsarr.append(retrieve_from_db.getAllCategories('name', 'People'))
     peoplecatarr=[]
     athletesarr=[]
-    peoplecatarr.append(retrieve_from_db.getAllCategories('name', 'Athletes'))
-    athletesarr = retrieve_from_db.getAllContent('category','athletes')
+    peoplecatarr.append(retrieve_from_db.getAllCategories('category', 'people'))
+    athletesarr = retrieve_from_db.getAllContent('category','athletes') #all people who are athelets
     athletesarr.sort()
     return render_template('display.html', peoplecatarr=peoplecatarr, athletesarr=atheletesarr, tabsarr=tabsarr) # person=person
 
