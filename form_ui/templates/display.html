@@ -16,16 +16,18 @@
       <div class="container">
       <div class="forAbout">
       <div class="about">
-        {% for i in range(personarr.count()) %}
+      {% for arr in athletesarr %}
+        {% for i in range(arr.count()) %}
+        <p>{{ i }}</p>
       <div id="Person{{ i }}" class="tabcontent">
-        <p><img id="personImg" src='../static/imj/{{ personarr[i]['name'] }}_image1' width='400' height='320'></p>
+        <p><img id="personImg" src='../static/imj/{{ arr[i]['name'] }}_image1' width='400' height='320'></p>
         <p>
           <div class="info">
-          {% for key in personarr[i] %}
-            {% if key == 'ex' and personarr[i][key] == 1 %}
+          {% for key in arr[i] %}
+            {% if key == 'ex' and arr[i][key] == 1 %}
               <p class='expected'>ex </p>
             {% endif %}
-            <p class='{{ key }}'> {{ personarr[i][key] }} </p>
+            <p class='{{ key }}'> {{ arr[i][key] }} </p>
           {% endfor %}
         </p>
       </div>
@@ -36,9 +38,10 @@
   </div>
   <img id= 'greyCirc'src='../static/imj/greyCirc.png' >
     <div class="buttons">
-      {% for i in range(personarr.count()) %}
-          <div><button class="tablink" onclick="openCity('Person{{ i }}', this)"><img src='../static/imj/research.jpg' ></button></div> <!-- ../static/imj/{{ personarr[i]['name'] }}_icon -->
+      {% for i in range(arr.count()) %}
+          <div><button class="tablink" onclick="openCity('Person{{ i }}', this)"><img src='../static/imj/research.jpg' ></button></div> <!-- ../static/imj/{{ arr[i]['name'] }}_icon -->
         {% endfor %}
+      {% endfor %}
       </div>
 <!--       <button onclick="scrollMe('left')"> <img id="arrowL" src='../static/imj/arrowLeft.png' > </button>
       <button onclick="scrollMe('right')"> <img id="arrowR" src='../static/imj/arrowRight.png'> </button> -->
@@ -67,7 +70,7 @@
       function loadPage(arg) {
         var newstate = "?category=" + arg;
         window.history.replaceState(null, null, newstate);
-        
+
       }
     </script>
 </html>
