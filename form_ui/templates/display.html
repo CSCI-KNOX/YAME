@@ -10,23 +10,39 @@
         <script src="../static/js/tabs.js" defer></script>
 
 
+
         <!-- <meta http-equiv="refresh" content="1"> -->
     </head>
     <body>
       <div class="container">
       <div class="forAbout">
       <div class="about">
-        {% for i in range(personarr.count()) %}
+      {% set category = request.args.get('category') %}
+      {% if category == 'people' %}
+        {% set array = peoplecatarr %}
+      {% endif %}
+      {% for arr in array %}
+        {% for i in range(arr.count()) %}
       <div id="Person{{ i }}" class="tabcontent">
-        <p><img id="personImg" src='../static/imj/{{ personarr[i]['name'] }}_image1' width='400' height='320'></p>
+        <div class='person_images' align='center'>
+          <div><p><img id="personImg" src='../static/imj/{{ arr[i]['name'] }}_image1.jpg' width='400' height='320'></p></div>
+          <div><p><img id="personImg" src='../static/imj/{{ arr[i]['name'] }}_image2.jpg' width='400' height='320'></p></div>
+          <div><p><img id="personImg" src='../static/imj/{{ arr[i]['name'] }}_image3.jpg' width='400' height='320'></p></div>
+        </div>
         <p>
           <div class="info">
-          {% for key in personarr[i] %}
-            {% if key == 'ex' and personarr[i][key] == 1 %}
-              <p class='expected'>ex </p>
+          {% for key in arr[i] %}
+            {% if key != 'paragraph1' and key != 'paragraph2' and key != 'paragraph3' %}
+              <p class='{{ key }}'> {{ arr[i][key] }} </p>
             {% endif %}
-            <p class='{{ key }}'> {{ personarr[i][key] }} </p>
           {% endfor %}
+          <div class='paragraph'>
+          {% for key in arr[i] %}
+            {% if key == 'paragraph1' or key == 'paragraph2' or key == 'paragraph3' %}
+              <div><p class='{{ key }}'> {{ arr[i][key] }} </p></div>
+              {% endif %}
+            {% endfor %}
+          </div>
         </p>
       </div>
     </div>
@@ -36,9 +52,10 @@
   </div>
   <img id= 'greyCirc'src='../static/imj/greyCirc.png' >
     <div class="buttons">
-      {% for i in range(personarr.count()) %}
-          <div><button class="tablink" onclick="openCity('Person{{ i }}', this)"><img src='../static/imj/research.jpg' ></button></div> <!-- ../static/imj/{{ personarr[i]['name'] }}_icon -->
+      {% for i in range(arr.count()) %}
+          <div><button class="tablink" onclick="openCity('Person{{ i }}', this)"><img src='../static/imj/{{ arr[i]['name'] }}_icon.jpg' ></button></div> <!-- ../static/imj/{{ arr[i]['name'] }}_icon -->
         {% endfor %}
+      {% endfor %}
       </div>
 <!--       <button onclick="scrollMe('left')"> <img id="arrowL" src='../static/imj/arrowLeft.png' > </button>
       <button onclick="scrollMe('right')"> <img id="arrowR" src='../static/imj/arrowRight.png'> </button> -->
@@ -61,13 +78,23 @@
           // autoplay: true,
           // autoplaySpeed: 2000,
         });
+        $('.paragraph').slick({
+          infinite: true,
+          // autoplay: true,
+          // autoplaySpeed: 2000,
+        });
+        $('.person_images').slick({
+          infinite: true,
+          // autoplay: true,
+          // autoplaySpeed: 2000,
+        });
       });
     </script>
     <script type="text/javascript">
       function loadPage(arg) {
         var newstate = "?category=" + arg;
         window.history.replaceState(null, null, newstate);
-        
+        location.reload();
       }
     </script>
 </html>
