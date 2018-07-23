@@ -24,7 +24,11 @@
       {% for arr in array %}
         {% for i in range(arr.count()) %}
       <div id="Person{{ i }}" class="tabcontent">
-        <p><img id="personImg" src='../static/imj/{{ arr[i]['name'] }}_image1' width='400' height='320'></p>
+        <div class='person_images' align='center'>
+          <div><p><img id="personImg" src='../static/imj/{{ arr[i]['name'] }}_image1.jpg' width='400' height='320'></p></div>
+          <div><p><img id="personImg" src='../static/imj/{{ arr[i]['name'] }}_image2.jpg' width='400' height='320'></p></div>
+          <div><p><img id="personImg" src='../static/imj/{{ arr[i]['name'] }}_image3.jpg' width='400' height='320'></p></div>
+        </div>
         <p>
           <div class="info">
           {% for key in arr[i] %}
@@ -49,7 +53,7 @@
   <img id= 'greyCirc'src='../static/imj/greyCirc.png' >
     <div class="buttons">
       {% for i in range(arr.count()) %}
-          <div><button class="tablink" onclick="openCity('Person{{ i }}', this)"><img src='../static/imj/research.jpg' ></button></div> <!-- ../static/imj/{{ arr[i]['name'] }}_icon -->
+          <div><button class="tablink" onclick="openCity('Person{{ i }}', this)"><img src='../static/imj/{{ arr[i]['name'] }}_icon.jpg' ></button></div> <!-- ../static/imj/{{ arr[i]['name'] }}_icon -->
         {% endfor %}
       {% endfor %}
       </div>
@@ -75,6 +79,11 @@
           // autoplaySpeed: 2000,
         });
         $('.paragraph').slick({
+          infinite: true,
+          // autoplay: true,
+          // autoplaySpeed: 2000,
+        });
+        $('.person_images').slick({
           infinite: true,
           // autoplay: true,
           // autoplaySpeed: 2000,

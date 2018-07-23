@@ -83,6 +83,9 @@ p.image2 {
 p.image3 {
 	display: none;
 }
+p.paragraph1, p.paragraph2, p.paragraph3 {
+	padding: 0 20px;
+}
 p.category {
 	display: none;
 }
