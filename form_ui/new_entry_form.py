@@ -63,8 +63,9 @@ def hello():
         paragraph2 = request.form['paragraph2']
         image3 = request.files['image3']
         paragraph3 = request.form['paragraph3']
+        category = request.form['category']
         hidden = checkbox('hidden')
-        category = checkbox('category')
+        iscategory = checkbox('iscategory') #is this a category??
         # saving all images into folder and getting filenames
         icon_filename = image(icon, name + '_icon.jpg')
         image1_filename = image(image1, name + '_image1.jpg')
@@ -73,7 +74,7 @@ def hello():
 
         if form.validate():
             add_person.addOne(name, degree, occupation, icon_filename, image1_filename, paragraph1,
-                image2_filename, paragraph2, image3_filename, paragraph3, hidden, category)
+                image2_filename, paragraph2, image3_filename, paragraph3, category,  hidden, iscategory)
             print("Upload to database successful.")
         else:
             flash('The title field is required.')
@@ -147,8 +148,14 @@ def display():
     #     personarr = retrieve_from_db.getAll()
     #     name = np.random.choice(personarr)
     # person = retrieve_from_db.getOneforDisplay(name)
-    personarr = retrieve_from_db.getAllContent()
-    return render_template('display.html', personarr=personarr) # person=person
+    tabsarr =[]
+    tabsarr.append(retrieve_from_db.getAllCategories('name', 'People'))
+    peoplecatarr=[]
+    athletesarr=[]
+    peoplecatarr.append(retrieve_from_db.getAllCategories('name', 'Athletes'))
+    athletesarr = retrieve_from_db.getAllContent('category','athletes')
+    athletesarr.sort()
+    return render_template('display.html', peoplecatarr=peoplecatarr, athletesarr=atheletesarr, tabsarr=tabsarr) # person=person
 
 @app.route("/search/", methods=['GET', 'POST'])
 def search():
