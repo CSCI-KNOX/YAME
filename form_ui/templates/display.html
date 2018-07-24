@@ -18,36 +18,40 @@
       {% set category = request.args.get('category') %}
       {% if category == 'people' %}
         {% set array = peoplecatarr %}
+        {% set oldarray = tabsarr %}
       {% endif %}
       {% if category == 'Athletes' %}
         {% set array = athletesarr %}
+        {% set oldarr = tabsarr %}
       {% endif %}
       {% if category == 'Astronauts' %}
         {% set array = astronautsarr %}
+        {% set oldarray = tabsarr %}
       {% endif %}
       {% if category == 'history' %}
         {% set array = historycatarr %}
+        {% set oldarray = tabsarr %}
       {% endif %}
       {% if array %}
-      {% for arr in array %}
-          {% for i in range(arr.count()) %}
+      {% for oldarr in oldarray %}
+          {% for i in range(oldarr.count()) %}
         <div id="Person{{ i }}" class="tabcontent">
           <div class='slider person_images' align='center'>
-            <div><p><img id="personImg" src='../static/imj/{{ arr[i]['name'] }}_image1.jpg' width='400' height='320'></p></div>
-            <div><p><img id="personImg" src='../static/imj/{{ arr[i]['name'] }}_image2.jpg' width='400' height='320'></p></div>
-            <div><p><img id="personImg" src='../static/imj/{{ arr[i]['name'] }}_image3.jpg' width='400' height='320'></p></div>
+            <div><p><img id="personImg" src='../static/imj/{{ oldarr[0]['name'] }}_image1.jpg' width='400' height='320'></p></div>
+            <div><p><img id="personImg" src='../static/imj/{{ oldarr[0]['name'] }}_image2.jpg' width='400' height='320'></p></div>
+            <div><p><img id="personImg" src='../static/imj/{{ oldarr[0]['name'] }}_image3.jpg' width='400' height='320'></p></div>
           </div>
           <p>
             <div class="info">
-            {% for key in arr[i] %}
+            {% for key in oldarr[0] %}
               {% if key != 'paragraph1' and key != 'paragraph2' and key != 'paragraph3' %}
-                <p class='{{ key }}'> {{ arr[i][key] }} </p>
+                <p class='{{ key }}'> {{ oldarr[0][key] }} </p>
               {% endif %}
             {% endfor %}
             <div class='slider paragraph'>
-            {% for key in arr[i] %}
+            {% for key in oldarr[0] %}
               {% if key == 'paragraph1' or key == 'paragraph2' or key == 'paragraph3' %}
-                <div><p class='{{ key }}'> {{ arr[i][key] }} </p></div>
+                <div><p class='{{ key }}'> {{ oldarr[0][key] }} </p></div>
                 {% endif %}
               {% endfor %}
             </div>
@@ -55,11 +59,13 @@
         </div>
       </div>
         {% endfor %}
+        {%endfor%}
     </div>
   </div>
   </div>
   <img id= 'greyCirc'src='../static/imj/greyCirc.png' >
     <div class="buttons">
+      {% for arr in array %}
       {% for i in range(arr.count()) %}
         {% if arr[i]['iscategory'] == 1 %}
           <div><button class="tablink" onclick="openCity('Person{{ i }}', this); loadPage('{{ arr[i]['name'] }}')"><img src='../static/imj/{{ arr[i]['name'] }}_icon.jpg' ></button></div>
@@ -109,16 +115,6 @@
           // autoplay: true,
           // autoplaySpeed: 2000,
         });
-        // $('.paragraph').slick({
-        //   infinite: true,
-        //   // autoplay: true,
-        //   // autoplaySpeed: 2000,
-        // });
-        // $('.person_images').slick({
-        //   infinite: true,
-        //   // autoplay: true,
-        //   // autoplaySpeed: 2000,
-        // });
       });
     </script>
     <script type="text/javascript">
