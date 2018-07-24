@@ -9,8 +9,6 @@
         <script type="text/javascript" src="slick/slick.min.js"></script>
         <script src="../static/js/tabs.js" defer></script>
 
-
-
         <!-- <meta http-equiv="refresh" content="1"> -->
     </head>
     <body>
@@ -20,6 +18,15 @@
       {% set category = request.args.get('category') %}
       {% if category == 'people' %}
         {% set array = peoplecatarr %}
+      {% endif %}
+      {% if category == 'Athletes' %}
+        {% set array = athletesarr %}
+      {% endif %}
+      {% if category == 'Astronauts' %}
+        {% set array = astronautsarr %}
+      {% endif %}
+      {% if category == 'history' %}
+        {% set array = historycatarr %}
       {% endif %}
       {% for arr in array %}
         {% for i in range(arr.count()) %}
@@ -53,7 +60,11 @@
   <img id= 'greyCirc'src='../static/imj/greyCirc.png' >
     <div class="buttons">
       {% for i in range(arr.count()) %}
-          <div><button class="tablink" onclick="openCity('Person{{ i }}', this, '{{ arr[i] }}')"><img src='../static/imj/{{ arr[i]['name'] }}_icon.jpg' ></button></div> <!-- ../static/imj/{{ arr[i]['name'] }}_icon -->
+        {% if arr[i]['iscategory'] == 1 %}
+          <div><button class="tablink" onclick="openCity('Person{{ i }}', this); loadPage('{{ arr[i]['name'] }}')"><img src='../static/imj/{{ arr[i]['name'] }}_icon.jpg' ></button></div>
+        {% else %}
+          <div><button class="tablink" onclick="openCity('Person{{ i }}', this)"><img src='../static/imj/{{ arr[i]['name'] }}_icon.jpg' ></button></div>
+        {% endif %}
         {% endfor %}
       {% endfor %}
       </div>
