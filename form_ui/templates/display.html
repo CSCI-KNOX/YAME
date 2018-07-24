@@ -53,7 +53,7 @@
   <img id= 'greyCirc'src='../static/imj/greyCirc.png' >
     <div class="buttons">
       {% for i in range(arr.count()) %}
-          <div><button class="tablink" onclick="openCity('Person{{ i }}', this)"><img src='../static/imj/{{ arr[i]['name'] }}_icon.jpg' ></button></div> <!-- ../static/imj/{{ arr[i]['name'] }}_icon -->
+          <div><button class="tablink" onclick="openCity('Person{{ i }}', this, '{{ arr[i] }}')"><img src='../static/imj/{{ arr[i]['name'] }}_icon.jpg' ></button></div> <!-- ../static/imj/{{ arr[i]['name'] }}_icon -->
         {% endfor %}
       {% endfor %}
       </div>
