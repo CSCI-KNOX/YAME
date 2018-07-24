@@ -129,14 +129,13 @@ def edit():
 def person():
     name = request.args.get('name')
     person = retrieve_from_db.getOneforDisplay(name)
-    print ("THIS SHOULD SAY TEST PERSON", person['name'])
     # dbFileName = retrieve_from_db.getPhotoFileName(person['icon'])
-    retrieve_from_db.getPhoto(person['name']+'_icon.jpg', 'icon.jpg')
-    retrieve_from_db.getPhoto(person['name']+'_image1.jpg', 'image1.jpg')
+    retrieve_from_db.getPhoto(person['name']+'_icon.jpg')
+    retrieve_from_db.getPhoto(person['name']+'_image1.jpg')
     if (person['image2']):
-        retrieve_from_db.getPhoto(person['name']+'_image2.jpg', 'image2.jpg')
+        retrieve_from_db.getPhoto(person['name']+'_image2.jpg')
     if (person['image3']):
-        retrieve_from_db.getPhoto(person['name']+'_image3.jpg', 'image3.jpg')
+        retrieve_from_db.getPhoto(person['name']+'_image3.jpg')
 
     return render_template('person.html', person=person)
 
