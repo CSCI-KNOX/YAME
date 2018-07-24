@@ -121,14 +121,15 @@ def getPhotoFileName(id):
     return person
 
 
-def getPhoto(dbFileName, tempFileName):
+def getPhoto(dbFileName):
     client = pymongo.MongoClient("mongodb+srv://erinruby:colorado18@yame-project-6ex3z.mongodb.net/test?retryWrites=true") #ERIN's LOGIN
     db = client.prototype #name of the db
     col = client.people #name of the collection
     # fs=gridfs.GridFS(db)
     fs=gridfs.GridFSBucket(db)
-    file = open('../form_ui/static/tempImage/{0}'.format(tempFileName), 'wb')
-    fs.download_to_stream_by_name(dbFileName, file)
+    if (not os.path.isfile('../form_ui/static/tempImage/{0}'.format(dbFileName))):
+        file = open('../form_ui/static/tempImage/{0}'.format(dbFileName), 'wb')
+        fs.download_to_stream_by_name(dbFileName, file)
 
 
 # def main():

@@ -9,8 +9,6 @@
         <script type="text/javascript" src="slick/slick.min.js"></script>
         <script src="../static/js/tabs.js" defer></script>
 
-
-
         <!-- <meta http-equiv="refresh" content="1"> -->
     </head>
     <body>
@@ -21,41 +19,69 @@
       {% if category == 'people' %}
         {% set array = peoplecatarr %}
       {% endif %}
+      {% if category == 'Athletes' %}
+        {% set array = athletesarr %}
+      {% endif %}
+      {% if category == 'Astronauts' %}
+        {% set array = astronautsarr %}
+      {% endif %}
+      {% if category == 'history' %}
+        {% set array = historycatarr %}
+      {% endif %}
+      {% if array %}
       {% for arr in array %}
-        {% for i in range(arr.count()) %}
-      <div id="Person{{ i }}" class="tabcontent">
-        <div class='person_images' align='center'>
-          <div><p><img id="personImg" src='../static/imj/{{ arr[i]['name'] }}_image1.jpg' width='400' height='320'></p></div>
-          <div><p><img id="personImg" src='../static/imj/{{ arr[i]['name'] }}_image2.jpg' width='400' height='320'></p></div>
-          <div><p><img id="personImg" src='../static/imj/{{ arr[i]['name'] }}_image3.jpg' width='400' height='320'></p></div>
-        </div>
-        <p>
-          <div class="info">
-          {% for key in arr[i] %}
-            {% if key != 'paragraph1' and key != 'paragraph2' and key != 'paragraph3' %}
-              <p class='{{ key }}'> {{ arr[i][key] }} </p>
-            {% endif %}
-          {% endfor %}
-          <div class='paragraph'>
-          {% for key in arr[i] %}
-            {% if key == 'paragraph1' or key == 'paragraph2' or key == 'paragraph3' %}
-              <div><p class='{{ key }}'> {{ arr[i][key] }} </p></div>
+          {% for i in range(arr.count()) %}
+        <div id="Person{{ i }}" class="tabcontent">
+          <div class='slider person_images' align='center'>
+            <div><p><img id="personImg" src='../static/imj/{{ arr[i]['name'] }}_image1.jpg' width='400' height='320'></p></div>
+            <div><p><img id="personImg" src='../static/imj/{{ arr[i]['name'] }}_image2.jpg' width='400' height='320'></p></div>
+            <div><p><img id="personImg" src='../static/imj/{{ arr[i]['name'] }}_image3.jpg' width='400' height='320'></p></div>
+          </div>
+          <p>
+            <div class="info">
+            {% for key in arr[i] %}
+              {% if key != 'paragraph1' and key != 'paragraph2' and key != 'paragraph3' %}
+                <p class='{{ key }}'> {{ arr[i][key] }} </p>
               {% endif %}
             {% endfor %}
-          </div>
-        </p>
+            <div class='slider paragraph'>
+            {% for key in arr[i] %}
+              {% if key == 'paragraph1' or key == 'paragraph2' or key == 'paragraph3' %}
+                <div><p class='{{ key }}'> {{ arr[i][key] }} </p></div>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </p>
+        </div>
       </div>
-    </div>
-      {% endfor %}
+        {% endfor %}
     </div>
   </div>
   </div>
   <img id= 'greyCirc'src='../static/imj/greyCirc.png' >
     <div class="buttons">
       {% for i in range(arr.count()) %}
-          <div><button class="tablink" onclick="openCity('Person{{ i }}', this, '{{ arr[i] }}')"><img src='../static/imj/{{ arr[i]['name'] }}_icon.jpg' ></button></div> <!-- ../static/imj/{{ arr[i]['name'] }}_icon -->
+        {% if arr[i]['iscategory'] == 1 %}
+          <div><button class="tablink" onclick="openCity('Person{{ i }}', this); loadPage('{{ arr[i]['name'] }}')"><img src='../static/imj/{{ arr[i]['name'] }}_icon.jpg' ></button></div>
+        {% else %}
+          <div><button class="tablink" onclick="openCity('Person{{ i }}', this)"><img src='../static/imj/{{ arr[i]['name'] }}_icon.jpg' ></button></div>
+        {% endif %}
         {% endfor %}
       {% endfor %}
+      {% else %}
+          <div id="Person{{ i }}" class="tabcontent">
+          <div class='person_images' align='center'>
+            <div><p><img id="personImg" src='../static/imj/default.jpg' width='400' height='320'></p></div>
+          </div>
+          <p>
+            <div class="info">
+            <div class='paragraph'>
+              <p> There is no information here! </p>
+            </div>
+          </p>
+        </div>
+      </div>
+      {% endif %}
       </div>
 <!--       <button onclick="scrollMe('left')"> <img id="arrowL" src='../static/imj/arrowLeft.png' > </button>
       <button onclick="scrollMe('right')"> <img id="arrowR" src='../static/imj/arrowRight.png'> </button> -->
@@ -80,16 +106,21 @@
           // autoplay: true,
           // autoplaySpeed: 2000,
         });
-        $('.paragraph').slick({
+        $('.slider').slick({
           infinite: true,
           // autoplay: true,
           // autoplaySpeed: 2000,
         });
-        $('.person_images').slick({
-          infinite: true,
-          // autoplay: true,
-          // autoplaySpeed: 2000,
-        });
+        // $('.paragraph').slick({
+        //   infinite: true,
+        //   // autoplay: true,
+        //   // autoplaySpeed: 2000,
+        // });
+        // $('.person_images').slick({
+        //   infinite: true,
+        //   // autoplay: true,
+        //   // autoplaySpeed: 2000,
+        // });
       });
     </script>
     <script type="text/javascript">

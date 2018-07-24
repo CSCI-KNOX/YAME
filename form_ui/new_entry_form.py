@@ -129,14 +129,13 @@ def edit():
 def person():
     name = request.args.get('name')
     person = retrieve_from_db.getOneforDisplay(name)
-    print ("THIS SHOULD SAY TEST PERSON", person['name'])
     # dbFileName = retrieve_from_db.getPhotoFileName(person['icon'])
-    retrieve_from_db.getPhoto(person['name']+'_icon.jpg', 'icon.jpg')
-    retrieve_from_db.getPhoto(person['name']+'_image1.jpg', 'image1.jpg')
+    retrieve_from_db.getPhoto(person['name']+'_icon.jpg')
+    retrieve_from_db.getPhoto(person['name']+'_image1.jpg')
     if (person['image2']):
-        retrieve_from_db.getPhoto(person['name']+'_image2.jpg', 'image2.jpg')
+        retrieve_from_db.getPhoto(person['name']+'_image2.jpg')
     if (person['image3']):
-        retrieve_from_db.getPhoto(person['name']+'_image3.jpg', 'image3.jpg')
+        retrieve_from_db.getPhoto(person['name']+'_image3.jpg')
 
     return render_template('person.html', person=person)
 
@@ -146,14 +145,18 @@ def display():
     tabsarr =[]
     tabsarr.append(retrieve_from_db.getAllCategories('category', 'tab'))
     peoplecatarr=[] #array to hold the categories of people
+    peoplecatarr.append(retrieve_from_db.getAllCategories('category', 'people'))
+    historycatarr=[] #array to hold the categories of history
+    historycatarr.append(retrieve_from_db.getAllCategories('category', 'history'))
+    athleticscatarr=[] #array to hold the categories of athletics
+    athleticscatarr.append(retrieve_from_db.getAllCategories('category', 'athletics'))
     athletesarr=[]
     astronautsarr=[]
-    peoplecatarr.append(retrieve_from_db.getAllCategories('iscategory', 1))
     athletesarr.append(retrieve_from_db.getAllContent('category','athletes'))
     astronautsarr.append(retrieve_from_db.getAllContent('category','astronauts'))
     athletesarr.sort()
     astronautsarr.sort()
-    return render_template('display.html', peoplecatarr=peoplecatarr, tabsarr=tabsarr, athletesarr=athletesarr, astronautsarr=astronautsarr) # person=person
+    return render_template('display.html', tabsarr=tabsarr, athleticscatarr = athleticscatarr, historycatarr = historycatarr, peoplecatarr=peoplecatarr,  athletesarr=athletesarr, astronautsarr=astronautsarr) # person=person
 
 @app.route("/search/", methods=['GET', 'POST'])
 def search():
