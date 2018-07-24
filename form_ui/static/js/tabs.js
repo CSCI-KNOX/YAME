@@ -16,7 +16,6 @@ function openCity(cityName, elmnt) {
 
     // Add the specific color to the button used to open the tab content
     elmnt.style.backgroundColor = '#777';
-
 }
 
 function scrollMe(direction){

@@ -152,10 +152,13 @@ def display():
     tabsarr.append(retrieve_from_db.getAllCategories('name', 'People'))
     peoplecatarr=[]
     athletesarr=[]
-    peoplecatarr.append(retrieve_from_db.getAllCategories('name', 'Athletes'))
+    astronautsarr=[]
+    peoplecatarr.append(retrieve_from_db.getAllCategories('iscategory', 1))
     athletesarr.append(retrieve_from_db.getAllContent('category','athletes'))
+    astronautsarr.append(retrieve_from_db.getAllContent('category','astronauts'))
     athletesarr.sort()
-    return render_template('display.html', peoplecatarr=peoplecatarr, athletesarr=athletesarr, tabsarr=tabsarr) # person=person
+    astronautsarr.sort()
+    return render_template('display.html', peoplecatarr=peoplecatarr, tabsarr=tabsarr, athletesarr=athletesarr, astronautsarr=astronautsarr) # person=person
 
 @app.route("/search/", methods=['GET', 'POST'])
 def search():
