@@ -15,7 +15,7 @@
 				  <strong><nav>
 					 <ul class="menu">
 						<li><a href="{{ url_for('hello') }}">Add a Person</a></li>
-						<li><a href="{{ url_for('people') }}">People In Database</a></li>
+						<li><a href="{{ url_for('people') }}">Index</a></li>
 						<li><a href="{{ url_for('search') }}">Search for a person</a></li>
 						<li><a href="{{ url_for('display') }}">Display</a></li>
 					 </ul>
@@ -33,48 +33,43 @@
 	              <p></p>
 	            </div>
 				<div class="form-group">
-				  <label for="name">Name: </label>
+				  <label for="name">Title: </label>
 				  <input type="text" class="form-control" id="name" name="name" value="{{ person['name'] }}">
 				  <!-- show image when uploaded -->
 				  <br>
-				  <label for="degree">Degree or Faculty/Staff: </label>
+				  <label for="degree">Subtitle: </label>
 				  <input type="text" class="form-control" id="degree" name="degree" value="{{ person['degree'] }}">
 				  <br>
 				  <br>
-				  <label for="year">Graduation Year: </label>
-				  <div class="form-control" id="year" name="year"> </div>
 				  <!-- AUTOFILL YEAR -->
-				  {% if person['ex'] == 1 %}
-					 <input type="checkbox" class="form-control" name="ex" value="{{ person['ex'] }}" checked>Expected Degree<br><br>
-				  {% else %}
-					 <input type="checkbox" class="form-control" name="ex" value="{{ person['ex'] }}">Expected Degree<br><br>
-				  {% endif %}
-				  <label for="occupation">Occupation or industry: </label>
+				  <label for="occupation">Heading: </label>
 				  <input type="text" class="form-control" id="occupation" name="occupation" value="{{ person['occupation'] }}">
 				  <br><br>
-				  <span class="btn btn-default btn-file">Upload An Image: <input type="file" name="image"></span>
-				  <p><img src="../static/imj/{{ person['image_name'] }}' width='200' height='160' alt='{{ person['alt_txt'] }}' title='{{ person['alt_txt'] }}"></p>
-				  <br>
-				  <label for="alt_txt">Alt text: </label>
-				  <br>
 				  <span class="btn btn-default btn-file">Upload An Icon: <input type="file" name="icon"></span>
-				  <p><img src="../static/imj/{{ person['icon_name'] }}' width='200' height='160'"></p>
-				  <input type="text" class="form-control" id="alt_txt" name="alt_txt" value="{{ person['alt_txt'] }}">
+				  <p><img src="../static/tempImage/{{ person['name'] }}_icon.jpg" width='200' height='160' alt='{{ person['alt_txt'] }}' title='{{ person['alt_txt'] }}'></p>
+				  <br>
+				  <br>
+				  <span class="btn btn-default btn-file">Upload An Image: <input type="file" name="image1"></span>
+				  <p><img src="../static/tempImage/{{ person['name'] }}_image1.jpg" width='200' height='160' alt='{{ person['alt_txt'] }}' title='{{ person['alt_txt'] }}'></p>
+				  <label for="facts">First Paragraph: </label>
+
+				  <input type="text" class="form-control" id="paragraph1" name="paragraph1" value="{{ person['paragraph1'] }}">
 				  <!-- show image when uploaded -->
 				  <br><br>
-				  <label for="school">School: </label>
-				  <select name="school" value="{{ person['school'] }}">
-					 <option value="College of Arts & Sciences">College of Arts & Sciences</option>
-					 <option value="Leeds School of Business">Leeds School of Business</option>
-					 <option value="School of Education">School of Education</option>
-					 <option value="College of Engineering and Applied Science">College of Engineering and Applied Science</option>
-					 <option value="Graduate School">Graduate School</option>
-					 <option value="University of Colorado Law School">University of Colorado Law School</option>
-					 <option value="College of Media, Communication and Information">College of Media, Communication and Information</option>
-					 <option value="College of Music">College of Music</option>
-					 <option value="Continuing Education and Professional Studies">Continuing Education and Professional Studies</option>
-					 <option value="University Libraries">University Libraries</option>
-					 <option value="Program in Environmental Design">Program in Environmental Design</option>
+				  <label for="category">Category: </label>
+				  <select name="category" value="{{ person['category'] }}">
+					  <option value="people">Category for People tab</option>
+                  <option value="astronauts">>>Astronauts</option>
+                  <option value="atheletes">>>Athletes</option>
+                  <option value="earlyfaculty">>>Early Faculty</option>
+                  <option value="history">Category for History tab</option>
+                  <option value="facts">>>Facts</option>
+                  <option value="buildings">>>Buildings</option>
+                  <option value="timeline">>>Timeline</option>
+                  <option value="Athletics">Category for Athletics tab</option>
+                  <option value="basketball">>>Basketball</option>
+                  <option value="football">>>Football</option>
+                  <option value="soccer">>>Soccer</option>
 				  </select>
 				  <!-- AUTOFILL SCHOOL -->
 				  <br><br>
@@ -84,6 +79,12 @@
 				  <!-- <input type="checkbox" class="form-control" name="name">Show on display<br> -->
 				  <div id="container"></div>
 				  <!-- <a href="#" id="filldetails" onclick="moreFacts()">Add another fact</a> -->
+				  {% if person['iscategory'] == 1 %}
+					 <input type="checkbox" class="form-control" name="iscategory" value="{{ person['iscategory'] }}" checked>Is this a category?<br>
+				  {% else %}
+					 <input type="checkbox" class="form-control" name="iscategory" value="{{ person['iscategory'] }}">Is this a category?<br>
+				  {% endif %}
+
 				  {% if person['hidden'] == 1 %}
 					 <input type="checkbox" class="form-control" name="hidden" value="{{ person['hidden'] }}" checked>Hidden<br>
 				  {% else %}
