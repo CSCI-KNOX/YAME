@@ -154,7 +154,7 @@ def display():
     athletesarr=[]
     peoplecatarr.append(retrieve_from_db.getAllCategories('category', 'people'))
     athletesarr = retrieve_from_db.getAllContent('category','athletes') #all people who are athelets
-    athletesarr.sort()
+    # athletesarr.sort()
     return render_template('display.html', peoplecatarr=peoplecatarr, athletesarr=athletesarr, tabsarr=tabsarr) # person=person
 
 @app.route("/search/", methods=['GET', 'POST'])
