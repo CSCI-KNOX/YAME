@@ -158,8 +158,8 @@ p.icon_name {
 }*/
 .buttons {
 	margin: auto;
-    width: 50%;
-    padding: 10px;
+    width: 100%;
+    /*padding: 10px;*/
 }
 .loop {
     height: 200px;
@@ -174,7 +174,8 @@ p.icon_name {
     outline: none;
     cursor: pointer;
     font-size: 17px;
-    min-width: 240px;
+    min-width: 1px;
+    width: 240px !important;
     border: none;
     z-index: 1;
     position: relative;
@@ -279,7 +280,7 @@ img {
 }
 #blackCirc{
 	position: absolute;
-	top: 1140px;
+	top: 10s40px;
 	z-index: 5;
 }
 /* Drone animation styling */
