@@ -144,8 +144,8 @@ def person():
 @app.route("/display/", methods=['GET', 'POST'])
 def display():
     tabsarr =[]
-    tabsarr.append(retrieve_from_db.getAllCategories('name', 'People'))
-    peoplecatarr=[]
+    tabsarr.append(retrieve_from_db.getAllCategories('category', 'tab'))
+    peoplecatarr=[] #array to hold the categories of people
     athletesarr=[]
     astronautsarr=[]
     peoplecatarr.append(retrieve_from_db.getAllCategories('iscategory', 1))
