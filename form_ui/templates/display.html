@@ -104,7 +104,11 @@
       {% for arr in array %}
       {% for i in range(arr.count()) %}
         {% if arr[i]['iscategory'] == 1 %}
+<<<<<<< HEAD
+          <div><button class="tablink" onclick="openCity('Person{{ i }}', this); loadPage('{{ arr[i]['name'] }}')"><img src='../static/imj/{{ arr[i]['name'] }}_icon.jpg'></button></div>
+=======
           <div><button class="tablink" onclick="openCity('Person{{ i+1 }}', this); loadPage('{{ arr[i]['name'] }}')"><img src='../static/imj/{{ arr[i]['name'] }}_icon.jpg' ></button></div>
+>>>>>>> a58362648c7c83da465c84fb609da430b1de4fe1
         {% else %}
           <div><button class="tablink" onclick="openCity('Person{{ i+1 }}', this)"><img src='../static/imj/{{ arr[i]['name'] }}_icon.jpg' ></button></div>
         {% endif %}
