@@ -111,7 +111,7 @@
         {% endfor %}
       {% endfor %}
       {% else %}
-          <div id="Person{{ i+1 }}" class="tabcontent">
+          <div id="Person{{ 1 }}" class="tabcontent">
           <div class='person_images' align='center'>
             <div><p><img id="personImg" src='../static/imj/default.jpg' width='400' height='320'></p></div>
           </div>
@@ -143,7 +143,7 @@
       $(document).ready(function(){
         $('.buttons').slick({
           infinite: true,
-          slidesToShow: 2,
+          slidesToShow: 3,
           slidesToScroll: 1,
           // autoplay: true,
           // autoplaySpeed: 2000,
