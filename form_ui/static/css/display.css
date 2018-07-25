@@ -158,7 +158,7 @@ p.icon_name {
 }*/
 .buttons {
 	margin: auto;
-    width: 100%;
+    width: 80%;
     /*padding: 10px;*/
 }
 .loop {
@@ -269,7 +269,7 @@ img {
 	z-index: 4;
 	
 }
-.tab1:hover, .tab2:hover, .tab3:hover{
+.tab1:hover, .tab2:hover, .tab3:hover, .tab1:active, .tab2:active, .tab3:active{
 	background-color: rgb(208, 186, 126);
 	color: black;
 }

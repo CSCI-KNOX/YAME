@@ -23,29 +23,30 @@
 		z-index: 3;
 		outline:0;background:0 0}
 
-	.slick-next:focus,
-	.slick-next:hover,.slick-prev:focus,
-	.slick-prev:hover{color:transparent;
-		outline:0;background:0 0}.slick-next:focus:before,
-		.slick-next:hover:before,
-		.slick-prev:focus:before,
-		.slick-prev:hover:before{opacity:1}
-		.slick-next.slick-disabled:before,
-		.slick-prev.slick-disabled:before{opacity:.25}.slick-next:before,
-		.slick-prev:before{font-family:slick;
-			font-size:20px;line-height:1;
-			opacity:.75;color:#fff;
-			-webkit-font-smoothing:antialiased;
-			-moz-osx-font-smoothing:grayscale}
-		.slick-prev{left:-25px}[dir=rtl] 
-		.slick-prev{right:-25px;left:auto}
-		.slick-prev:before{content:'<'}[dir=rtl] 
-		.slick-prev:before{content:'<'}.slick-next{right:-25px}[dir=rtl] 
-		.slick-next{right:auto;left:-25px}
-		.slick-next:before{content:'>'}[dir=rtl] 
-		.slick-next:before{content:'>'}
-		.slick-dotted.slick-slider{margin-bottom:30px}
-		.slick-dots{position:absolute;
+	.slick-next:focus,.slick-next:hover,.slick-prev:focus,.slick-prev:hover{
+		color:transparent;
+		outline:0;background:0 0}
+	.slick-next:.slick-next:hover:.slick-prev:focus:before,.slick-prev:hover:before{
+		opacity:1}
+	.slick-next.slick-disabled:before,.slick-prev.slick-disabled:before{
+		opacity:.25}
+
+	.slick-next:before,.slick-prev:before{
+		font-family:slick;
+		font-size:20px;line-height:1;
+		opacity:.75;color:#fff;
+		-webkit-font-smoothing:antialiased;
+		-moz-osx-font-smoothing:grayscale
+	}
+	.slick-prev{left:-25px}[dir=rtl] 
+	.slick-prev{right:-25px;left:auto}
+	.slick-prev:before{content:'<'}[dir=rtl] 
+	.slick-prev:before{content:'<'}.slick-next{right:-25px}[dir=rtl] 
+	.slick-next{right:auto;left:-25px}
+	.slick-next:before{content:'>'}[dir=rtl] 
+	.slick-next:before{content:'>'}
+	.slick-dotted.slick-slider{margin-bottom:30px}
+	.slick-dots{position:absolute;
 			bottom:-25px;display:block;
 			width:100%;padding:0;
 			margin:0;
@@ -71,6 +72,11 @@
 			border:0;
 			outline:0;
 			background:0 0}
+
+		.slick-prev{
+		left: 15px;
+	}
+
 		.slick-dots li button:focus,
 		.slick-dots li button:hover{outline:0}
 		.slick-dots li button:focus:before,
