@@ -92,6 +92,12 @@ p.category {
 .paragraph {
 	width: 90%;
 }
+.person_images .slick-prev {
+	left: 15px;
+}
+.person_images .slick-next {
+	right: 15px;
+}
 p.iscategory {
 	display: none;
 }

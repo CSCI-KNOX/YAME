@@ -73,9 +73,9 @@
 			outline:0;
 			background:0 0}
 
-		.slick-prev{
+	/*	.slick-prev{
 		left: 15px;
-	}
+	}*/
 
 		.slick-dots li button:focus,
 		.slick-dots li button:hover{outline:0}
