@@ -143,7 +143,7 @@ def person():
 @app.route("/display/", methods=['GET', 'POST'])
 def display():
     tabsarr =[]
-    tabsarr.append(retrieve_from_db.getAllCategories('category', 'tab'))
+    tabsarr.append(retrieve_from_db.getAllCategories('iscategory', 1))
     peoplecatarr=[] #array to hold the categories of people
     peoplecatarr.append(retrieve_from_db.getAllCategories('category', 'people'))
     historycatarr=[] #array to hold the categories of history
