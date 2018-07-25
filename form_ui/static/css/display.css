@@ -92,6 +92,21 @@ p.category {
 .paragraph {
 	width: 90%;
 }
+.person_images .slick-prev {
+	left: 15px;
+}
+.person_images .slick-next {
+	right: 15px;
+}
+.buttons .slick-prev {
+	left: 15px;
+}
+.buttons .slick-next {
+	right: 15px;
+}
+.slick-next,.slick-prev{
+	z-index: 3;
+}
 p.iscategory {
 	display: none;
 }
@@ -141,7 +156,7 @@ p.icon_name {
 
 }
 .tab {
-	width: 100%;
+	width: 97%;
     overflow: hidden;
     background-color: black;
 }
@@ -158,7 +173,7 @@ p.icon_name {
 }*/
 .buttons {
 	margin: auto;
-    width: 80%;
+    width: 100%;
     /*padding: 10px;*/
 }
 .loop {
