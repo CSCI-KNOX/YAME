@@ -75,7 +75,7 @@
       {% for arr in array %}
       {% for i in range(arr.count()) %}
         {% if arr[i]['iscategory'] == 1 %}
-          <div><button class="tablink" onclick="openCity('Person{{ i }}', this); loadPage('{{ arr[i]['name'] }}')"><img src='../static/imj/{{ arr[i]['name'] }}_icon.jpg' ></button></div>
+          <div><button class="tablink" onclick="openCity('Person{{ i }}', this); loadPage('{{ arr[i]['name'] }}')"><img src='../static/imj/{{ arr[i]['name'] }}_icon.jpg'></button></div>
         {% else %}
           <div><button class="tablink" onclick="openCity('Person{{ i }}', this)"><img src='../static/imj/{{ arr[i]['name'] }}_icon.jpg' ></button></div>
         {% endif %}
@@ -114,7 +114,7 @@
       $(document).ready(function(){
         $('.buttons').slick({
           infinite: true,
-          slidesToShow: 2,
+          slidesToShow: 3,
           slidesToScroll: 1,
           // autoplay: true,
           // autoplaySpeed: 2000,
