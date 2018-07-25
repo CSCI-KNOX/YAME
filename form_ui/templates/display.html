@@ -19,39 +19,43 @@
       {% if category == 'people' %}
         {% set array = peoplecatarr %}
         {% set oldarray = tabsarr %}
+        {% set index = 0 %}
       {% endif %}
-      {% if category == 'Athletes' %}
+      {% if category == 'athletes' %}
         {% set array = athletesarr %}
-        {% set oldarr = tabsarr %}
+        {% set oldarray = peoplecatarr %}
+        {% set index = 0 %}
       {% endif %}
-      {% if category == 'Astronauts' %}
+      {% if category == 'astronauts' %}
         {% set array = astronautsarr %}
-        {% set oldarray = tabsarr %}
+        {% set oldarray = peoplecatarr %}
+        {% set index = 1 %}
       {% endif %}
       {% if category == 'history' %}
         {% set array = historycatarr %}
         {% set oldarray = tabsarr %}
+        {% set index = 1 %}
       {% endif %}
       {% if array %}
       {% for oldarr in oldarray %}
           {% for i in range(oldarr.count()) %}
         <div id="Person{{ i }}" class="tabcontent">
           <div class='slider person_images' align='center'>
-            <div><p><img id="personImg" src='../static/imj/{{ oldarr[0]['name'] }}_image1.jpg' width='400' height='320'></p></div>
-            <div><p><img id="personImg" src='../static/imj/{{ oldarr[0]['name'] }}_image2.jpg' width='400' height='320'></p></div>
-            <div><p><img id="personImg" src='../static/imj/{{ oldarr[0]['name'] }}_image3.jpg' width='400' height='320'></p></div>
+            <div><p><img id="personImg" src='../static/imj/{{ oldarr[index]['name'] }}_image1.jpg' width='400' height='320'></p></div>
+            <div><p><img id="personImg" src='../static/imj/{{ oldarr[index]['name'] }}_image2.jpg' width='400' height='320'></p></div>
+            <div><p><img id="personImg" src='../static/imj/{{ oldarr[index]['name'] }}_image3.jpg' width='400' height='320'></p></div>
           </div>
           <p>
             <div class="info">
-            {% for key in oldarr[0] %}
+            {% for key in oldarr[index] %}
               {% if key != 'paragraph1' and key != 'paragraph2' and key != 'paragraph3' %}
-                <p class='{{ key }}'> {{ oldarr[0][key] }} </p>
+                <p class='{{ key }}'> {{ oldarr[index][key] }} </p>
               {% endif %}
             {% endfor %}
             <div class='slider paragraph'>
-            {% for key in oldarr[0] %}
+            {% for key in oldarr[index] %}
               {% if key == 'paragraph1' or key == 'paragraph2' or key == 'paragraph3' %}
-                <div><p class='{{ key }}'> {{ oldarr[0][key] }} </p></div>
+                <div><p class='{{ key }}'> {{ oldarr[index][key] }} </p></div>
                 {% endif %}
               {% endfor %}
             </div>
@@ -95,7 +99,7 @@
        <div class="categories">
        	<p class='tab1' onclick='loadPage("people")'> People </p>
        	<p class='tab2' onclick='loadPage("history")'> History </p>
-       	<p class='tab3' onclick='loadPage("athletes")'> Athletics </p>
+       	<p class='tab3' onclick='loadPage("athletics")'> Athletics </p>
        </div>
        <img id= 'blackCirc'src='../static/imj/blackCirc.png' >
        <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.0/slick/slick.min.js"></script>
@@ -123,7 +127,7 @@
     <script type="text/javascript">
       function loadPage(arg) {
         var newstate = "?category=" + arg;
-        window.history.replaceState(null, null, newstate);
+        window.history.replaceState(null, null, newstate.toLowerCase());
         location.reload();
       }
     </script>
