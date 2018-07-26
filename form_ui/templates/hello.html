@@ -19,7 +19,7 @@
                   <li><a href="{{ url_for('hello') }}">Add a Person</a></li>
                   <li><a href="{{ url_for('people') }}">Index</a></li>
                   <li><a href="{{ url_for('search') }}">Search for a person</a></li>
-                  <li><a href="{{ url_for('display') }}">Display</a></li>
+                  <li><a href="{{ url_for('display') }}?category=people">Display</a></li>
                 </ul>
               </nav></strong>
             </div>
@@ -85,7 +85,7 @@
               <select name="category">
                  <option value="people">Category for People tab</option>
                   <option value="astronauts">>>Astronauts</option>
-                  <option value="atheletes">>>Athletes</option>
+                  <option value="athletes">>>Athletes</option>
                   <option value="earlyfaculty">>>Early Faculty</option>
                   <option value="history">Category for History tab</option>
                   <option value="facts">>>Facts</option>

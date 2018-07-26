@@ -158,7 +158,7 @@ def display():
     astronautsarr.append(retrieve_from_db.getAllContent('category','astronauts'))
     athletesarr.sort()
     astronautsarr.sort()
-    return render_template('display.html', tabsarr=tabsarr, athleticscatarr = athleticscatarr, historycatarr = historycatarr, peoplecatarr=peoplecatarr,  athletesarr=athletesarr, astronautsarr=astronautsarr) # person=person
+    return render_template('display.html', tabsarr=tabsarr, athleticscatarr = athleticscatarr, historycatarr = historycatarr, peoplecatarr=peoplecatarr,  athletesarr=athletesarr, astronautsarr=astronautsarr)
 
 @app.route("/search/", methods=['GET', 'POST'])
 def search():
