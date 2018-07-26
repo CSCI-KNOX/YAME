@@ -65,7 +65,6 @@ def hello():
         paragraph3 = request.form['paragraph3']
         category = request.form['category']
         hidden = checkbox('hidden')
-        iscategory = checkbox('iscategory') #is this a category??
         # saving all images into folder and getting filenames
         icon_filename = image(icon, name + '_icon.jpg')
         image1_filename = image(image1, name + '_image1.jpg')
@@ -74,7 +73,7 @@ def hello():
 
         if form.validate():
             add_person.addOne(name, degree, occupation, icon_filename, image1_filename, paragraph1,
-                image2_filename, paragraph2, image3_filename, paragraph3, category,  hidden, iscategory)
+                image2_filename, paragraph2, image3_filename, paragraph3, category,  hidden)
             print("Upload to database successful.")
         else:
             flash('The title field is required.')
@@ -100,25 +99,28 @@ def edit():
     name = request.args.get('name')
     person = retrieve_from_db.getOneforDisplay(name)
     if request.method == 'POST':
-        name=request.form['name']
-        degree=request.form['degree']
-        school=request.form['school']
-        year=request.form['year']
-        ex = checkbox('ex')
-        occupation=request.form['occupation']
-        facts=request.form['facts']
-        file = request.files['image']
-        alt_txt = request.form['alt_txt']
+        name = request.form['name'] # key value pairs
+        degree = request.form['degree']
+        occupation = request.form['occupation']
+        icon = request.files['icon']
+        image1 = request.files['image1']
+        paragraph1 = request.form['paragraph1']
+        image2 = request.files['image2']
+        paragraph2 = request.form['paragraph2']
+        image3 = request.files['image3']
+        paragraph3 = request.form['paragraph3']
+        category = request.form['category']
         hidden = checkbox('hidden')
-        if file:
-            f = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
-            file.save(f)
-            filename = file.filename
-        else:
-            filename = person['image_name']
+
+        icon_filename = image(icon, name + '_icon.jpg')
+        image1_filename = image(image1, name + '_image1.jpg')
+        image2_filename = image(image2, name + '_image2.jpg')
+        image3_filename = image(image3, name + '_image3.jpg')
+
         if form.validate():
             flash(person['name'])
-            edit_person.editOne(person['_id'], name, degree, school, ex, year, occupation, facts, filename, alt_txt, hidden)
+            edit_person.editOne(person['_id'], name, degree, occupation, icon_filename, image1_filename, paragraph1,
+                            image2_filename, paragraph2, image3_filename, paragraph3, category, hidden)
             print("edit to database successful")
         else:
             flash('All the form fields are required.')
@@ -143,13 +145,13 @@ def person():
 @app.route("/display/", methods=['GET', 'POST'])
 def display():
     tabsarr =[]
-    tabsarr.append(retrieve_from_db.getAllCategories('iscategory', 1))
+    tabsarr.append(retrieve_from_db.getAllContent('category', 'tab'))
     peoplecatarr=[] #array to hold the categories of people
-    peoplecatarr.append(retrieve_from_db.getAllCategories('category', 'people'))
+    peoplecatarr.append(retrieve_from_db.getAllContent('category', 'people'))
     historycatarr=[] #array to hold the categories of history
-    historycatarr.append(retrieve_from_db.getAllCategories('category', 'history'))
+    historycatarr.append(retrieve_from_db.getAllContent('category', 'history'))
     athleticscatarr=[] #array to hold the categories of athletics
-    athleticscatarr.append(retrieve_from_db.getAllCategories('category', 'athletics'))
+    athleticscatarr.append(retrieve_from_db.getAllContent('category', 'athletics'))
     athletesarr=[]
     astronautsarr=[]
     athletesarr.append(retrieve_from_db.getAllContent('category','athletes'))

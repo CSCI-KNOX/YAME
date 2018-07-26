@@ -46,14 +46,22 @@
 				  <input type="text" class="form-control" id="occupation" name="occupation" value="{{ person['occupation'] }}">
 				  <br><br>
 				  <span class="btn btn-default btn-file">Upload An Icon: <input type="file" name="icon"></span>
-				  <p><img src="../static/tempImage/{{ person['name'] }}_icon.jpg" width='200' height='160' alt='{{ person['alt_txt'] }}' title='{{ person['alt_txt'] }}'></p>
-				  <br>
-				  <br>
-				  <span class="btn btn-default btn-file">Upload An Image: <input type="file" name="image1"></span>
-				  <p><img src="../static/tempImage/{{ person['name'] }}_image1.jpg" width='200' height='160' alt='{{ person['alt_txt'] }}' title='{{ person['alt_txt'] }}'></p>
+				  <p><img src="../static/tempImage/{{ person['name'] }}_icon.jpg" width='200' height='160' ></p>
+				  <br><br>
+				  <span class="btn btn-default btn-file">Upload First Image: <input type="file" name="image1"></span>
+				  <p><img src="../static/tempImage/{{ person['name'] }}_image1.jpg" width='200' height='160' ></p>
 				  <label for="facts">First Paragraph: </label>
-
 				  <input type="text" class="form-control" id="paragraph1" name="paragraph1" value="{{ person['paragraph1'] }}">
+				  <br><br><br><br>
+				  <span class="btn btn-default btn-file">Upload Second Image: <input type="file" name="image2"></span>
+				  <p><img src="../static/tempImage/{{ person['name'] }}_image2.jpg" width='200' height='160' ></p>
+				  <label for="facts">Second Paragraph: </label>
+				  <input type="text" class="form-control" id="paragraph2" name="paragraph2" value="{{ person['paragraph2'] }}">
+				  <br><br><br><br>
+				  <span class="btn btn-default btn-file">Upload Third Image: <input type="file" name="image3"></span>
+				  <p><img src="../static/tempImage/{{ person['name'] }}_image3.jpg" width='200' height='160' ></p>
+				  <label for="facts">Third Paragraph: </label>
+				  <input type="text" class="form-control" id="paragraph3" name="paragraph3" value="{{ person['paragraph3'] }}">
 				  <!-- show image when uploaded -->
 				  <br><br>
 				  <label for="category">Category: </label>
@@ -74,16 +82,9 @@
 				  <!-- AUTOFILL SCHOOL -->
 				  <br><br>
 				  <!-- Maybe store number of facts somewhere in database so we know how many forms to show and populate -->
-				  <label for="facts">Story: </label>
-				  <input type="text" class="form-control" id="facts" name="facts" value="{{ person['facts'] }}">
 				  <!-- <input type="checkbox" class="form-control" name="name">Show on display<br> -->
 				  <div id="container"></div>
 				  <!-- <a href="#" id="filldetails" onclick="moreFacts()">Add another fact</a> -->
-				  {% if person['iscategory'] == 1 %}
-					 <input type="checkbox" class="form-control" name="iscategory" value="{{ person['iscategory'] }}" checked>Is this a category?<br>
-				  {% else %}
-					 <input type="checkbox" class="form-control" name="iscategory" value="{{ person['iscategory'] }}">Is this a category?<br>
-				  {% endif %}
 
 				  {% if person['hidden'] == 1 %}
 					 <input type="checkbox" class="form-control" name="hidden" value="{{ person['hidden'] }}" checked>Hidden<br>

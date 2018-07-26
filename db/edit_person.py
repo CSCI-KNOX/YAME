@@ -5,16 +5,19 @@ import os
 
 
 def editOne(id, name, degree, occupation, icon_filename, image1_filename, paragraph1,
-                image2_filename, paragraph2, image3_filename, paragraph3, category, hidden, iscategory): # school, year, occupation, facts, filename, hidden
+                image2_filename, paragraph2, image3_filename, paragraph3, category, hidden): # school, year, occupation, facts, filename, hidden
 	client = pymongo.MongoClient("mongodb+srv://erinruby:colorado18@yame-project-6ex3z.mongodb.net/test?retryWrites=true") #ERIN's LOGIN
 	db = client.prototype #name of the db
 	col = client.people #name of the collection
 	fs = gridfs.GridFS(db)
-	im = fs.put(open('../form_ui/static/imj/{0}'.format(photo), 'rb'), filename='{0}'.format(photo)) #store the photo in the db
+	icon = fs.put(open('../form_ui/static/imj/{0}'.format(icon_filename), 'rb'), filename='{0}'.format(icon_filename)) #store the photo in the db
+	image1 = fs.put(open('../form_ui/static/imj/{0}'.format(image1_filename), 'rb'), filename='{0}'.format(image1_filename)) #store the photo in the db
+	image2 = fs.put(open('../form_ui/static/imj/{0}'.format(image2_filename), 'rb'), filename='{0}'.format(image2_filename)) #store the photo in the db
+	image3 = fs.put(open('../form_ui/static/imj/{0}'.format(image3_filename), 'rb'), filename='{0}'.format(image3_filename)) #store the photo in the db
 
 	person={"name":name,
-	"degree":degree,
-            "occupation": occupation,
+	"subtitle":degree,
+            "heading": occupation,
             "icon": icon,
             "image1": image1,
             "paragraph1": paragraph1,
@@ -23,7 +26,6 @@ def editOne(id, name, degree, occupation, icon_filename, image1_filename, paragr
             "image3": image3,
             "paragraph3": paragraph3,
             "category":category,
-            "hidden": hidden,
-            "iscategory": iscategory}
+            "hidden": hidden}
 
 	db.people.update_one({"_id": id}, { "$set": person })
