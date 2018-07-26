@@ -42,7 +42,7 @@
       {% if category == 'athletics' %}
         {% set array = athleticscatarr %}
         {% set oldarray = tabsarr %}
-        {% set index = 1 %}
+        {% set index = 2 %}
       {% endif %}
 
       {% if array %}
@@ -109,8 +109,8 @@
     <div class="buttons">
       {% for arr in array %}
       {% for i in range(arr.count()) %}
-        {% if arr[i]['iscategory'] == 1 %}
-          <div><button class="tablink" onclick="openCity('Person{{ i+1 }}', this); loadPage('{{ arr[i]['name'] }}')"><img src='../static/imj/{{ arr[i]['name'] }}_icon.jpg' ></button></div>
+        {% if array == peoplecatarr %}
+          <div><button class="tablink" onclick="loadPage('{{ arr[i]['name'] }}')"><img src='../static/imj/{{ arr[i]['name'] }}_icon.jpg' ></button></div>
         {% else %}
           <div><button class="tablink" onclick="openCity('Person{{ i+1 }}', this)"><img src='../static/imj/{{ arr[i]['name'] }}_icon.jpg' ></button></div>
         {% endif %}
