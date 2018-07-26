@@ -39,6 +39,12 @@
         {% set oldarray = tabsarr %}
         {% set index = 1 %}
       {% endif %}
+      {% if category == 'athletics' %}
+        {% set array = athleticscatarr %}
+        {% set oldarray = tabsarr %}
+        {% set index = 1 %}
+      {% endif %}
+
       {% if array %}
       {% for oldarr in oldarray %}
         <div id="Person0" class="tabcontent">
@@ -93,7 +99,7 @@
           </div>
         {% endfor %}
       {% endfor %}
-      
+
 
 
     </div>
@@ -149,7 +155,7 @@
           // autoplaySpeed: 2000,
         });
         $('.slider').slick({
-          asNavFor: '.slider' 
+          asNavFor: '.slider'
           // infinite: true,
           // autoplay: true,
           // autoplaySpeed: 2000,
