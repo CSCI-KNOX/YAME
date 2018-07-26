@@ -17,12 +17,3 @@ function openCity(cityName, elmnt) {
     // Add the specific color to the button used to open the tab content
     elmnt.style.backgroundColor = '#777';
 }
-
-// function populateTabs(arr) {
-//     for (i=0; i<arr.length;i++) {
-//         console.log(arr[i])
-//         document.getElementsByClassName('buttons').innerHTML = "<div><button class=\"tablink\" onclick=\"openCity('Person{{ i }}', this)\"><img src='../static/imj/{{ arr[i]['name'] }}_icon.jpg' ></button></div>";
-//     }
-// }
-
-
