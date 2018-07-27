@@ -9,6 +9,7 @@
 }
 body {   
 	 text-align: center;
+	 color: black;
 	 background-color: black;
 	  -webkit-background-size: cover;
 	  -moz-background-size: cover;
@@ -62,7 +63,7 @@ img {
 
 p {
 	padding: 0;
-	padding-bottom: 10px;
+	/*padding-bottom: 10px;*/
 	opacity: 1.0;
 	display: inline-block;
 }
@@ -70,7 +71,7 @@ p._id {
 	display: none;
 }
 p.name {
-	font-size: 30px;
+	font-size: 45px;
 	font-weight: bold;
 	padding-right: 15px;
 }
@@ -91,6 +92,7 @@ p.category {
 }
 .paragraph {
 	width: 90%;
+	color: black;
 }
 .person_images .slick-prev {
 	left: 15px;
@@ -248,7 +250,7 @@ img {
 .tab1{
 	position: relative;
 	color: rgb(208, 186, 126);
-	font-size: 24px;
+	font-size: 27px;
 	background-color: black;
 	min-width:10%;
 	width: 33.2%;
@@ -261,7 +263,7 @@ img {
 .tab2{
 	position: relative;
 	color:rgb(208, 186, 126);
-	font-size: 24px;
+	font-size: 27px;
 	background-color: black;
 	min-width:10%;
 	width: 33.2%;
@@ -274,7 +276,7 @@ img {
 .tab3{
 	position: relative;
 	color:rgb(208, 186, 126);
-	font-size: 24px;
+	font-size: 27px;
 	background-color: black;
 	min-width:10%;
 	width: 33.2%;
@@ -284,7 +286,7 @@ img {
 	z-index: 4;
 	
 }
-.tab1:hover, .tab2:hover, .tab3:hover, .tab1:active, .tab2:active, .tab3:active{
+.tab1:hover, .tab2:hover, .tab3:hover, .tab1:active, .tab2:active, .tab3:active, .tab1:target, .tab2:target, .tab3:target{
 	background-color: rgb(208, 186, 126);
 	color: black;
 }
