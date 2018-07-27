@@ -300,6 +300,17 @@ img {
 	top: 1035px;
 	z-index: 5;
 }
+.search{
+	z-index: 6;
+	color: white;
+	font-size: 25px;
+	padding-bottom: 5px;
+	text-decoration: none;
+}
+a:visited, a:link{
+	text-decoration: none;
+	color: inherit;
+}
 /* Drone animation styling */
        
 #movingImage{

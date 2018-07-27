@@ -35,7 +35,7 @@
             p.name, p.subtitle, .tab1, .tab2, .tab3 { 
                 font-family: "HelveticaNeueBold", Helvetica, Arial, sans-serif;
             }
-            p.heading { 
+            p.heading, .search { 
                 font-family: "HelveticaNeueHead", Helvetica, Arial, sans-serif;
             }
             .paragraph { 
@@ -171,6 +171,9 @@
        	<p class='tab3' onclick='loadPage("athletics")'> Athletics </p>
        </div>
        <img id= 'blackCirc'src='../static/imj/blackCirc.png' >
+       <div class="search">
+       		<a href="{{ url_for('people') }}">Search</a>
+       </div>
        <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.0/slick/slick.min.js"></script>
     </body>
 
