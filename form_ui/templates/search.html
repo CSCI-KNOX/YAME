@@ -45,68 +45,39 @@
       </ul>
 
       <form action="" method="post" enctype="multipart/form-data">
-           {{ form.csrf }}
-           <div class="columns">
+         {{ form.csrf }}
+         <div class="columns">
             <div class="nothing1">
-              <p></p>
+               <p></p>
             </div>
-           <div class="form-group">
-            <div class="names">
-             <!-- <label for="name">Name: </label>
-             <input type="text" class="form-control" id="name" name="name"> -->
-             <table>
-                <tr>
-                   {% for letter in alphabet %}
-                   <td><input type = "submit" class="form-control" value = {{letter}} id="name" name="name"></td>
-                   {% endfor %}
-                </tr>
-            </table>
-           </div>
-             <br>
-             <!-- <div class="degSta">
-             <label for="degree">Degree or Faculty/Staff: </label>
-             <input type="text" class="form-control" id="degree" name="degree">
-              </div> -->
-             <!-- <br> -->
-             <div class="grads">
-                <label for="year">Graduation Year: </label>
-               <div class="form-control" id="year" name="year"> </div>
-              </div>
-             <br>
-             <!-- <div class="occ">
-             <label for="occupation">Occupation or industry: </label>
-             <input type="text" class="form-control" id="occupation" name="occupation">
-           </div> -->
+            <div class="form-group">
+               <div class="names">
+                  <table>
+                     <tr>
+                        {% for letter in alpha %}
+                        <td><input type = "submit" class="form-control" value = {{letter}} id="name" name="name"></td>
+                        {% endfor %}
 
+                     </tr>
+                  </table>
+                  <table>
+                     <tr>
+                        {% for letter in bet %}
+                        <td><input type = "submit" class="form-control" value = {{letter}} id="name" name="name"></td>
+                        {% endfor %}
+                     </tr>
+                  </table>
 
-             <div class="school">
-             <label for="school">School: </label>
-             <select name="school">
-               <option selected value></option>
-               <option value="artsandsciences">College of Arts & Sciences</option>
-               <option value="leedsbusiness">Leeds School of Business</option>
-               <option value="education">School of Education</option>
-               <option value="engineering">College of Engineering and Applied Science</option>
-               <option value="graduate">Graduate School</option>
-               <option value="lawschool">University of Colorado Law School</option>
-               <option value="media">College of Media, Communication and Information</option>
-               <option value="music">College of Music</option>
-               <option value="continuinged">Continuing Education and Professional Studies</option>
-               <option value="libraries">University Libraries</option>
-               <option value="envdesign">Program in Environmental Design</option>
-             </select>
+               </div>
+               <br><br>
             </div>
-          <br>
-          </div>
-          <div class="nothing2">
-            <p></p>
-          </div>
-          </div>
-          <div class="inputSubmit">
+            <div class="nothing2">
+               <p></p>
+            </div>
+         </div>
+         <div class="inputSubmit">
             <input type="submit" value="Submit" />
-          </div>
-
-
+         </div>
       </form>
    </body>
 </html>

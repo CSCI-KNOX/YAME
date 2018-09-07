@@ -18,7 +18,6 @@ def searchByLetter(letter):
     db = client.prototype #name of the db
     col = client.people #name of the collection
     cursor = db.people.find({'name': re.compile("^" + letter, re.IGNORECASE)})
-
     exist = 0
     person = []
     for att in cursor:
@@ -132,6 +131,7 @@ def getPhoto(dbFileName):
         fs.download_to_stream_by_name(dbFileName, file)
 
 
+getAllContent("hidden", 0)
 # def main():
 #
 #

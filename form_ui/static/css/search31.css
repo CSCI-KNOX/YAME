@@ -10,7 +10,7 @@
 }
 body {
 	margin: 0;
-	padding: 0;  
+	padding: 0;
 	background-color: #7F7763;
 	font-family: 'Poppins', sans-serif;
 	color: #ffedc6;
@@ -95,7 +95,7 @@ input[type=text]:focus {
      }
  input[type=submit] {
       font-size: 1.3em;
-      background-color: rgb(248, 247, 255);      
+      background-color: rgb(248, 247, 255);
       padding: 7px 15px;
       transition: all 500ms ease-in-out;
       cursor: pointer;
@@ -109,4 +109,8 @@ input[type=text]:focus {
 .inputSubmit{
 	text-align: center;
 	padding-bottom: 30px;
-}     
+}
+.names{
+	text-align: center;
+	padding-bottom: 30px;
+}

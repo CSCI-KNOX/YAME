@@ -165,8 +165,8 @@ def display():
 def search():
     form = ReusableForm(request.form)
     print (form.errors)
-    alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
-    'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+    alpha = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M']
+    bet = ['N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
     person = []
     toFind = {}
     if request.method == 'POST':
@@ -187,7 +187,7 @@ def search():
         except:
             toFind['year'] = ''
     # person = retrieve_from_db.getOne(toFind)
-    return render_template('search.html', form=form, person=person, alphabet=alphabet)
+    return render_template('search.html', form=form, person=person, alpha=alpha, bet=bet)
 
 
 if __name__ == "__main__":
